@@ -95,6 +95,10 @@ if ( !function_exists('lgr_setup') ) {
 
         // Add Editor Style
         add_editor_style(array('css/editor-style.css'));
+
+        // Add CDN support
+        $cdn_base_url = ot_get_option(TPLNAME . '_cdn_base_url');
+        define('CDN_BASE_URL', empty($cdn_base_url) ? LGR_BASE_URL : ($cdn_base_url . '/'));
     }
 }
 
@@ -103,11 +107,11 @@ if ( !function_exists('lgr_setup') ) {
 /* ---------------------------------------------------- */
 if ( !function_exists('lgr_register_styles') ) {
     function lgr_register_styles() {
-        wp_register_style('bootstrap',    			LGR_BASE_URL . 'css/bootstrap.min.css');
-        wp_register_style('bootstrap.responsive',   LGR_BASE_URL . 'css/bootstrap-responsive.min.css');
-        wp_register_style('flat-ui',    			LGR_BASE_URL . 'css/flat-ui.min.css');
-        wp_register_style('fontawesome',  			LGR_BASE_URL . 'css/font-awesome.min.css');
-        wp_register_style('theme_style',  			LGR_BASE_URL . 'style.css');
+        wp_register_style('bootstrap',    			CDN_BASE_URL . 'css/bootstrap.min.css');
+        wp_register_style('bootstrap.responsive',   CDN_BASE_URL . 'css/bootstrap-responsive.min.css');
+        wp_register_style('flat-ui',    			CDN_BASE_URL . 'css/flat-ui.min.css');
+        wp_register_style('fontawesome',  			CDN_BASE_URL . 'css/font-awesome.min.css');
+        wp_register_style('theme_style',  			CDN_BASE_URL . 'style.css');
     }
     add_action('init', 'lgr_register_styles');
 }
@@ -128,8 +132,8 @@ if ( !function_exists('lgr_enqueue_styles') ) {
 /* ---------------------------------------------------- */
 if ( !function_exists('lgr_register_scripts') ) {
     function lgr_register_scripts() {
-        wp_register_script('jquery.bootstrap',  LGR_BASE_URL . 'js/bootstrap.min.js');
-        wp_register_script('jquery.flat-ui',  LGR_BASE_URL . 'js/flat-ui.min.js');
+        wp_register_script('jquery.bootstrap',  CDN_BASE_URL . 'js/bootstrap.min.js');
+        wp_register_script('jquery.flat-ui',    CDN_BASE_URL . 'js/flat-ui.min.js');
     }
     add_action('init', 'lgr_register_scripts');
 }
