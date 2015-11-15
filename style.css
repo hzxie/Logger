@@ -1,0 +1,36 @@
+/**
+ * Theme Name: Logger
+ * Theme URI: http://github.com/zjhzxhz/logger
+ * Author: 谢浩哲
+ * Author URI: http://zjhzxhz.com/
+ * Description: Logger is a simple and clean but still professional template suitable for any business or portfolio, and it's created by using the latest HTML5 and CSS3 techniques.
+ * Version: 1.0
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Tags: white, light, one-column, two-columns, right-sidebar, responsive-layout, custom-menu, editor-style, featured-images, microformats, post-formats
+ * This theme, like WordPress, is licensed under the GPL.
+ * Use it to make something cool, have fun, and share what you've learned with others.
+ */
+/* ---------------------------------------------------------------------- */
+/*	Reset & Clearfix (http://meyerweb.com/eric/tools/css/reset/)
+/* ---------------------------------------------------------------------- */
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,and,address,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,input,textarea,select{background:transparent;border:0;font-size:100%;margin:0;outline:0;padding:0;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}del{text-decoration:line-through}hr{background:transparent;border:0;clear:both;color:transparent;height:1px;margin:0;padding:0}mark{background-color:#ffffb3;font-style:italic}input,select{vertical-align:middle}ins{background-color:red;color:white;text-decoration:none}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}
+
+/* Clearfix */
+.clear {clear:both;display:block;height:0;overflow:hidden;visibility:hidden;width:0 }
+.clearfix:after {clear:both;content:' ';display:block;font-size:0;height:0;line-height:0;visibility:hidden;width:0 }
+
+/* Some basic settings */
+h1, h1 .button {font-size: 32px; }
+h2, h2 .button {font-size: 28px; }
+h3, h3 .button {font-size: 17px; }
+h4, h4 .button {font-size: 15px; }
+h5, h5 .button {font-size: 14px; }
+h6, h6 .button {font-size: 12px; }
+small {font-size: 10px; }
+ol {list-style: decimal; }
+ul {list-style: disc; }
+li {margin-left: 30px; }
+img {margin-bottom: 5px; }
+dl,hr,h1,h2,h3,h4,h5,h6,ol,ul,pre,table,address,fieldset,blockquote,article,p {margin-bottom: 20px; }
