@@ -40,7 +40,7 @@
                     $margin_top      = ot_get_option(TPLNAME . '_logo_top_margin');
                     $margin_bottom   = ot_get_option(TPLNAME . '_logo_bottom_margin');
 
-                    $logo_area_width = $logo_area_width ? $logo_area_width : 4;
+                    $logo_area_width = empty($logo_area_width) ? 4 : $logo_area_width;
                     $margin_top      = $margin_top ? $margin_top[0].$margin_top[1] : NULL;
                     $margin_bottom   = $margin_bottom ? $margin_bottom[0].$margin_bottom[1] : NULL;
                 ?>
@@ -62,7 +62,7 @@
                         wp_nav_menu(array(
                             'theme_location'    => 'primary',
                             'container'         => false,
-                            'menu_class'        => 'list-inline',
+                            'menu_class'        => 'inline',
                             'menu_id'           => '',
                             'echo'              => true,
                             'fallback_cb'       => 'wp_page_menu',

@@ -473,6 +473,18 @@ function ss_theme_options() {
                 'section'     => 'general',
             ), 
             array(
+                'label'       => __('CDN Base URL', TPLNAME),
+                'id'          => TPLNAME . '_cdn_base_url',
+                'type'        => 'text',
+                'desc'        => __('The base url of CDN service.', TPLNAME),
+                'std'         => LGR_BASE_URL,
+                'rows'        => '',
+                'post_type'   => '',
+                'taxonomy'    => '',
+                'class'       => '',
+                'section'     => 'general',
+            ), 
+            array(
                 'label'       => __('Blog layout', TPLNAME),
                 'id'          => TPLNAME . '_blog_layout',
                 'type'        => 'radio-image',
