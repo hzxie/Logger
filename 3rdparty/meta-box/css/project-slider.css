@@ -1,0 +1,98 @@
+/* ---------------------------------------------------------------------- */
+/*	Remove some box styles
+/* ---------------------------------------------------------------------- */
+
+#slider-slides-settings {
+	background: none;
+	border: none;
+	margin: 0;
+}
+
+#slider-slides-settings > .handlediv, 
+#slider-slides-settings > .handlediv + .hndle {
+	display: none;
+}
+
+#slider-slides-settings > .handlediv + .hndle + .inside {
+	margin: 0;
+	padding: 0;
+}
+
+/* ---------------------------------------------------------------------- */
+/*	Styles for Slider Slides
+/* ---------------------------------------------------------------------- */
+
+#project-slider {
+	margin: 20px 0 15px;
+}
+
+#project-slider .upload-image, 
+#project-slider .remove-slide, 
+#add-slider-slide {
+	cursor: pointer;
+}
+
+#project-slider .remove-slide, 
+#add-slider-slide {
+	margin-bottom: 7px;
+}
+
+#project-slider .remove-slide {
+	margin-top: 0;
+}
+
+#project-slider .slider-slide-tabs {
+	margin: 15px 0 0;
+}
+
+#project-slider .slider-slide-tabs > ul {
+	list-style: none;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+
+#project-slider .slider-slide-tabs > ul li {
+	float: left;
+	line-height: 32px;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+}
+
+#project-slider .slider-slide-tabs > ul .ui-tabs-selected, 
+#project-slider .slider-slide-tabs > ul .ui-tabs-active {
+	line-height: 30px;
+}
+
+#project-slider .slider-slide-tabs > ul a {
+	-webkit-border-radius: 3px 3px 0 0;
+	-moz-border-radius: 3px 3px 0 0;
+	border-radius: 3px 3px 0 0;
+	display: block;
+	letter-spacing: 0;
+	outline: none;
+	padding: 0 16px;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #fff;
+}
+
+#project-slider .slider-slide-tabs > ul .ui-tabs-selected a, 
+#project-slider .slider-slide-tabs > ul .ui-tabs-active a {
+	background: #fff;
+	border: 1px solid #dfdfdf;
+	border-bottom: 1px solid #fff;
+	border-top: 1px solid #21759b;
+}
+
+#project-slider .slider-slide-tabs .tabs-content {
+	background: #fff;
+	border: 1px solid #dfdfdf;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin: -1px 0 15px;
+	overflow: hidden;
+	padding: 8px 16px;
+}

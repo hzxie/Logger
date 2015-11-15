@@ -35,15 +35,13 @@ Dummy content and documentation will be coming soon.
 3. Short Code Supported(Basic JavaScript Component)
 4. [Google Map](http://maps.google.com) and [AMap](http://www.amap.com) are both available, friendly to Chinese users.
 
-**Note:** Revolution Slider will be available soon in the next release.
-
 # License
 
 The project is under GPL v2 License.
 
 # Contribution
 
-I'd like you to help me with the project. You can contribute to this project by create a pull request.
+I'd like you to help me with the project. You can contribute to this project by creating a pull request.
 
-If you find any bugs or etc., you can create an issue in issues page.
+If you find any bugs or etc., you can create an issue.
 
