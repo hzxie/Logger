@@ -123,6 +123,10 @@ if ( !function_exists('lgr_enqueue_styles') ) {
         wp_enqueue_style('flat-ui');
         wp_enqueue_style('fontawesome');
         wp_enqueue_style('theme_style');
+        wp_enqueue_style('open-sans', '//fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+        wp_enqueue_style('lato', '//fonts.googleapis.com/css?family=Lato');
+        wp_enqueue_style('roboto-slab', '//fonts.googleapis.com/css?family=Roboto+Slab:400,700');
+        wp_enqueue_style('droidarabickufi', '//fonts.googleapis.com/earlyaccess/droidarabickufi.css');
     }
     add_action('wp_print_styles', 'lgr_enqueue_styles');
 }

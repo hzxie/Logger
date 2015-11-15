@@ -42,7 +42,7 @@ if ( $page_layout ) {
             <?php if ( $blog_layout == 'left-sidebar' ): ?>
                 <?php get_sidebar(); ?>
             <?php endif; ?>
-                <div id="main-content" class="col-sm-9">
+                <div id="main-content" class="span9">
                 <?php if ( have_posts() ):
                     // Start the Loop.
                     while ( have_posts() ) : the_post();

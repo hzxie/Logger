@@ -109,13 +109,14 @@ div#header {
 }
 
 div#header div#logo {
-	max-height: 85px;
+	max-height: 84px;
 }
 
 div#header div#logo h1 {
 	font-size: 30px;
-    font-weight: bold;
-    margin: 22px 0;
+	font-weight: bold;
+	line-height: 84px;
+	margin: 0;
 }
 
 div#header div#logo > a {
@@ -126,8 +127,92 @@ div#header div#logo > a {
 }
 
 div#header div#logo img {
+    line-height: 84px;
 	max-height: 100%;
 	max-width: 100%;
+}
+
+div#header div#primary-navigation ul.inline {
+	text-align: right;
+}
+
+div#header div#primary-navigation ul.inline li {
+	font-family: "Lato", "Droid Arabic Kufi", Arial, sans-serif;
+	font-size: 15px;
+	list-style: none;
+	margin-right: 20px;
+	position: relative;
+	text-align: left;
+}
+
+div#header div#primary-navigation ul.inline > li {
+	line-height: 84px;
+}
+
+div#header div#primary-navigation ul.inline > li > a {
+	color: #2f3c4e;
+}
+
+div#header div#primary-navigation ul.inline > li.current-menu-item > a,
+div#header div#primary-navigation ul.inline > li:hover > a {
+	color: #e74c3c;
+}
+
+div#header div#primary-navigation ul.sub-menu {
+	background-color: #2f3c4e;
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	min-width: 220px;
+}
+
+div#header div#primary-navigation ul.sub-menu > li {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	margin: 0;
+	padding: 12px 15px;
+}
+
+div#header div#primary-navigation ul.sub-menu > li > a {
+	color: #fff;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+div#header div#primary-navigation ul.sub-menu > li > a:hover {
+	color: #e74c3c;
+}
+
+div#header select {
+	background-color: #f8f7f7;
+	border: 1px solid #e9e8e8;
+	display: none;
+	font-size: 14px;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 10px;
+}
+
+/* ---------------------------------------------------------------------- */
+/*	19 - Footer
+/* ---------------------------------------------------------------------- */
+a#back-to-top {
+	background-color: #e74c3c;
+	color: #fff;
+	display: block;
+	font-size: 15px;
+	line-height: 37px;
+	position: fixed;
+	height: 40px;
+	width: 40px;
+	right: -60px;
+	bottom: 20px;
+	text-align: center;
+	z-index: 8192;
+}
+
+a#back-to-top:hover {
+	background-color: #263241;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -169,15 +254,15 @@ div#header div#logo img {
 	}
 
 	div#header div#logo,
-	div#header div#primary-divigation {
+	div#header div#primary-navigation {
 		text-align: center;
 	}
 
-	div#header div#primary-divigation ul.inline {
+	div#header div#primary-navigation ul.inline {
 		display: none;
 	}
 
-	div#header div#primary-divigation select {
+	div#header div#primary-navigation select {
 		display: block;
 		margin: 0 auto 20px;
 		width: 80%
