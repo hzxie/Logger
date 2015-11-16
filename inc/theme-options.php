@@ -843,7 +843,7 @@ function ss_theme_options() {
                 'id'          => TPLNAME . '_copyright',
                 'type'        => 'text',
                 'desc'        => __('Copyright text in footer', TPLNAME),
-                'std'         => 'Copyright&copy; 2005-${year} <a href="http://www.zjhzxhz.com">HApPy Studio</a>. All Rights Reserved.',
+                'std'         => 'Copyright&copy; 2005-${year} <a href="http://www.zjhzxhz.com">Trunk Shell</a>. All rights reserved.',
                 'rows'        => '',
                 'post_type'   => '',
                 'taxonomy'    => '',
