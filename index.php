@@ -38,11 +38,11 @@ if ( $page_layout ) {
             <?php endif; ?>
             </div>
             <?php endif; ?>
-            <div class="row">
+            <div class="row-fluid">
             <?php if ( $blog_layout == 'left-sidebar' ): ?>
                 <?php get_sidebar(); ?>
             <?php endif; ?>
-                <div id="main-content" class="span9">
+                <div id="main-content" class="span8">
                 <?php if ( have_posts() ):
                     // Start the Loop.
                     while ( have_posts() ) : the_post();
@@ -65,7 +65,7 @@ if ( $page_layout ) {
             <?php if ( $blog_layout == 'right-sidebar' ): ?>
                 <?php get_sidebar(); ?>
             <?php endif; ?>
-            </div> <!-- .row -->
+            </div> <!-- .row-fluid -->
         </div> <!-- .container -->
     </div> <!-- #content -->
 <?php

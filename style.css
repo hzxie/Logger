@@ -44,6 +44,7 @@
 /* ---------------------------------------------------------------------- */
 
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,and,address,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,div,aside,canvas,details,embed,figure,figcaption,footer,div,hgroup,menu,div,output,ruby,div,summary,time,mark,audio,video,input,textarea,select{background:transparent;border:0;font-size:100%;margin:0;outline:0;padding:0;vertical-align:baseline}div,aside,details,figcaption,figure,footer,div,hgroup,menu,div,div{display:block}body{line-height:1}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}del{text-decoration:line-through}hr{background:transparent;border:0;clear:both;color:transparent;height:1px;margin:0;padding:0}mark{background-color:#ffffb3;font-style:italic}input,select{vertical-align:middle}ins{background-color:red;color:white;text-decoration:none}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}
+textarea:focus,input[type="text"]:focus,input[type="password"]:focus,input[type="datetime"]:focus,input[type="datetime-local"]:focus,input[type="date"]:focus,input[type="month"]:focus,input[type="time"]:focus,input[type="week"]:focus,input[type="number"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="color"]:focus,.uneditable-input:focus {border-color: none;box-shadow: none;outline: 0 none;}
 
 /* Clearfix */
 .clear {clear:both;display:block;height:0;overflow:hidden;visibility:hidden;width:0 }
@@ -66,6 +67,7 @@ img {margin-bottom: 5px; }
 /* ---------------------------------------------------------------------- */
 body {
 	background-color: #f1f1f1;
+	font-family: "Lato", "Droid Arabic Kufi", Arial, sans-serif;
 	color: #6d7683;
 	overflow-x: hidden;
 	-webkit-font-smoothing: antialiased;
@@ -139,7 +141,6 @@ div#header div#primary-navigation ul.inline {
 }
 
 div#header div#primary-navigation ul.inline li {
-	font-family: "Lato", "Droid Arabic Kufi", Arial, sans-serif;
 	font-size: 15px;
 	list-style: none;
 	margin-right: 20px;
@@ -196,12 +197,113 @@ div#header select {
 }
 
 /* ---------------------------------------------------------------------- */
+/*	03 - Sidebar
+/* ---------------------------------------------------------------------- */
+div#content div.widget {
+	background-color: #fff;
+	border-bottom: 1px solid #d3d5d7;
+	font-family: 'Open Sans', 'Droid Arabic Kufi', Arial, sans-serif;
+	font-size: 14px;
+	margin-bottom: 30px;
+	padding: 30px 30px 35px;
+	position: relative;
+	-webkit-box-shadow: 0 0 5px 0 #e2e3e4;
+	   -moz-box-shadow: 0 0 5px 0 #e2e3e4;
+	        box-shadow: 0 0 5px 0 #e2e3e4;
+}
+
+div#content h6.widget-title {
+	border-bottom: 2px solid #ecedee;
+	color: #2f3c4e;
+	font-family: "Roboto Slab", "Droid Arabic Kufi", Arial, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	text-transform: none;
+	line-height: 28px;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	position: relative;
+}
+
+div#content h6.widget-title:before {
+	content: "";
+	position: absolute;
+	height: 2px;
+	width: 28px;
+	background-color: #2f3c4e;
+	bottom: -2px;
+	left: 0;
+}
+
+div#content div.widget li {
+	list-style: none;
+	color: #4b525c;
+	border-bottom: 1px solid #ecedee;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	overflow: hidden;
+	height: 100%;
+}
+
+div#content div.widget li:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+div#content div.widget a {
+	color: #6d7683;
+}
+
+div#content div.widget a:hover {
+	color: #e74c3c;
+}
+
+/* Widget search */
+div#content div.widget form#searchform input#s {
+	background-color: #f6f6f6;
+	border: 1px solid #e4e6e8;
+	margin-bottom: 10px;
+	padding: 20px 10px;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	-webkit-border-radius: 2px;
+	   -moz-border-radius: 2px;
+	        border-radius: 2px;
+}
+div#content div.widget form#searchform input#searchsubmit {
+	background-color: #e74c3c;
+	border: 1px solid #e4e6e8;
+	color: #fff;
+	font-size: 12px;
+	padding: 10px;
+	text-transform: uppercase;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	-webkit-border-radius: 2px;
+	   -moz-border-radius: 2px;
+	        border-radius: 2px;
+	-webkit-transition: all 0.17s ease-in-out;
+	   -moz-transition: all 0.17s ease-in-out;
+	     -o-transition: all 0.17s ease-in-out;
+	        transition: all 0.17s ease-in-out;
+}
+
+div#content div.widget form#searchform input#searchsubmit:hover {
+	background-color: #2f3c4e;
+}
+
+/* ---------------------------------------------------------------------- */
 /*	19 - Footer
 /* ---------------------------------------------------------------------- */
 div#colophon {
 	background-color: #2f3c4e;
 	color: #f1f1f1;
-	margin-top: 80px;
+	margin-top: 60px;
 	padding: 35px 0 30px;
 	position: relative;
 }
