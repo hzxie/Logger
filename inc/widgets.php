@@ -3,8 +3,8 @@
  * Widgets
  *
  * @package WordPress
- * @subpackage SmartStart
- * @since SmartStart 1.0
+ * @subpackage Logger
+ * @since Logger 1.0
  */
 
 /* ---------------------------------------------------- */
@@ -54,7 +54,7 @@ class SS_Contact_Info_Widget extends WP_Widget {
             // Base ID
             TPLNAME . '_contact_info',
             // Name
-            __('SmartStart Contact Info', TPLNAME),
+            __('Logger Contact Info', TPLNAME),
             // Args
             array('description' => __('A widget to display contact information. You can set contact information in Theme Options.', TPLNAME ))
         );
@@ -77,7 +77,7 @@ class SS_Contact_Info_Widget extends WP_Widget {
         $cdetail_address = ot_get_option(TPLNAME . '_cdetail_address'); 
         $cdetail_email   = ot_get_option(TPLNAME . '_cdetail_email'); 
         $cdetail_phone   = ot_get_option(TPLNAME . '_cdetail_phone'); ?>
-        <ul class="list-inline">
+        <ul class="inline">
             <?php if ( $cdetail_address ): ?>
             <li><i class="fa fa-map-marker"></i> <?php echo $cdetail_address; ?></li>
             <?php endif; ?>
@@ -143,7 +143,7 @@ class SS_Social_Links_Widget extends WP_Widget {
             // Base ID
             TPLNAME . '_social_links',
             // Name
-            __('SmartStart Social Links', TPLNAME),
+            __('Logger Social Links', TPLNAME),
             // Args
             array('description' => __('A widget to display social links. You can set social links URL in Theme Options.', TPLNAME ))
         );
@@ -164,7 +164,7 @@ class SS_Social_Links_Widget extends WP_Widget {
         } 
 
         $social_links = ot_get_option(TPLNAME . '_socialicons'); ?>
-        <ul class="list-inline">
+        <ul class="inline">
         <?php 
         if ( $social_links ):
             foreach ( $social_links as $social_link ): ?>

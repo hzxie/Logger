@@ -9,6 +9,44 @@
  * @since Logger 1.0
  */
 ?>
+    <div id="colophon">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span8">
+                    <?php 
+                    if ( has_nav_menu('footer') ): 
+                        wp_nav_menu(array(
+                            'theme_location'    => 'footer',
+                            'container'         => false,
+                            'menu_class'        => 'list-inline',
+                            'menu_id'           => 'footer-nav',
+                            'echo'              => true,
+                            'fallback_cb'       => 'wp_page_menu',
+                            'depth'             => 1,
+                            'walker'            => ''
+                        ));
+                    endif;
+                    ?>
+                    <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Left Area')) : endif; ?>
+                </div> <!-- .span8 -->
+                <div class="span4">
+                    <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Right Area')) : endif; ?>
+                </div> <!-- .span4 -->
+            </div> <!-- .row-fluid -->
+        </div> <!-- .container -->
+    </div> <!-- #colophon -->
+    <div id="footer">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span6 text-left">
+                    <?php echo str_replace('${year}', date('Y'), ot_get_option(TPLNAME . '_copyright')); ?>
+                </div> <!-- .span6 -->
+                <div class="span6 text-right">
+                    <?php echo __( 'Proudly powered by ', TPLNAME); ?><a href="<?php echo esc_url( __( 'http://wordpress.org/', TPLNAME ) ); ?>">WordPress</a>.
+                </div> <!-- .span6 -->
+            </div> <!-- .row-fluid -->
+        </div> <!-- .container -->
+    </div> <!-- #footer -->
     <?php wp_footer(); ?>
     <a id="back-to-top" href="javascript:void(0);">
         <i class="fa fa-chevron-up"></i>
