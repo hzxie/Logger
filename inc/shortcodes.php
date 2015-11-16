@@ -3,8 +3,8 @@
  * ShortCodes
  *
  * @package WordPress
- * @subpackage SmartStart
- * @since SmartStart 1.0
+ * @subpackage Logger
+ * @since Logger 1.0
  */
 
 /* ---------------------------------------------------- */
@@ -16,17 +16,17 @@
  * 
  * This shortcode is used to generate <div class="row"></div>.
  */
-function ss_row_shortcode( $atts, $content = null ) {
+function lgr_row_shortcode( $atts, $content = null ) {
     return '<div class="row">' . do_shortcode( $content ) . '</div>';
 }
-add_shortcode('row', 'ss_row_shortcode');
+add_shortcode('row', 'lgr_row_shortcode');
 
 /**
  * ShortCode: [column]
  * 
  * This shortcode is used to generate <div class="col-sm-*"></div>.
  */
-function ss_column_shortcode( $atts, $content = null ) {
+function lgr_column_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array(
         'offset' => 0,
         'column' => 0,
@@ -34,7 +34,7 @@ function ss_column_shortcode( $atts, $content = null ) {
 
     return '<div class="col-md-offset-' . $offset . ' col-sm-' . $column . '">' . do_shortcode( $content ) . '</div>';
 }
-add_shortcode('column', 'ss_column_shortcode');
+add_shortcode('column', 'lgr_column_shortcode');
 
 /* ---------------------------------------------------- */
 /*  General
@@ -45,7 +45,7 @@ add_shortcode('column', 'ss_column_shortcode');
  *
  * This short code is used to generate a button.
  */
-function ss_button_shortcode( $atts, $content = null ) {
+function lgr_button_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array(
         'url'    => '',
         'target' => '_blank',
@@ -67,14 +67,14 @@ function ss_button_shortcode( $atts, $content = null ) {
 
     return $output;
 }
-add_shortcode('button', 'ss_button_shortcode');
+add_shortcode('button', 'lgr_button_shortcode');
 
 /**
  * ShortCode: [list]
  *
  * This short code is used to generate a list(<ul>).
  */
-function ss_list_shortcode( $atts, $content = null ) {
+function lgr_list_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array(
         'icon'  => '',
         'style' => ''
@@ -82,7 +82,7 @@ function ss_list_shortcode( $atts, $content = null ) {
 
     return '<div class="' . esc_attr( $icon ) . ' ' . esc_attr( $style ) . '">' . $content . '</div>';
 }
-add_shortcode('list', 'ss_list_shortcode');
+add_shortcode('list', 'lgr_list_shortcode');
 
 /* ---------------------------------------------------- */
 /*  Template Tags
@@ -93,7 +93,7 @@ add_shortcode('list', 'ss_list_shortcode');
  *
  * This short code is used to generate portfolio items in projects page.
  */
-function ss_portfolio_shortcode( $atts, $content = null ) {
+function lgr_portfolio_shortcode( $atts, $content = null ) {
     $atts = extract(shortcode_atts(array(
         'columns'    => ot_get_option(TPLNAME . '_portfolio_layout'),
         'limit'      => -1,
@@ -177,21 +177,21 @@ function ss_portfolio_shortcode( $atts, $content = null ) {
         $output .= '</section><!-- #portfolio-items -->';
         
         if( $pagination == 'yes' ) {
-            $output .= ss_paging_nav();
+            $output .= lgr_paging_nav();
         }
         wp_reset_query();
     endif;
 
     return $output;
 }
-add_shortcode('portfolio', 'ss_portfolio_shortcode');
+add_shortcode('portfolio', 'lgr_portfolio_shortcode');
 
 /**
  * ShortCode: [project_carousel]
  * 
  * This short code is used to generate a carousel of projects.
  */
-function ss_projects_carousel_shortcode( $atts, $content = null ) {
+function lgr_projects_carousel_shortcode( $atts, $content = null ) {
     $atts = extract(shortcode_atts(array(
         'title'        => __('Latest projects', TPLNAME),
         'limit'        => 8,
@@ -261,7 +261,7 @@ function ss_projects_carousel_shortcode( $atts, $content = null ) {
         wp_reset_query();
         return $output;
 }
-add_shortcode('project_carousel', 'ss_projects_carousel_shortcode');
+add_shortcode('project_carousel', 'lgr_projects_carousel_shortcode');
 
 /* ---------------------------------------------------- */
 /*  Misc.
@@ -272,7 +272,7 @@ add_shortcode('project_carousel', 'ss_projects_carousel_shortcode');
  * 
  * This short code is used to generate full width map in the page.
  */
-function ss_fullwidth_map_shortcode( $atts, $content = null ) {
+function lgr_fullwidth_map_shortcode( $atts, $content = null ) {
     $map_html = '';
 
     extract(shortcode_atts(array(
@@ -343,14 +343,14 @@ function ss_fullwidth_map_shortcode( $atts, $content = null ) {
 <?php
     return $map_html;
 }
-add_shortcode('fullwidth_map', 'ss_fullwidth_map_shortcode');
+add_shortcode('fullwidth_map', 'lgr_fullwidth_map_shortcode');
 
 /**
  * ShortCode: [comment_box]
  * 
  * This short code is used to generate comment box in the page.
  */
-function ss_comment_box_shortcode( $atts ) {
+function lgr_comment_box_shortcode( $atts ) {
     extract( shortcode_atts( array(
         'title'     => 'Let\'s keep in touch',
     ), $atts ) );
@@ -362,4 +362,4 @@ function ss_comment_box_shortcode( $atts ) {
 
     return $comment_box_html;
 }
-add_shortcode('comment_box', 'ss_comment_box_shortcode');
+add_shortcode('comment_box', 'lgr_comment_box_shortcode');

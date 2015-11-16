@@ -15,6 +15,8 @@
  */
 get_header(); 
 
+/* Page Title */
+$page_title = lgr_get_post_meta(TPLNAME . '_page_title');
 /* Global Page Layout */
 $blog_layout = ot_get_option(TPLNAME . '_blog_layout');
 /* Page Layout for this Page */
@@ -25,9 +27,9 @@ if ( $page_layout ) {
 }
 ?>    <div id="content" class="clearfix">
         <div class="container">
-            <?php if ( !is_front_page() ): ?>
+            <?php if ( !is_front_page() && !empty($page_title) ): ?>
             <div class="page-header">
-                <h2><?php echo lgr_get_post_meta(TPLNAME . '_page_title'); ?></h2>
+                <h2><?php echo $page_title; ?></h2>
             <?php if( lgr_get_post_meta(TPLNAME . '_page_description') ): ?>
                 <hr />
                 <h3 class="page-description"><?php echo lgr_get_post_meta(TPLNAME . '_page_description'); ?></h3>
