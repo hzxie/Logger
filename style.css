@@ -18,7 +18,7 @@
 /*   00 - Reset & Clearfix         */
 /*   01 - General & Basic Styles   */
 /*   02 - Header & Navigation      */
-/*   03 - Sidebar                  */
+/*   03 - Sidebar & Widgets        */
 /*   04 - Post                     */
 /*   05 - Single post & page       */
 /*   06 - Social                   */
@@ -197,16 +197,19 @@ div#header select {
 }
 
 /* ---------------------------------------------------------------------- */
-/*	03 - Sidebar
+/*	03 - Sidebar & Widgets
 /* ---------------------------------------------------------------------- */
-div#content div.widget {
-	background-color: #fff;
-	border-bottom: 1px solid #d3d5d7;
+div.widget {
 	font-family: 'Open Sans', 'Droid Arabic Kufi', Arial, sans-serif;
 	font-size: 14px;
 	margin-bottom: 30px;
-	padding: 30px 30px 35px;
 	position: relative;
+}
+
+div#content div.widget {
+	background-color: #fff;
+	border-bottom: 1px solid #d3d5d7;
+	padding: 30px 30px 35px;
 	-webkit-box-shadow: 0 0 5px 0 #e2e3e4;
 	   -moz-box-shadow: 0 0 5px 0 #e2e3e4;
 	        box-shadow: 0 0 5px 0 #e2e3e4;
@@ -235,14 +238,17 @@ div#content h6.widget-title:before {
 	left: 0;
 }
 
-div#content div.widget li {
+div.widget li {
 	list-style: none;
 	color: #4b525c;
-	border-bottom: 1px solid #ecedee;
 	padding-bottom: 10px;
 	margin-bottom: 10px;
 	overflow: hidden;
 	height: 100%;
+}
+
+div#content div.widget li {
+	border-bottom: 1px solid #ecedee;
 }
 
 div#content div.widget li:last-child {
@@ -259,12 +265,42 @@ div#content div.widget a:hover {
 	color: #e74c3c;
 }
 
+
+div#colophon div.widget a {
+	color: #fff!important;
+	display: block;
+}
+
+div#colophon div.widget li {
+	color: #f1f1f1;
+	display: block;
+	padding: 5px;
+}
+
+div#colophon div.widget ul.inline li {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+}
+
+div#colophon div.widget li:hover {
+	background-color: #e74c3c;
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+	        border-radius: 4px;
+}
+
+div#colophon div.widget ul.inline li:hover {
+	background-color: transparent;
+}
+
 /* Widget search */
-div#content div.widget form#searchform input#s {
+div.widget form#searchform input#s {
 	background-color: #f6f6f6;
 	border: 1px solid #e4e6e8;
+	height: 40px;
 	margin-bottom: 10px;
-	padding: 20px 10px;
+	padding: 10px;
 	width: 100%;
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
@@ -273,8 +309,7 @@ div#content div.widget form#searchform input#s {
 	   -moz-border-radius: 2px;
 	        border-radius: 2px;
 }
-div#content div.widget form#searchform input#searchsubmit {
-	background-color: #e74c3c;
+div.widget form#searchform input#searchsubmit {
 	border: 1px solid #e4e6e8;
 	color: #fff;
 	font-size: 12px;
@@ -293,8 +328,86 @@ div#content div.widget form#searchform input#searchsubmit {
 	        transition: all 0.17s ease-in-out;
 }
 
+div#content div.widget form#searchform input#searchsubmit {
+	background-color: #e74c3c;
+}
+
 div#content div.widget form#searchform input#searchsubmit:hover {
 	background-color: #2f3c4e;
+}
+
+div#colophon div.widget form#searchform input#searchsubmit:hover {
+	background-color: #e74c3c;
+}
+
+/* Widget Calendar */
+div.widget table#wp-calendar {
+	border: 0 !important;
+	margin: 0 !important;
+	width: 100%;
+}
+
+div#content div.widget table#wp-calendar {
+	background: #fff;
+	color: #999;
+}
+
+div#colophon div.widget table#wp-calendar {
+	color: #f1f1f1;
+}
+
+div.widget #calendar_wrap th, 
+div.widget #calendar_wrap td {
+	border: 1px solid #f1f1f1;
+	padding: 5px;
+	text-align: center;
+}
+
+div.widget table#wp-calendar caption {
+	border: 0 !important;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0 !important;
+	padding: 8px 0;
+	text-align: center;
+}
+
+div.widget table#wp-calendar th {
+	background-color: #f9f9f9;
+	border-top: 0;
+	color: #59616a;
+}
+
+div#content div.widget table#wp-calendar td#today {
+	color: #2f3c4e;
+}
+
+div#colophon div.widget table#wp-calendar td#today {
+	color: #999;
+}
+
+div.widget table#wp-calendar a {
+	color: #e74c3c; 
+	text-decoration: none;
+}
+
+div.widget table#wp-calendar td#next {
+	border: 0 none;
+	font-size: 10px;
+	text-align: right;
+	text-transform: uppercase;
+}
+
+div.widget table#wp-calendar td#prev {
+	border: 0 none;
+	font-size: 10px;
+	text-align: left;
+	text-transform: uppercase;
+	padding-top: 10px;
+}
+
+div.widget table#wp-calendar td.pad {
+	border: 0 none !important;
 }
 
 /* ---------------------------------------------------------------------- */
