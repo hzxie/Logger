@@ -10,42 +10,42 @@
 /* ---------------------------------------------------- */
 /*  Twitter Feed
 /* ---------------------------------------------------- */
-class SS_Twitter_Feed_Widget extends WP_Widget {
+class LGR_Twitter_Feed_Widget extends WP_Widget {
     
 }
 
 /* ---------------------------------------------------- */
 /*  Weibo Feed
 /* ---------------------------------------------------- */
-class SS_Weibo_Feed_Widget extends WP_Widget {
+class LGR_Weibo_Feed_Widget extends WP_Widget {
     
 }
 
 /* ---------------------------------------------------- */
 /*  Instagram Feed
 /* ---------------------------------------------------- */
-class SS_Instagram_Feed_Widget extends WP_Widget {
+class LGR_Instagram_Feed_Widget extends WP_Widget {
     
 }
 
 /* ---------------------------------------------------- */
 /*  Flickr Feed
 /* ---------------------------------------------------- */
-class SS_Flickr_Feed_Widget extends WP_Widget {
+class LGR_Flickr_Feed_Widget extends WP_Widget {
     
 }
 
 /* ---------------------------------------------------- */
 /*  Weather Feed
 /* ---------------------------------------------------- */
-class SS_Weather_Feed_Widget extends WP_Widget {
+class LGR_Weather_Feed_Widget extends WP_Widget {
 
 }
 
 /* ---------------------------------------------------- */
 /*  Contact Info
 /* ---------------------------------------------------- */
-class SS_Contact_Info_Widget extends WP_Widget {
+class LGR_Contact_Info_Widget extends WP_Widget {
     /**
      * Register widget with WordPress.
      */
@@ -146,7 +146,7 @@ class SS_Contact_Info_Widget extends WP_Widget {
 /* ---------------------------------------------------- */
 /*  Social Links
 /* ---------------------------------------------------- */
-class SS_Social_Links_Widget extends WP_Widget {
+class LGR_Social_Links_Widget extends WP_Widget {
     /**
      * Register widget with WordPress.
      */
@@ -239,8 +239,8 @@ class SS_Social_Links_Widget extends WP_Widget {
 /*  Register Custom Widgets
 /* ---------------------------------------------------- */
 add_action( 'widgets_init', function() {
-    register_widget('SS_Contact_Info_Widget');
-    register_widget('SS_Social_Links_Widget');
+    register_widget('LGR_Contact_Info_Widget');
+    register_widget('LGR_Social_Links_Widget');
 });
 
 // NOTE: The function above can only used in PHP 5.3+
