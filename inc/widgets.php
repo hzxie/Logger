@@ -79,13 +79,25 @@ class SS_Contact_Info_Widget extends WP_Widget {
         $cdetail_phone   = ot_get_option(TPLNAME . '_cdetail_phone'); ?>
         <ul class="inline">
             <?php if ( $cdetail_address ): ?>
-            <li><i class="fa fa-map-marker"></i> <?php echo $cdetail_address; ?></li>
-            <?php endif; ?>
+            <li>
+                <span class="cdetail">
+                    <i class="fa fa-map-marker"></i> <?php echo $cdetail_address; ?>
+                </span>
+            </li>
             <?php if ( $cdetail_email ): ?>
-            <li><i class="fa fa-envelope"></i> <?php echo $cdetail_email; ?></li>
+            <li>
+                <span class="cdetail">
+                    <i class="fa fa-envelope"></i> <?php echo $cdetail_email; ?>
+                </span>
+            </li>
             <?php endif; ?>
             <?php if ( $cdetail_phone ): ?>
-            <li><i class="fa fa-phone"></i> <?php echo $cdetail_phone; ?></li>
+            <li>
+                <span class="cdetail">
+                    <i class="fa fa-phone"></i> <?php echo $cdetail_phone; ?>
+                </span>
+            </li>
+            <?php endif; ?>
             <?php endif; ?>
         </ul>
         <?php

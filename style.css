@@ -237,6 +237,11 @@ div#colophon div.widget ul.inline > li {
 	padding-left: 0;
 }
 
+div#colophon div.widget span.cdetail {
+	/*IE 7 Fix*/
+	display: block;
+}
+
 div#colophon div.widget.widget_lgr_social_links ul.inline > li > a {
 	color: #fff;
     display: block;
