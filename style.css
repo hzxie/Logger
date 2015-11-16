@@ -200,10 +200,9 @@ a#back-to-top {
 	background-color: #e74c3c;
 	color: #fff;
 	display: block;
-	font-size: 15px;
-	line-height: 37px;
+	font-size: 14px;
+	padding: 13px 0;
 	position: fixed;
-	height: 40px;
 	width: 40px;
 	right: -60px;
 	bottom: 20px;

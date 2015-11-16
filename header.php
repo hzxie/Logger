@@ -22,14 +22,20 @@
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+    <?php wp_head(); ?>
+    <!--[if lte IE 9]>
+        <script type="text/javascript" src="<?php echo LGR_CDN_BASE_URL; ?>js/jquery.placeholder.min.js"></script>
+    <![endif]-->
+    <!--[if lte IE 7]>
+        <link rel="stylesheet" type="text/css" href="<?php echo LGR_CDN_BASE_URL; ?>css/font-awesome-ie7.min.css" />
+    <![endif]-->
     <?php if ( ot_get_option(TPLNAME . '_upgrade_browser_url') ): ?>
-    <!--[if lt IE 9]>
+    <!--[if lt IE 6]>
         <script type="text/javascript">
             window.location.href = '<?php echo ot_get_option(TPLNAME . '_upgrade_browser_url'); ?>';
         </script>
     <![endif]-->
     <?php endif; ?>
-    <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
     <div id="header">
