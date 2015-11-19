@@ -20,12 +20,9 @@
 /*   02 - Header & Navigation      */
 /*   03 - Sidebar & Widgets        */
 /*   04 - Post                     */
-/*   05 - Single post & page       */
-/*   06 - Social                   */
-/*   07 - Page 404                 */
-/*   08 - Accordion                */
-/*   09 - Gallery                  */
-/*   10 - Authors                  */
+/*   05 - Single Post & Page       */
+/*   06 - Page 404                 */
+/*   07 - Short Code               */
 /*   11 - Related posts            */
 /*   12 - List ul                  */
 /*   13 - Blockquote               */
@@ -421,7 +418,8 @@ div.widget table#wp-calendar td.pad {
 /* ---------------------------------------------------------------------- */
 /*	04 - Post
 /* ---------------------------------------------------------------------- */
-div.post {
+div.post,
+div.page {
 	background-color: #fff;
 	border: 1px solid #d3d5d7;
 	font-size: 14px;
@@ -430,6 +428,11 @@ div.post {
 	-webkit-box-shadow: 0 0 5px 0 #e2e3e4;
 	   -moz-box-shadow: 0 0 5px 0 #e2e3e4;
 	        box-shadow: 0 0 5px 0 #e2e3e4;
+}
+
+div.post ul,
+div.page ul {
+	padding-left: 30px;
 }
 
 div.post .btn {
@@ -521,9 +524,38 @@ div.pagination a.page-numbers:hover {
 }
 
 /* ---------------------------------------------------------------------- */
-/*	05 - Single post & page
+/*	05 - Single Post & Page
 /* ---------------------------------------------------------------------- */
+div.page div.entry-header {
+	border-bottom: 1px solid #d3d5d7;
+	padding: 30px 30px 15px;
+}
 
+div.page div.entry-body {
+	overflow: hidden;
+	padding: 30px;
+}
+
+div.page p.edit-link {
+	margin: 10px 0;
+}
+
+/* ---------------------------------------------------------------------- */
+/*  07 - Short Code
+/* ---------------------------------------------------------------------- */
+/* Full Width Map */
+div#map-container {
+	border-bottom: 1px solid #d3d5d7;
+	background-color: #f1f1f1;
+	height: 450px;
+	margin-top: -60px;
+	position: relative;
+}
+
+div#map-container div.map {
+	height: 450px;
+	width: 100%;
+}
 
 /* ---------------------------------------------------------------------- */
 /*	19 - Footer

@@ -17,14 +17,14 @@
  * This shortcode is used to generate <div class="row"></div>.
  */
 function lgr_row_shortcode( $atts, $content = null ) {
-    return '<div class="row">' . do_shortcode( $content ) . '</div>';
+    return '<div class="row-fluid">' . do_shortcode( $content ) . '</div>';
 }
 add_shortcode('row', 'lgr_row_shortcode');
 
 /**
  * ShortCode: [column]
  * 
- * This shortcode is used to generate <div class="col-sm-*"></div>.
+ * This shortcode is used to generate <div class="span*"></div>.
  */
 function lgr_column_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array(
@@ -32,7 +32,7 @@ function lgr_column_shortcode( $atts, $content = null ) {
         'column' => 0,
     ), $atts ) );
 
-    return '<div class="col-md-offset-' . $offset . ' col-sm-' . $column . '">' . do_shortcode( $content ) . '</div>';
+    return '<div class="offset' . $offset . ' span' . $column . '">' . do_shortcode( $content ) . '</div>';
 }
 add_shortcode('column', 'lgr_column_shortcode');
 
@@ -128,7 +128,7 @@ function lgr_portfolio_shortcode( $atts, $content = null ) {
 
     if( have_posts() ) :
         // Fix Layout
-        $output = '<section id="portfolio-items" class="clearfix" style="margin: 0 '. (esc_attr($columns) == '4' ? -15 : -16) .'px"">';
+        $output = '<div id="portfolio-items" class="clearfix" style="margin: 0 '. (esc_attr($columns) == '4' ? -15 : -16) .'px"">';
         $lightbox = ot_get_option(TPLNAME . '_single_project_lightbox');
 
         if( $lightbox == '1' ) {
@@ -159,7 +159,7 @@ function lgr_portfolio_shortcode( $atts, $content = null ) {
                 $permalink = get_permalink();
             }
 
-            $output .= '<article class="col-sm-' . esc_attr($columns) . ' portfolio" data-category="' . trim($data_category) . '">';
+            $output .= '<article class="span' . esc_attr($columns) . ' portfolio" data-category="' . trim($data_category) . '">';
             $output .= '    <div class="portfolio-container">';
                 if( $post_thumbnail_img ) {
                     $output .= '<a href="' . $permalink . '" title="' . get_the_title() . '"' . $lightbox_class . '>';
@@ -174,7 +174,7 @@ function lgr_portfolio_shortcode( $atts, $content = null ) {
             $output .= '</article> <!-- .portfolio -->';
         endwhile;
 
-        $output .= '</section><!-- #portfolio-items -->';
+        $output .= '</div><!-- #portfolio-items -->';
         
         if( $pagination == 'yes' ) {
             $output .= lgr_paging_nav();
@@ -283,25 +283,9 @@ function lgr_fullwidth_map_shortcode( $atts, $content = null ) {
         'apikey'    => '',
     ), $atts));
 ?>
-
-    </div> <!-- #main-content -->
-    </section> <!-- .row -->
-    </div> <!-- .container -->
-    <div class="map-container">
-
-    <?php if ( $provider == 'GoogleMap' ): ?>
-
-        <div id="google-map" class="map"></div>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-        <script type="text/javascript">
-            (function($) {
-                mapObject = new google.maps.Map(document.getElementById('google-map'), {
-                    zoom: <?php echo $zoom; ?>,
-                    center: new google.maps.LatLng(<?php echo $longitude; ?>, <?php echo $latitude; ?>)
-                });
-            })(jQuery);
-        </script>
-
+    </div>
+    <div id="map-container">
+    <?php if ( 0 ): ?>
     <?php else: ?>
 
         <div id="amap" class="map"></div>
@@ -334,12 +318,8 @@ function lgr_fullwidth_map_shortcode( $atts, $content = null ) {
         </script>
 
     <?php endif; ?>
-
-    </div> <!-- .map-container -->
-    <div class="container">
-    <section class="row"> <!-- .row -->
-    <div id="main-content" class="col-sm-12">
-
+    </div> <!-- #map-container -->
+    <div class="entry-body">
 <?php
     return $map_html;
 }

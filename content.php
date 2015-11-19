@@ -60,9 +60,13 @@
     <?php endif; ?>
     <div class="entry-body">
         <?php if ( is_singular() ): ?>
+
         <?php the_content(); ?>
+
         <?php else : ?>
+
         <p><?php the_excerpt(); ?></p>
+
         <?php endif; ?>
         <div class="post-share-view">
             <?php edit_post_link(__('Edit', TPLNAME), '<button class="btn">', '</button>'); ?>
@@ -71,4 +75,4 @@
             </a>
         </div> <!-- .post-share-view -->
     </div> <!-- .entry-body -->
-</div><!-- #post-## -->
+</div><!-- .post -->
