@@ -68,9 +68,9 @@
         (function($) {
             $(window).scroll(function () {
                 if( $(this).scrollTop() > 100 ) {
-                    $("#back-to-top").css("right","20px");
+                    $('#back-to-top').css('right', '20px');
                 } else {
-                    $("#back-to-top").css("right","-60px");
+                    $('#back-to-top').css('right', '-60px');
                 }
             });
             $("#back-to-top").click(function() {
