@@ -97,6 +97,13 @@ a:hover {
     color: #2f3c4e;
 }
 
+
+ul.inline > li {
+	padding-left: 0;
+	padding-right: 10px;
+}
+
+
 /* ---------------------------------------------------------------------- */
 /*	02 - Header & Navigation
 /* ---------------------------------------------------------------------- */
@@ -157,6 +164,7 @@ div#header div#primary-navigation ul.inline > li > a {
 }
 
 div#header div#primary-navigation ul.inline > li.current-menu-item > a,
+div#header div#primary-navigation ul.inline > li.current_page_parent > a,
 div#header div#primary-navigation ul.inline > li:hover > a {
 	color: #e74c3c;
 }
@@ -411,6 +419,78 @@ div.widget table#wp-calendar td.pad {
 }
 
 /* ---------------------------------------------------------------------- */
+/*	04 - Post
+/* ---------------------------------------------------------------------- */
+div.post {
+	background-color: #fff;
+	border: 1px solid #d3d5d7;
+	font-size: 14px;
+	margin-bottom: 30px;
+	position: relative;
+	-webkit-box-shadow: 0 0 5px 0 #e2e3e4;
+	   -moz-box-shadow: 0 0 5px 0 #e2e3e4;
+	        box-shadow: 0 0 5px 0 #e2e3e4;
+}
+
+div.post .btn {
+	background-color: #f6f6f6;
+	background-image: none;
+	border: 1px solid #e4e6e8;
+	color: #9ba1a8;
+	display: inline-block;
+	*display: inline;
+	font-size: 12px;
+	font-family: 'Open Sans', 'Droid Arabic Kufi', Arial, sans-serif;
+	padding: 10px;
+	zoom: 1;
+	-webkit-border-radius: 2px;
+	   -moz-border-radius: 2px;
+	        border-radius: 2px;
+}
+
+div.post i.fa {
+	color: #a3a9b0;
+	display: inline-block;
+	*display: inline;
+	margin-right: 5px;
+	zoom: 1;
+}
+
+div.post div.entry-header {
+	border-bottom: 1px solid #d3d5d7;
+	padding: 30px 30px 15px;
+}
+
+div.post div.entry-header button.btn {
+	cursor: default;
+}
+
+div.post div.entry-body {
+	padding: 15px 30px;
+}
+
+div.post div.entry-body p {
+	line-height: 150%;
+}
+
+div.post div.entry-body div.post-share-view {
+	border-top: 1px solid #ecedee;
+	height: 40px;
+	margin-top: 15px;
+	padding: 15px 0 5px;
+}
+
+div.post div.entry-body div.post-share-view a.continue-reading {
+	background-color: #e74c3c;
+	color: #fff;
+	float: right;
+}
+
+div.post div.entry-body div.post-share-view a.continue-reading:hover {
+	background-color: #2f3c4e;
+}
+
+/* ---------------------------------------------------------------------- */
 /*	19 - Footer
 /* ---------------------------------------------------------------------- */
 div#colophon {
@@ -441,8 +521,6 @@ div#colophon:before {
 div#colophon ul#footer-nav li {
 	font-size: 14px;
 	margin-bottom: 10px;
-	padding-left: 0;
-	padding-right: 10px;
 }
 
 div#colophon ul#footer-nav li a:hover {
@@ -460,7 +538,6 @@ div#colophon div.widget span.widget-title {
 
 div#colophon div.widget ul.inline > li {
 	font-size: 14px;
-	padding-left: 0;
 }
 
 div#colophon div.widget span.cdetail {
@@ -470,15 +547,15 @@ div#colophon div.widget span.cdetail {
 
 div#colophon div.widget.widget_lgr_social_links ul.inline > li > a {
 	color: #fff;
-    display: block;
-    width: 28px;
-    padding: 4px 0;
-    font-size: 14px;
-    text-align: center;
-    overflow: hidden;
-    -webkit-border-radius: 4px;
-       -moz-border-radius: 4px;
-            border-radius: 4px;
+	display: block;
+	width: 28px;
+	padding: 4px 0;
+	font-size: 14px;
+	text-align: center;
+	overflow: hidden;
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+	        border-radius: 4px;
 }
 
 div#colophon div.widget.widget_lgr_social_links ul.inline > li:hover > a {
