@@ -128,7 +128,7 @@ function lgr_portfolio_shortcode( $atts, $content = null ) {
 
     if( have_posts() ) :
         // Fix Layout
-        $output = '<div id="portfolio-items" class="clearfix" style="margin: 0 '. (esc_attr($columns) == '4' ? -15 : -16) .'px"">';
+        $output = '<div id="portfolio-items" class="clearfix">';
         $lightbox = ot_get_option(TPLNAME . '_single_project_lightbox');
 
         if( $lightbox == '1' ) {
@@ -159,7 +159,7 @@ function lgr_portfolio_shortcode( $atts, $content = null ) {
                 $permalink = get_permalink();
             }
 
-            $output .= '<article class="span' . esc_attr($columns) . ' portfolio" data-category="' . trim($data_category) . '">';
+            $output .= '<div class="span' . esc_attr($columns) . ' portfolio" data-category="' . trim($data_category) . '">';
             $output .= '    <div class="portfolio-container">';
                 if( $post_thumbnail_img ) {
                     $output .= '<a href="' . $permalink . '" title="' . get_the_title() . '"' . $lightbox_class . '>';
@@ -171,7 +171,7 @@ function lgr_portfolio_shortcode( $atts, $content = null ) {
                 $output .= '    <span class="categories">' . substr(trim($category_names), 0, -2) . '</span>';
                 $output .= '</a>';
             $output .= '    </div> <!-- .portfolio-container -->';
-            $output .= '</article> <!-- .portfolio -->';
+            $output .= '</div> <!-- .portfolio -->';
         endwhile;
 
         $output .= '</div><!-- #portfolio-items -->';
@@ -285,7 +285,19 @@ function lgr_fullwidth_map_shortcode( $atts, $content = null ) {
 ?>
     </div>
     <div id="map-container">
-    <?php if ( 0 ): ?>
+    <?php if ( $provider == 'GoogleMap' ): ?>
+
+        <div id="google-map" class="map"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+        <script type="text/javascript">
+            (function($) {
+                mapObject = new google.maps.Map(document.getElementById('google-map'), {
+                    zoom: <?php echo $zoom; ?>,
+                    center: new google.maps.LatLng(<?php echo $longitude; ?>, <?php echo $latitude; ?>)
+                });
+            })(jQuery);
+        </script>
+
     <?php else: ?>
 
         <div id="amap" class="map"></div>

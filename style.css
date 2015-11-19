@@ -48,6 +48,7 @@ textarea:focus,input[type="text"]:focus,input[type="password"]:focus,input[type=
 .clearfix:after {clear:both;content:' ';display:block;font-size:0;height:0;line-height:0;visibility:hidden;width:0 }
 
 /* Some basic settings */
+h1, h2, h3, h4, h5, h6 { margin-bottom: 10px; }
 h1, h1 .button {font-size: 32px; }
 h2, h2 .button {font-size: 28px; }
 h3, h3 .button {font-size: 17px; }
@@ -94,6 +95,10 @@ a:hover {
     color: #2f3c4e;
 }
 
+
+ul.inline {
+	padding-left: 0!important;
+}
 
 ul.inline > li {
 	padding-left: 0;
@@ -428,6 +433,11 @@ div.page {
 	-webkit-box-shadow: 0 0 5px 0 #e2e3e4;
 	   -moz-box-shadow: 0 0 5px 0 #e2e3e4;
 	        box-shadow: 0 0 5px 0 #e2e3e4;
+}
+
+div.post p,
+div.page p {
+	margin-bottom: 10px;
 }
 
 div.post ul,
