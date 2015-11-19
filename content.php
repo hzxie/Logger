@@ -51,12 +51,14 @@
             </ul>
         </div> <!-- .entry-meta -->
     </div> <!-- .entry-header -->
+    <?php 
+    if( has_post_thumbnail() ): 
+        $domsxe       = simplexml_load_string(get_the_post_thumbnail());
+        $thumbnailsrc = $domsxe->attributes()->src;
+    ?>
+    <div class="entry-thumbnail" style="background-image: url('<?php echo $thumbnailsrc; ?>');"></div> <!-- .entry-thumbnail -->
+    <?php endif; ?>
     <div class="entry-body">
-        <?php if( has_post_thumbnail() ): ?>
-            <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__('Permalink to %s', TPLNAME), the_title_attribute('echo=0') ); ?>">
-                <?php the_post_thumbnail(); ?>
-            </a>
-        <?php endif; ?>
         <?php if ( is_singular() ): ?>
         <?php the_content(); ?>
         <?php else : ?>

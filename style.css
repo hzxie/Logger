@@ -441,6 +441,7 @@ div.post .btn {
 	*display: inline;
 	font-size: 12px;
 	font-family: 'Open Sans', 'Droid Arabic Kufi', Arial, sans-serif;
+	margin-bottom: 5px;
 	padding: 10px;
 	zoom: 1;
 	-webkit-border-radius: 2px;
@@ -463,6 +464,12 @@ div.post div.entry-header {
 
 div.post div.entry-header button.btn {
 	cursor: default;
+}
+
+div.post div.entry-thumbnail {
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 320px;
 }
 
 div.post div.entry-body {
@@ -489,6 +496,34 @@ div.post div.entry-body div.post-share-view a.continue-reading {
 div.post div.entry-body div.post-share-view a.continue-reading:hover {
 	background-color: #2f3c4e;
 }
+
+div.pagination {
+	margin: 0;
+	text-align: center;
+}
+
+div.pagination .page-numbers {
+	background-color: #fff;
+	border-bottom: 1px solid #d3d5d7;
+	font-size: 13px;
+	padding: 8px 15px 10px;
+	text-transform: uppercase;
+	-webkit-border-radius: 2px;
+	   -moz-border-radius: 2px;
+	        border-radius: 2px;
+	-webkit-box-shadow: 0 0 5px 0 #e2e3e4;
+	   -moz-box-shadow: 0 0 5px 0 #e2e3e4;
+	        box-shadow: 0 0 5px 0 #e2e3e4;
+}
+
+div.pagination a.page-numbers:hover {
+	color: #2f3c4e;
+}
+
+/* ---------------------------------------------------------------------- */
+/*	05 - Single post & page
+/* ---------------------------------------------------------------------- */
+
 
 /* ---------------------------------------------------------------------- */
 /*	19 - Footer
