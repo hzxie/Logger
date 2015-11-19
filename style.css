@@ -438,6 +438,17 @@ div#colophon:before {
 	        transform: rotate(45deg);
 }
 
+div#colophon ul#footer-nav li {
+	font-size: 14px;
+	margin-bottom: 10px;
+	padding-left: 0;
+	padding-right: 10px;
+}
+
+div#colophon ul#footer-nav li a:hover {
+	color: #f1f1f1;
+}
+
 div#colophon div.widget span.widget-title {
 	border-bottom: 1px solid #4b4b4b;
 	display: block;

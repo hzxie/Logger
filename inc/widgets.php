@@ -84,6 +84,7 @@ class LGR_Contact_Info_Widget extends WP_Widget {
                     <i class="fa fa-map-marker"></i> <?php echo $cdetail_address; ?>
                 </span>
             </li>
+            <?php endif; ?>
             <?php if ( $cdetail_email ): ?>
             <li>
                 <span class="cdetail">
@@ -97,7 +98,6 @@ class LGR_Contact_Info_Widget extends WP_Widget {
                     <i class="fa fa-phone"></i> <?php echo $cdetail_phone; ?>
                 </span>
             </li>
-            <?php endif; ?>
             <?php endif; ?>
         </ul>
         <?php
