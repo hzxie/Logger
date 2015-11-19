@@ -18,7 +18,7 @@
                         wp_nav_menu(array(
                             'theme_location'    => 'footer',
                             'container'         => false,
-                            'menu_class'        => 'list-inline',
+                            'menu_class'        => 'inline',
                             'menu_id'           => 'footer-nav',
                             'echo'              => true,
                             'fallback_cb'       => 'wp_page_menu',
