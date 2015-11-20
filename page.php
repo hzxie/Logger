@@ -23,9 +23,9 @@ if ( $page_layout ) {
 /* Is full Width Layout? */
 $is_full_width   = ( $blog_layout == 'full-width' );
 ?>
-	<div id="content">
-		<div class="container">
-			<div class="row-fluid">
+    <div id="content">
+        <div class="container">
+            <div class="row-fluid">
             <?php if ( $blog_layout == 'left-sidebar' ): ?>
                 <?php get_sidebar(); ?>
             <?php endif; ?>
@@ -50,7 +50,7 @@ $is_full_width   = ( $blog_layout == 'full-width' );
                 <?php get_sidebar(); ?>
             <?php endif; ?>
             </div> <!-- .row-fluid -->
-		</div> <!-- .container -->
-	</div> <!-- #content -->
+        </div> <!-- .container -->
+    </div> <!-- #content -->
 <?php
 get_footer();
