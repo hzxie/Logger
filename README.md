@@ -10,6 +10,7 @@ The project uses following components:
 >- [BootStrap](http://getbootstrap.com)
 >- [Font Amesome](http://fontawesome.io)
 >- [Option Tree](https://github.com/valendesigns/option-tree)
+>- [Meta Box](http://metabox.io/meta-box)
 
 The components listed above have packaged with the theme by default.
 
