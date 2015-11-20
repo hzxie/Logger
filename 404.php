@@ -19,11 +19,6 @@ $blog_layout     = ot_get_option(TPLNAME . '_blog_layout');
             <?php endif; ?>
                 <div id="main-content" class="span<?php echo ($is_full_width ? 12 : 8);?>">
                     <div class="page page-404">
-                    <?php
-                        $page_title             = lgr_get_post_meta(TPLNAME . '_page_title');
-                        $page_description       = lgr_get_post_meta(TPLNAME . '_page_description');
-                        $page_subdescription    = lgr_get_post_meta(TPLNAME . '_page_subdescription');
-                    ?>
                         <div class="entry-header">
                             <h2>Error 404: <?php echo __('Page Not Found', TPLNAME); ?></h2>
                         </div> <!-- .entry-header -->

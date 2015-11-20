@@ -31,11 +31,9 @@ if ( $page_layout ) {
             <div class="page-header">
                 <h2><?php echo $page_title; ?></h2>
             <?php if( lgr_get_post_meta(TPLNAME . '_page_description') ): ?>
-                <hr />
                 <h3 class="page-description"><?php echo lgr_get_post_meta(TPLNAME . '_page_description'); ?></h3>
             <?php endif; ?>
             <?php if( lgr_get_post_meta(TPLNAME . '_page_subdescription') ): ?>
-                <hr />
                 <h3 class="page-subdescription"><?php echo lgr_get_post_meta(TPLNAME . '_page_subdescription'); ?></h3>
             <?php endif; ?>
             </div>
@@ -61,7 +59,7 @@ if ( $page_layout ) {
                     lgr_paging_nav();
                 else:
                     // If no content, include the "No posts found" template.
-                    get_template_part( 'content', 'none' );
+                    get_template_part('content', 'none');
                 endif;?>
                 </div> <!-- #main-content -->
             <?php if ( $blog_layout == 'right-sidebar' ): ?>
