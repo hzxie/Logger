@@ -68,11 +68,17 @@
         <p><?php the_excerpt(); ?></p>
 
         <?php endif; ?>
+        
+        <?php if ( !is_singular() || is_user_logged_in() ): ?>
         <div class="post-share-view">
             <?php edit_post_link(__('Edit', TPLNAME), '<button class="btn">', '</button>'); ?>
+            
+            <?php if ( !is_singular() ): ?>
             <a class="btn continue-reading" href="<?php echo get_permalink(); ?>" title="<?php printf( esc_attr__('Permalink to %s', TPLNAME), the_title_attribute('echo=0') ); ?>" rel="bookmark">
                 <?php echo __('Continue Reading', TPLNAME) ?>
             </a>
+            <?php endif; ?>
         </div> <!-- .post-share-view -->
+        <?php endif; ?>
     </div> <!-- .entry-body -->
 </div><!-- .post -->

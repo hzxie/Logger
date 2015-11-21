@@ -550,6 +550,140 @@ div.page p.edit-link {
 	margin: 10px 0;
 }
 
+div#comments.comments-in-singular {
+	background-color: #fff;
+	border: 1px solid #d3d5d7;
+	font-size: 14px;
+	margin-bottom: 30px;
+	padding: 30px 30px 15px;
+	position: relative;
+	-webkit-box-shadow: 0 0 5px 0 #e2e3e4;
+	   -moz-box-shadow: 0 0 5px 0 #e2e3e4;
+	        box-shadow: 0 0 5px 0 #e2e3e4;
+}
+
+div#comments ol {
+	list-style: none;
+}
+
+div#comments ul.children {
+	list-style: none;
+	padding-left: 65px;
+}
+
+div#comments p.comment-notes {
+	display: none;
+}
+
+div#comments li.comment {
+	margin-bottom: 20px;
+	padding-top: 20px;
+}
+
+div#comments li.comment:first-child {
+	border-top: none;
+}
+
+div#comments ul.children li.comment:first-child {
+	border-top: 1px solid #d3d5d7;
+}
+
+div#comments li.comment img.avatar {
+	margin-bottom: 0;
+}
+
+div#comments li.comment div.comment-meta {
+	display: inline-block;
+	*display: inline;
+	margin: 0 0 0 15px;
+	zoom: 1;
+}
+
+div#comments li.comment div.comment-body {
+	margin: 10px 0 0 65px;
+}
+
+div#comments p.comment-form-author,
+div#comments p.comment-form-email,
+div#comments p.comment-form-url {
+	display: inline-block;
+	*display: inline;
+	width: 30%;
+	zoom: 1;
+}
+
+div#comments p.comment-form-author,
+div#comments p.comment-form-email {
+	margin-right: 4.5%;
+}
+
+div#comments p.comment-form-url strong {
+	font-weight: normal;
+}
+
+div#comments p.comment-form-comment {
+	margin-top: 10px;
+}
+
+div#comments input#author,
+div#comments input#email,
+div#comments input#url,
+div#comments textarea#comment {
+	background-color: #f8f8f8;
+	border: 1px solid #e8e8e8;
+	color: #8f8f8f;
+	font-size: 12px;
+	line-height: 1.5;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	-webkit-border-radius: 0;
+	   -moz-border-radius: 0;
+	        border-radius: 0;
+	-webkit-box-shadow: none;
+	   -moz-box-shadow: none;
+	        box-shadow: none;
+}
+
+div#comments input#author,
+div#comments input#email,
+div#comments input#url {
+	height: 40px;
+}
+
+div#comments textarea#comment {
+	padding: 5px 10px;
+	resize: none;
+	width: 100%;
+}
+
+div#comments textarea#comment:focus {
+    border-color: #dedede;
+}
+
+div#comments input#submit {
+	background-color: #e74c3c;
+	border: 1px solid #e4e6e8;
+	color: #fff;
+	font-size: 12px;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	-webkit-border-radius: 2px;
+	   -moz-border-radius: 2px;
+	        border-radius: 2px;
+	-webkit-transition: all 0.17s ease-in-out;
+	   -moz-transition: all 0.17s ease-in-out;
+	     -o-transition: all 0.17s ease-in-out;
+	        transition: all 0.17s ease-in-out;
+}
+
+div#comments input#submit:hover {
+    background-color: #2f3c4e;
+}
+
 /* ---------------------------------------------------------------------- */
 /*  07 - Short Code
 /* ---------------------------------------------------------------------- */
