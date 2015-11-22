@@ -572,7 +572,12 @@ div.page p.edit-link {
 	margin: 10px 0;
 }
 
-div#comments.comments-in-singular {
+div.post + div#disqus_thread,
+div.page + div#disqus_thread,
+div.portfolio-entry-nav + div#disqus_thread,
+div.post + div#comments,
+div.page + div#comments,
+div.portfolio-entry-nav + div#comments {
 	background-color: #fff;
 	border: 1px solid #d3d5d7;
 	font-size: 14px;
