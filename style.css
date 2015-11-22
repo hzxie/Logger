@@ -706,20 +706,20 @@ ul#portfolio-filter {
 }
 
 ul#portfolio-filter li > a {
-    background-color: #f1f1f1;
-    color: #2f3c4e;
-    display: block;
-    font-size: 13px;
-    padding: 6px 10px 7px;
-    -webkit-border-radius: 2px;
-       -moz-border-radius: 2px;
-            border-radius: 2px;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-       -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	background-color: #f1f1f1;
+	color: #2f3c4e;
+	display: block;
+	font-size: 13px;
+	padding: 6px 10px 7px;
+	-webkit-border-radius: 2px;
+	   -moz-border-radius: 2px;
+	        border-radius: 2px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
-ul#portfolio-filter li.current > a,
+ul#portfolio-filter li > a.active,
 ul#portfolio-filter li > a:hover {
     background-color: #e74c3c;
     color: #fff;
@@ -756,6 +756,12 @@ div#portfolio-items div.portfolio div.portfolio-one {
 	filter: alpha(opacity=75);
 	position: relative;
 	overflow: hidden;
+	-webkit-transition: all 0.17s ease-in-out;
+	   -moz-transition: all 0.17s ease-in-out;
+	        transition: all 0.17s ease-in-out;
+	-webkit-transform: translate3d(0px, 0px, 0px);
+	   -moz-transform: translate3d(0px, 0px, 0px);
+	        transform: translate3d(0px, 0px, 0px);
 }
 
 div#portfolio-items div.portfolio div.portfolio-one:hover {
