@@ -881,6 +881,10 @@ function ss_theme_options() {
                     array(
                         'label'       => '4 columns',
                         'value'       => '4',
+                    ),
+                    array(
+                        'label'       => '6 columns',
+                        'value'       => '6',
                     )
                 ),
                 'std'         => '3',

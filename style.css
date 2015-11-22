@@ -30,7 +30,7 @@
 /*   15 - Advertising              */
 /*   16 - Portfolio                */
 /*   17 - blocks                   */
-/*   18 - Head slide               */
+/*   18 - Home slider              */
 /*   19 - Footer                   */
 /*   20 - Box default              */
 /*   21 - Border radius & Colors &
@@ -687,6 +687,124 @@ div#comments input#submit:hover {
 /* ---------------------------------------------------------------------- */
 /*  07 - Short Code
 /* ---------------------------------------------------------------------- */
+/* Projects Carousel */
+ul.projects-carousel {
+	list-style: none;
+	padding-left: 0 !important;
+}
+
+ul.projects-carousel li {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+}
+
+/* Portfolio */
+ul#portfolio-filter {
+	margin: 0 auto 40px;
+	text-align: center;
+}
+
+ul#portfolio-filter li > a {
+    background-color: #f1f1f1;
+    color: #2f3c4e;
+    display: block;
+    font-size: 13px;
+    padding: 6px 10px 7px;
+    -webkit-border-radius: 2px;
+       -moz-border-radius: 2px;
+            border-radius: 2px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+       -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+ul#portfolio-filter li.current > a,
+ul#portfolio-filter li > a:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+div#portfolio-items div.portfolio {
+	margin: 0 0 30px;
+	width: 25%;
+}
+
+div#portfolio-items div.portfolio.span2 {
+	width: 16.67%;
+}
+
+div#portfolio-items div.portfolio.span3 {
+	width: 25%;
+}
+
+div#portfolio-items div.portfolio.span4 {
+	width: 33.33%;
+}
+
+div#portfolio-items div.portfolio.span6 {
+	width: 50%;
+}
+
+div#portfolio-items div.portfolio div.portfolio-container {
+	padding: 0 15px;
+}
+
+div#portfolio-items div.portfolio div.portfolio-one {
+	border-bottom: 1px solid #efefef;
+	opacity: .75;
+	filter: alpha(opacity=75);
+	position: relative;
+	overflow: hidden;
+}
+
+div#portfolio-items div.portfolio div.portfolio-one:hover {
+	background: #f8f8f8;
+	border-bottom: 1px solid #e74c3c;
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+div#portfolio-items div.portfolio:hover div.portfolio-one:after {
+	background-color: #e74c3c;
+	bottom: -2.5px;
+	content: '';
+	display: block;
+	height: 5px;
+	margin: 0 0 0 -2.5px;
+	position: absolute;
+	left: 50%;
+	width: 5px;
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	     -o-transform: rotate(45deg);
+	        transform: rotate(45deg);
+}
+
+div#portfolio-items div.portfolio div.portfolio-one div.portfolio-body {
+	padding: 20px;
+	text-align: center;
+}
+
+div#portfolio-items div.portfolio div.portfolio-one:hover div.portfolio-header img {
+	-webkit-transform: scale(1.1);
+	   -moz-transform: scale(1.1);
+	        transform: scale(1.1);
+}
+
+div#portfolio-items div.portfolio div.portfolio-one div.portfolio-body h5.portfolio-name {
+    color: #2f3c4e;
+	height: 20px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+
+div#portfolio-items div.portfolio div.portfolio-one div.portfolio-body p.portfolio-categories {
+	color: #aaa;
+	font-size: 12px;
+}
+
 /* Full Width Map */
 div#map-container {
 	border-bottom: 1px solid #d3d5d7;
@@ -700,6 +818,11 @@ div#map-container div.map {
 	height: 450px;
 	width: 100%;
 }
+
+/* ---------------------------------------------------------------------- */
+/*  18 - Home slider
+/* ---------------------------------------------------------------------- */
+
 
 /* ---------------------------------------------------------------------- */
 /*	19 - Footer
