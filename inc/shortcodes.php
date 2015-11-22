@@ -364,7 +364,6 @@ function lgr_comment_box_shortcode( $atts ) {
     ob_start();
     comments_template();
     $comment_box_html = ob_get_contents();
-    $comment_box_html = str_replace('comments-in-singular', '', $comment_box_html);
     ob_end_clean();
 
     return $comment_box_html;

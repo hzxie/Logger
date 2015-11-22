@@ -17,7 +17,7 @@ if ( post_password_required() ) {
     return;
 }
 ?>
-<div id="comments" class="comments-in-singular">
+<div id="comments">
     <?php if ( have_comments() ) : ?>
         <h3 class="comments-title">
             <?php if ( is_page() ): ?>
