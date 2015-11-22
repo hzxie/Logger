@@ -303,16 +303,15 @@ function lgr_fullwidth_map_shortcode( $atts, $content = null ) {
 
         <div id="google-map" class="map"></div>
         <script type="text/javascript">
-            (function($) {
-                $.getScript('https://maps.googleapis.com/maps/api/js?key=<?php echo $apikey; ?>', function() {
-                    map = new google.maps.Map(document.getElementById('google-map'), {
-                        center: {lat: <?php echo $latitude; ?>, lng: <?php echo $longitude; ?>},
-                        zoom: <?php echo $zoom; ?>
-                    });
+           function initMap() {
+                map = new google.maps.Map(document.getElementById('google-map'), {
+                    center: {lat: <?php echo $latitude; ?>, lng: <?php echo $longitude; ?>},
+                    zoom: <?php echo $zoom; ?>
                 });
-            })(jQuery);
+            }
         </script>
-
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $apikey; ?>&callback=initMap"></script>
+        
     <?php else: ?>
 
         <div id="amap" class="map"></div>
@@ -336,6 +335,7 @@ function lgr_fullwidth_map_shortcode( $atts, $content = null ) {
                     map.addControl(scale);
                     map.addControl(toolBar);
                     map.addControl(overView);
+                    // map.setLang('zh_en');
                 });
             })(jQuery);
         </script>
