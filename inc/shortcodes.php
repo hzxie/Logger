@@ -129,7 +129,7 @@ function lgr_portfolio_shortcode( $atts, $content = null ) {
     $portfolio_categories = get_terms('portfolio-category', array('hide_empty' => false));
 ?>
     <ul id="portfolio-filter" class="inline">
-        <li class="current"><a href="<?php echo get_permalink(ot_get_option(TPLNAME . '_portfolio_page')); ?>" data-category="*"><?php echo __('All', TPLNAME); ?></a></li>
+        <li><a href="<?php echo get_permalink(ot_get_option(TPLNAME . '_portfolio_page')); ?>" data-category="*" class="active"><?php echo __('All', TPLNAME); ?></a></li>
     <?php foreach ( $portfolio_categories as $category ): ?>
         <li><a href="<?php echo get_term_link($category->slug, 'portfolio-category'); ?>" data-category="<?php echo $category->slug; ?>"><?php echo $category->name; ?></a></li>
     <?php endforeach; ?>

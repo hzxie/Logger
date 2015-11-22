@@ -82,7 +82,46 @@
     </script>
     <script type="text/javascript">
         (function($) {
-            
+            $.fn.slideHorzShow = function( speed, easing, callback ) { this.animate( { marginLeft : 'show', marginRight : 'show', paddingLeft : 'show', paddingRight : 'show', width : 'show' }, speed, easing, callback ); };
+            $.fn.slideHorzHide = function( speed, easing, callback ) { this.animate( { marginLeft : 'hide', marginRight : 'hide', paddingLeft : 'hide', paddingRight : 'hide', width : 'hide' }, speed, easing, callback ); };
+
+            var $container     = $('#portfolio-items'),
+                $itemsFilter   = $('#portfolio-filter'),
+                mouseOver;
+
+            // Copy categories to item classes
+            $('.portfolio', $container).each(function(i) {
+                var $this = $(this);
+                $this.addClass( $this.attr('data-category') );
+            });
+
+            // Run Isotope when all images are fully loaded
+            $(window).on('load', function() {
+                $container.isotope({
+                    itemSelector : '.portfolio',
+                    layoutMode   : 'fitRows'
+                });
+            });
+
+            // Filter projects
+            $itemsFilter.on('click', 'a', function(e) {
+                var $this         = $(this),
+                    currentOption = $this.attr('data-category');
+                    
+                $itemsFilter.find('a').removeClass('active');
+                $this.addClass('active');
+
+                console.log(currentOption);
+
+                if( currentOption ) {
+                    if( currentOption !== '*' ) {
+                        currentOption = currentOption.replace(currentOption, '.' + currentOption);
+                    }
+                    $container.isotope({ filter : currentOption });
+                }
+
+                e.preventDefault();
+            });
         })(jQuery);
     </script>
     <!-- Analytics Code -->
