@@ -424,7 +424,8 @@ div.widget table#wp-calendar td.pad {
 /*	04 - Post
 /* ---------------------------------------------------------------------- */
 div.post,
-div.page {
+div.page,
+div.portfolio {
 	background-color: #fff;
 	border: 1px solid #d3d5d7;
 	font-size: 14px;
@@ -436,16 +437,20 @@ div.page {
 }
 
 div.post p,
-div.page p {
+div.page p,
+div.portfolio p {
 	margin-bottom: 10px;
 }
 
 div.post ul,
-div.page ul {
+div.page ul,
+div.portfolio ul {
 	padding-left: 30px;
 }
 
-div.post .btn {
+div.post .btn,
+div.page .btn,
+div.portfolio .btn {
 	background-color: #f6f6f6;
 	background-image: none;
 	border: 1px solid #e4e6e8;
@@ -460,6 +465,23 @@ div.post .btn {
 	-webkit-border-radius: 2px;
 	   -moz-border-radius: 2px;
 	        border-radius: 2px;
+	-webkit-transition: all 0.17s ease-in-out;
+	   -moz-transition: all 0.17s ease-in-out;
+	     -o-transition: all 0.17s ease-in-out;
+	        transition: all 0.17s ease-in-out;
+}
+
+div.post .btn-primary,
+div.page .btn-primary,
+div.portfolio .btn-primary {
+	background-color: #e74c3c;
+	color: #fff;
+}
+
+div.post .btn-primary:hover,
+div.page .btn-primary:hover,
+div.portfolio .btn-primary:hover {
+	background-color: #2f3c4e;
 }
 
 div.post i.fa {
@@ -667,6 +689,7 @@ div#comments input#submit {
 	border: 1px solid #e4e6e8;
 	color: #fff;
 	font-size: 12px;
+	margin: 10px 0;
 	padding: 10px;
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
@@ -699,7 +722,23 @@ ul.projects-carousel li {
 	zoom: 1;
 }
 
-/* Portfolio */
+/* Full Width Map */
+div#map-container {
+	border-bottom: 1px solid #d3d5d7;
+	background-color: #f1f1f1;
+	height: 450px;
+	margin-top: -60px;
+	position: relative;
+}
+
+div#map-container div.map {
+	height: 450px;
+	width: 100%;
+}
+
+/* ---------------------------------------------------------------------- */
+/*  16 - Portfolio
+/* ---------------------------------------------------------------------- */
 ul#portfolio-filter {
 	margin: 0 auto 40px;
 	text-align: center;
@@ -811,24 +850,52 @@ div#portfolio-items div.portfolio div.portfolio-one div.portfolio-body p.portfol
 	font-size: 12px;
 }
 
-/* Full Width Map */
-div#map-container {
+div.portfolio div.entry-header {
 	border-bottom: 1px solid #d3d5d7;
-	background-color: #f1f1f1;
-	height: 450px;
-	margin-top: -60px;
-	position: relative;
+	padding: 30px 30px 15px;
 }
 
-div#map-container div.map {
-	height: 450px;
-	width: 100%;
+div.portfolio div#portfolio-slides {
+	min-height: 100px;
+}
+
+div.portfolio div.entry-body {
+	overflow: hidden;
+	padding: 30px;
+}
+
+div.portfolio p.edit-link {
+	margin: 10px 0;
+}
+
+div.portfolio-entry-nav {
+	margin-bottom: 30px;
+}
+
+div.portfolio-entry-nav .btn {
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #e4e6e8;
+	color: #a3a9b0;
+	display: inline-block;
+	*display: inline;
+	font-size: 12px;
+	font-family: 'Open Sans', 'Droid Arabic Kufi', Arial, sans-serif;
+	margin-bottom: 5px;
+	padding: 10px;
+	zoom: 1;
+	-webkit-border-radius: 2px;
+	   -moz-border-radius: 2px;
+	        border-radius: 2px;
+	-webkit-transition: all 0.17s ease-in-out;
+	   -moz-transition: all 0.17s ease-in-out;
+	     -o-transition: all 0.17s ease-in-out;
+	        transition: all 0.17s ease-in-out;
 }
 
 /* ---------------------------------------------------------------------- */
 /*  18 - Home slider
 /* ---------------------------------------------------------------------- */
-
 
 /* ---------------------------------------------------------------------- */
 /*	19 - Footer
