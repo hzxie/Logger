@@ -115,20 +115,28 @@ function lgr_portfolio_shortcode( $atts, $content = null ) {
         'post_status'    => 'publish',
         'paged'          => isset($paged) ? $paged : 1
     );
-    
+
     if( $categories ) {
         $categories = explode( ',', $categories );
-        foreach ( $categories as $i => $category ) {
-            $category_slugs[$i] .= get_term( $category, 'portfolio-categories' )->slug;
+        foreach ($categories as $i => $category) {
+            $category_slugs[$i] .= get_term($category, 'portfolio-categories')->slug;
         }
         $categories = implode( ',', $category_slugs );
-        $args = array_merge( $args, array( 'portfolio-categories' => esc_attr( $categories ) ) );
+        $args       = array_merge( $args, array( 'portfolio-categories' => esc_attr( $categories ) ) );
     }
-    query_posts( $args );
+    query_posts($args);
 
+    $portfolio_categories = get_terms('portfolio-category', array('hide_empty' => false));
+?>
+    <ul id="portfolio-filter" class="inline">
+        <li class="current"><a href="<?php echo get_permalink(ot_get_option(TPLNAME . '_portfolio_page')); ?>" data-category="*"><?php echo __('All', TPLNAME); ?></a></li>
+    <?php foreach ( $portfolio_categories as $category ): ?>
+        <li><a href="<?php echo get_term_link($category->slug, 'portfolio-category'); ?>" data-category="<?php echo $category->slug; ?>"><?php echo $category->name; ?></a></li>
+    <?php endforeach; ?>
+    </ul> <!-- #portfolio-filter -->
+<?php
     if( have_posts() ) :
-        // Fix Layout
-        $output = '<div id="portfolio-items" class="clearfix">';
+        $output .= '<div id="portfolio-items" class="clearfix">';
         $lightbox = ot_get_option(TPLNAME . '_single_project_lightbox');
 
         if( $lightbox == '1' ) {
@@ -160,17 +168,23 @@ function lgr_portfolio_shortcode( $atts, $content = null ) {
             }
 
             $output .= '<div class="span' . esc_attr($columns) . ' portfolio" data-category="' . trim($data_category) . '">';
-            $output .= '    <div class="portfolio-container">';
+            $output .= '<div class="portfolio-container">';
+            $output .= '    <div class="portfolio-one">';
                 if( $post_thumbnail_img ) {
-                    $output .= '<a href="' . $permalink . '" title="' . get_the_title() . '"' . $lightbox_class . '>';
-                    $output .= '    <img src="' . $post_thumbnail_img . '" alt="thumbnail" class="entry-image ' . $post_thumbnail_data['class'] . '">';
-                    $output .= '</a>';
+                    $output .= '<div class="portfolio-header">';
+                    $output .= '    <a href="' . $permalink . '" title="' . get_the_title() . '"' . $lightbox_class . '>';
+                    $output .= '        <img src="' . $post_thumbnail_img . '" alt="thumbnail" class="entry-image ' . $post_thumbnail_data['class'] . '">';
+                    $output .= '    </a>';
+                    $output .= '</div> <!-- .portfolio-header -->';
                 }
-                $output .= '<a href="' . get_permalink() . '" class="project-meta">';
-                $output .= '    <h5 class="title">' . get_the_title()  . '</h5>';
-                $output .= '    <span class="categories">' . substr(trim($category_names), 0, -2) . '</span>';
-                $output .= '</a>';
-            $output .= '    </div> <!-- .portfolio-container -->';
+                $output .= '<div class="portfolio-body">';
+                $output .= '    <a href="' . get_permalink() . '" class="project-meta">';
+                $output .= '        <h5 class="portfolio-name">' . get_the_title()  . '</h5>';
+                $output .= '        <p class="portfolio-categories">' . substr(trim($category_names), 0, -2) . '</p>';
+                $output .= '    </a>';
+                $output .= '</div> <!-- .portfolio-body -->';
+            $output .= '    </div> <!-- .portfolio-one -->';
+            $output .= '</div> <!-- .portfolio-container -->';
             $output .= '</div> <!-- .portfolio -->';
         endwhile;
 
@@ -223,7 +237,7 @@ function lgr_projects_carousel_shortcode( $atts, $content = null ) {
         $output = '';
 
         if( !empty( $title ) ) {
-            $output .= '<h6 class="section-title">' . esc_attr( $title ) . '</h6>';
+            $output .= '<h3 class="section-title">' . esc_attr( $title ) . '</h3>';
         }
 
         $output .= '<ul class="projects-carousel clearfix" data-auto="' . esc_attr( $auto ) . '" data-scroll_count="' . esc_attr( $scroll_count ) . '">';

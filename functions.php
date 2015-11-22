@@ -135,6 +135,8 @@ if ( !function_exists('lgr_enqueue_styles') ) {
 if ( !function_exists('lgr_register_scripts') ) {
     function lgr_register_scripts() {
         wp_register_script('jquery.bootstrap',  LGR_CDN_BASE_URL . 'js/bootstrap.min.js');
+        wp_register_script('jquery.isotope',    LGR_CDN_BASE_URL . 'js/jquery.isotope.min.js');
+
     }
     add_action('init', 'lgr_register_scripts');
 }
@@ -143,6 +145,7 @@ if ( !function_exists('lgr_enqueue_scripts') ) {
     function lgr_enqueue_scripts() {
         wp_enqueue_script('jquery');
         wp_enqueue_script('jquery.bootstrap');
+        wp_enqueue_script('jquery.isotope');
     }
     add_action('wp_print_scripts', 'lgr_enqueue_scripts');
 }
@@ -279,24 +282,6 @@ if ( !function_exists('lgr_comments') ) {
         <?php
                 break;
         endswitch;
-    }
-}
-
-/* ---------------------------------------------------- */
-/*  Portfolio
-/* ---------------------------------------------------- */
-if ( !function_exists('lgr_portfolio_filter') ) {
-    function lgr_portfolio_filter() { 
-        $categories = get_terms('portfolio-category', array('hide_empty' => false));
-?>
-        <ul id="portfolio-filter" class="list-inline">
-            <li>Showing</li>
-            <li class="all"><a href="<?php echo get_permalink(ot_get_option(TPLNAME . '_portfolio_page')); ?>" data-category="*"><?php echo __('All', TPLNAME); ?></a></li>
-        <?php foreach ( $categories as $category ): ?>
-            <li><a href="<?php echo get_term_link($category->slug, 'portfolio-category'); ?>" data-category="<?php echo $category->slug; ?>"><?php echo $category->name; ?></a></li>
-        <?php endforeach; ?>
-        </ul> <!-- #portfolio-filter -->
-<?php
     }
 }
 

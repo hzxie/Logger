@@ -80,6 +80,11 @@
             });
         })(jQuery);
     </script>
+    <script type="text/javascript">
+        (function($) {
+            
+        })(jQuery);
+    </script>
     <!-- Analytics Code -->
     <?php if ( ot_get_option(TPLNAME . '_analytics_code') ): ?>
     <?php echo ot_get_option(TPLNAME . '_analytics_code'); ?>
