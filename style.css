@@ -1043,6 +1043,15 @@ a#back-to-top:hover {
 	div.container {
 		width: 768px;
 	}
+
+	/* Full Width Map */
+	div#map-container {
+		height: 360px;
+	}
+
+	div#map-container div.map {
+		height: 360px;
+	}
 }
 
 /* All Mobile Sizes (devices and browser) */
@@ -1086,11 +1095,29 @@ a#back-to-top:hover {
 	div.container {
 		width: 480px;
 	}
+
+	/* Full Width Map */
+	div#map-container {
+		height: 240px;
+	}
+
+	div#map-container div.map {
+		height: 240px;
+	}
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {
 	div.container {
 		width: 320px;
+	}
+
+	/* Full Width Map */
+	div#map-container {
+		height: 180px;
+	}
+
+	div#map-container div.map {
+		height: 180px;
 	}
 }
