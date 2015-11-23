@@ -293,7 +293,7 @@ function lgr_fullwidth_map_shortcode( $atts, $content = null ) {
         'provider'  => 'GoogleMap',
         'longitude' => '121.498586',
         'latitude'  => '31.239637',
-        'zoom'      => 16,
+        'zoom'      => 14,
         'apikey'    => '',
     ), $atts));
 ?>
@@ -302,44 +302,41 @@ function lgr_fullwidth_map_shortcode( $atts, $content = null ) {
     <?php if ( $provider == 'GoogleMap' ): ?>
 
         <div id="google-map" class="map"></div>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
         <script type="text/javascript">
-            (function($) {
-                mapObject = new google.maps.Map(document.getElementById('google-map'), {
-                    zoom: <?php echo $zoom; ?>,
-                    center: new google.maps.LatLng(<?php echo $longitude; ?>, <?php echo $latitude; ?>)
+           function initMap() {
+                map = new google.maps.Map(document.getElementById('google-map'), {
+                    center: {lat: <?php echo $latitude; ?>, lng: <?php echo $longitude; ?>},
+                    zoom: <?php echo $zoom; ?>
                 });
-            })(jQuery);
+            }
         </script>
-
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $apikey; ?>&callback=initMap"></script>
+        
     <?php else: ?>
 
         <div id="amap" class="map"></div>
-        <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=<?php echo $apikey; ?>"></script>
         <script type="text/javascript">
             (function($) {
-                mapObject = new AMap.Map("amap",{
-                    rotateEnable: true,
-                    dragEnable: true,
-                    zoomEnable: true,
-                    view: new AMap.View2D({
-                        center: new AMap.LngLat(<?php echo $longitude; ?>, <?php echo $latitude; ?>),
-                        zoom: <?php echo $zoom; ?>
-                    })
+                $.getScript('http://webapi.amap.com/maps?v=1.3&key=<?php echo $apikey; ?>&plugin=AMap.Scale,AMap.OverView,AMap.ToolBar', function() {
+                    var scale = new AMap.Scale({
+                            visible: true
+                        }),
+                        toolBar = new AMap.ToolBar({
+                            visible: true
+                        }),
+                        overView = new AMap.OverView({
+                            visible: true
+                        }),
+                        map = new AMap.Map('amap', {
+                            resizeEnable: true,
+                            zoom: <?php echo $zoom; ?>,
+                            center: [<?php echo $longitude; ?>, <?php echo $latitude; ?>]
+                        });
+                    map.addControl(scale);
+                    map.addControl(toolBar);
+                    map.addControl(overView);
+                    // map.setLang('zh_en');
                 });
-                mapObject.plugin(["AMap.ToolBar", "AMap.OverView", "AMap.Scale"], function() {
-                    tool = new AMap.ToolBar({
-                        direction: true,
-                        ruler: true,
-                        autoPosition: true
-                    });
-                    mapObject.addControl(tool);
-                    view = new AMap.OverView();
-                    mapObject.addControl(view);
-                    scale = new AMap.Scale();
-                    mapObject.addControl(scale);
-                });
-                mapObject.setLang("zh_en");
             })(jQuery);
         </script>
 
