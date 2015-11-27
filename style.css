@@ -754,6 +754,7 @@ ul#portfolio-filter li > a {
 	color: #2f3c4e;
 	display: block;
 	font-size: 13px;
+	margin-bottom: 10px;
 	padding: 6px 10px 7px;
 	-webkit-border-radius: 2px;
 	   -moz-border-radius: 2px;
@@ -1096,6 +1097,17 @@ a#back-to-top:hover {
 		width: 480px;
 	}
 
+	/* Portfolio */
+	div#portfolio-items div.portfolio.span2,
+	div#portfolio-items div.portfolio.span3 {
+		width: 50%;
+	}
+
+	div#portfolio-items div.portfolio.span4,
+	div#portfolio-items div.portfolio.span6 {
+		width: 100%;
+	}
+
 	/* Full Width Map */
 	div#map-container {
 		height: 240px;
@@ -1110,6 +1122,14 @@ a#back-to-top:hover {
 @media only screen and (max-width: 479px) {
 	div.container {
 		width: 320px;
+	}
+
+	/* Portfolio */
+	div#portfolio-items div.portfolio.span2,
+	div#portfolio-items div.portfolio.span3,
+	div#portfolio-items div.portfolio.span4,
+	div#portfolio-items div.portfolio.span6 {
+		width: 100%;
 	}
 
 	/* Full Width Map */
