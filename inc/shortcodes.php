@@ -316,29 +316,28 @@ function lgr_fullwidth_map_shortcode( $atts, $content = null ) {
 
         <div id="amap" class="map"></div>
         <script type="text/javascript">
-            (function($) {
-                $.getScript('http://webapi.amap.com/maps?v=1.3&key=<?php echo $apikey; ?>&plugin=AMap.Scale,AMap.OverView,AMap.ToolBar', function() {
-                    var scale = new AMap.Scale({
-                            visible: true
-                        }),
-                        toolBar = new AMap.ToolBar({
-                            visible: true
-                        }),
-                        overView = new AMap.OverView({
-                            visible: true
-                        }),
-                        map = new AMap.Map('amap', {
-                            resizeEnable: true,
-                            zoom: <?php echo $zoom; ?>,
-                            center: [<?php echo $longitude; ?>, <?php echo $latitude; ?>]
-                        });
-                    map.addControl(scale);
-                    map.addControl(toolBar);
-                    map.addControl(overView);
-                    // map.setLang('zh_en');
-                });
-            })(jQuery);
+            function initMap() {
+                var scale = new AMap.Scale({
+                        visible: true
+                    }),
+                    toolBar = new AMap.ToolBar({
+                        visible: true
+                    }),
+                    overView = new AMap.OverView({
+                        visible: true
+                    }),
+                    map = new AMap.Map('amap', {
+                        resizeEnable: true,
+                        zoom: <?php echo $zoom; ?>,
+                        center: [<?php echo $longitude; ?>, <?php echo $latitude; ?>]
+                    });
+                map.addControl(scale);
+                map.addControl(toolBar);
+                map.addControl(overView);
+                // map.setLang('zh_en');
+            }
         </script>
+        <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=<?php echo $apikey; ?>&plugin=AMap.Scale,AMap.OverView,AMap.ToolBar&callback=initMap"></script>
 
     <?php endif; ?>
     </div> <!-- #map-container -->
