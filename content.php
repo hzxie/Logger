@@ -82,3 +82,38 @@
         <?php endif; ?>
     </div> <!-- .entry-body -->
 </div><!-- .post -->
+
+<?php if ( is_singular() ): ?>
+<div class="entry-nav">
+    <?php 
+        // Get links for next and previous project
+        ob_start();
+
+            next_post_link( '%link', '%title' );
+
+            $next_post_link = ob_get_contents();
+            $next_post_link = preg_match( '/(?<=href\=")[^"]+?(?=")/', $next_post_link, $next_post );
+
+        ob_clean();
+
+            previous_post_link( '%link', '%title' );
+
+            $previous_post_link = ob_get_contents();
+            $previous_post_link = preg_match( '/(?<=href\=")[^"]+?(?=")/', $previous_post_link, $prev_post );
+
+        ob_end_clean();
+    ?>
+    <div class="row-fluid">
+        <?php if( isset( $prev_post[0] ) ): ?>
+            <div class="span6">
+                <a href="<?php echo $prev_post[0]; ?>" rel="prev" class="btn"><i class="fa fa-arrow-left"></i> <?php _e('Previous', TPLNAME); ?></a>
+            </div> <!-- .span6 -->
+        <?php endif; ?>
+        <?php if( isset( $next_post[0] ) ): ?>
+            <div class="span6 text-right">
+                <a href="<?php echo $next_post[0]; ?>" rel="next" class="btn"><?php _e('Next', TPLNAME); ?> <i class="fa fa-arrow-right"></i></a>
+            </div> <!-- .span6 -->
+        <?php endif; ?>
+    </div> <!-- .row-fluid -->
+</div> <!-- .entry-nav -->
+<?php endif; ?>
