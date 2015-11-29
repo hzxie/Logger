@@ -71,7 +71,7 @@ endif; ?>
         <?php endif; ?>
     </div> <!-- .entry-body -->
 </div><!-- .post -->
-<div class="portfolio-entry-nav">
+<div class="entry-nav">
     <?php 
         // Get links for next and previous project
         ob_start();

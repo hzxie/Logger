@@ -107,10 +107,11 @@ if ( !function_exists('lgr_setup') ) {
 /* ---------------------------------------------------- */
 if ( !function_exists('lgr_register_styles') ) {
     function lgr_register_styles() {
-        wp_register_style('bootstrap',    			LGR_CDN_BASE_URL . 'css/bootstrap.min.css');
+        wp_register_style('bootstrap',              LGR_CDN_BASE_URL . 'css/bootstrap.min.css');
         wp_register_style('bootstrap.responsive',   LGR_CDN_BASE_URL . 'css/bootstrap-responsive.min.css');
-        wp_register_style('fontawesome',  			LGR_CDN_BASE_URL . 'css/font-awesome.min.css');
-        wp_register_style('custom.style',  			LGR_CDN_BASE_URL . 'style.css');
+        wp_register_style('fontawesome',            LGR_CDN_BASE_URL . 'css/font-awesome.min.css');
+        wp_register_style('google-fonts',           LGR_CDN_BASE_URL . 'css/google-fonts.min.css');
+        wp_register_style('custom.style',           LGR_CDN_BASE_URL . 'style.css');
     }
     add_action('init', 'lgr_register_styles');
 }
@@ -120,11 +121,8 @@ if ( !function_exists('lgr_enqueue_styles') ) {
         wp_enqueue_style('bootstrap');
         wp_enqueue_style('bootstrap.responsive');
         wp_enqueue_style('fontawesome');
+        wp_enqueue_style('google-fonts');
         wp_enqueue_style('custom.style');
-        wp_enqueue_style('droidarabickufi', 'https://fonts.googleapis.com/earlyaccess/droidarabickufi.css');
-        wp_enqueue_style('lato',            'https://fonts.googleapis.com/css?family=Lato');
-        wp_enqueue_style('open-sans',       'https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
-        wp_enqueue_style('roboto-slab',     'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700');
     }
     add_action('wp_print_styles', 'lgr_enqueue_styles');
 }
