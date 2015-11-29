@@ -1082,6 +1082,15 @@ a#back-to-top:hover {
 		padding-bottom: 20px;
 	}
 
+	div.pagination .page-numbers {
+		display: none;
+	}
+
+	div.pagination .page-numbers.prev,
+	div.pagination .page-numbers.next {
+		display: inline !important;
+	}
+
 	div#colophon div.widget {
 		margin-bottom: 30px;
 	}
