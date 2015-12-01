@@ -843,7 +843,7 @@ function ss_theme_options() {
                 'id'          => TPLNAME . '_copyright',
                 'type'        => 'text',
                 'desc'        => __('Copyright text in footer', TPLNAME),
-                'std'         => 'Copyright&copy; 2005-${year} <a href="http://www.zjhzxhz.com">Trunk Shell</a>. All rights reserved.',
+                'std'         => 'Copyright&copy; 2005-${year} <a href="http://zjhzxhz.com">Infinite Script</a>. All rights reserved.',
                 'rows'        => '',
                 'post_type'   => '',
                 'taxonomy'    => '',
