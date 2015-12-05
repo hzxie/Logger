@@ -445,6 +445,7 @@ div.portfolio p {
 div.post ul,
 div.page ul,
 div.portfolio ul {
+	margin: 0 0 10px;
 	padding-left: 30px;
 }
 
