@@ -111,8 +111,6 @@
                 $itemsFilter.find('a').removeClass('active');
                 $this.addClass('active');
 
-                console.log(currentOption);
-
                 if( currentOption ) {
                     if( currentOption !== '*' ) {
                         currentOption = currentOption.replace(currentOption, '.' + currentOption);
