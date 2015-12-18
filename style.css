@@ -509,7 +509,9 @@ div.post div.entry-thumbnail {
 }
 
 div.post div.entry-body {
+	overflow: hidden;
 	padding: 15px 30px;
+	word-wrap: break-word;
 }
 
 div.post div.entry-body p {
@@ -893,7 +895,9 @@ div.portfolio p.edit-link {
 }
 
 div.entry-nav {
+	height: 48px;
 	margin-bottom: 30px;
+	position: relative;
 }
 
 div.entry-nav .btn {
@@ -1094,6 +1098,15 @@ a#back-to-top:hover {
 		border-bottom: 1px solid #efefef;
 		margin-bottom: 40px;
 		padding-bottom: 20px;
+	}
+
+	div.entry-nav div.span6 {
+		position: absolute;
+		width: 50%;
+	}
+
+	div.entry-nav div.span6.text-right {
+		right: 0;
 	}
 
 	div.pagination .page-numbers {
