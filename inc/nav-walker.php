@@ -3,8 +3,8 @@
  * Display dropdown-style menu for mobile users.
  *
  * @package WordPress
- * @subpackage SmartStart
- * @since SmartStart 1.0
+ * @subpackage Logger
+ * @since Logger 1.0
  */
 class Walker_Nav_Menu_Dropdown extends Walker_Nav_Menu {
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {

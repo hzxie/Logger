@@ -5,8 +5,8 @@
  * The area of the page that contains comments and the comment form.
  *
  * @package WordPress
- * @subpackage SmartStart
- * @since SmartStart 1.0
+ * @subpackage Logger
+ * @since Logger 1.0
  */
 
 /*

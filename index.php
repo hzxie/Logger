@@ -10,8 +10,8 @@
  * @link http://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage SmartStart
- * @since SmartStart 1.0
+ * @subpackage Logger
+ * @since Logger 1.0
  */
 get_header(); 
 

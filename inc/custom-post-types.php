@@ -3,8 +3,8 @@
  * Custom Post Types
  *
  * @package WordPress
- * @subpackage SmartStart
- * @since SmartStart 1.0
+ * @subpackage Logger
+ * @since Logger 1.0
  */
 
 /* ---------------------------------------------------------------------- */
