@@ -91,15 +91,15 @@ endif; ?>
         ob_end_clean();
     ?>
     <div class="row-fluid">
+        <div class="span6">
         <?php if( isset( $prev_post[0] ) ): ?>
-            <div class="span6">
-                <a href="<?php echo $prev_post[0]; ?>" rel="prev" class="btn"><i class="fa fa-arrow-left"></i> <?php _e('Previous', TPLNAME); ?></a>
-            </div> <!-- .span6 -->
+            <a href="<?php echo $prev_post[0]; ?>" rel="prev" class="btn"><i class="fa fa-arrow-left"></i> <?php _e('Previous', TPLNAME); ?></a>
         <?php endif; ?>
+        </div> <!-- .span6 -->
+        <div class="span6 text-right">
         <?php if( isset( $next_post[0] ) ): ?>
-            <div class="span6 text-right">
-                <a href="<?php echo $next_post[0]; ?>" rel="next" class="btn"><?php _e('Next', TPLNAME); ?> <i class="fa fa-arrow-right"></i></a>
-            </div> <!-- .span6 -->
+            <a href="<?php echo $next_post[0]; ?>" rel="next" class="btn"><?php _e('Next', TPLNAME); ?> <i class="fa fa-arrow-right"></i></a>
         <?php endif; ?>
+        </div> <!-- .span6 -->
     </div> <!-- .row-fluid -->
 </div> <!-- .entry-nav -->

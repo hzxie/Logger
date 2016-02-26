@@ -23,6 +23,10 @@
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <?php wp_head(); ?>
+    <!-- Custom CSS -->
+    <style type="text/css">
+    <?php echo ot_get_option(TPLNAME . '_custom_css')?>
+    </style>
     <!--[if lte IE 9]>
         <script type="text/javascript" src="<?php echo LGR_CDN_BASE_URL; ?>js/jquery.placeholder.min.js"></script>
     <![endif]-->

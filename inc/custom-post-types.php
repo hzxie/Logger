@@ -11,7 +11,7 @@
 /*  Portfolio
 /* ---------------------------------------------------------------------- */
 /* Register New Post Type: Portfolio */
-function ss_register_post_type_portfolio() {
+function lgr_register_post_type_portfolio() {
     $labels = array(
         'name'               => __('Portfolio', TPLNAME),
         'singular_name'      => __('Project', TPLNAME),
@@ -45,9 +45,9 @@ function ss_register_post_type_portfolio() {
         'menu_position'       => null,
         'menu_icon'           => '',
     );
-    register_post_type('portfolio', apply_filters( 'ss_register_post_type_portfolio', $args ));
+    register_post_type('portfolio', apply_filters( 'lgr_register_post_type_portfolio', $args ));
 } 
-add_action('init', 'ss_register_post_type_portfolio');
+add_action('init', 'lgr_register_post_type_portfolio');
 
 /* Add Menu Icons for Portfolio in Administration Page */
 function add_portfolio_menu_icons(){ ?>
@@ -61,7 +61,7 @@ function add_portfolio_menu_icons(){ ?>
 add_action( 'admin_head', 'add_portfolio_menu_icons' );
 
 /* Register Categories for Portfolio */
-function ss_register_portfolio_categories() {
+function lgr_register_portfolio_categories() {
     $labels = array(
         'name'                      => __('Categories', TPLNAME),
         'singular_name'             => __('Category', TPLNAME),
@@ -89,12 +89,12 @@ function ss_register_portfolio_categories() {
         'rewrite'                   => array('slug' => 'portfolio-category'),
         'query_var'                 => true
     );
-    register_taxonomy('portfolio-category', array('portfolio'), apply_filters('ss_register_portfolio_categories', $args));
+    register_taxonomy('portfolio-category', array('portfolio'), apply_filters('lgr_register_portfolio_categories', $args));
 } 
-add_action('init', 'ss_register_portfolio_categories');
+add_action('init', 'lgr_register_portfolio_categories');
 
 /* Setup Columns to Display in Portfolio Administration Page */
-function ss_setup_portfolio_columns() {
+function lgr_setup_portfolio_columns() {
     $columns = array(
         'cb'                        => '<input type="checkbox" />',
         'thumbnail'                 => __('Thumbnail', TPLNAME),
@@ -104,10 +104,10 @@ function ss_setup_portfolio_columns() {
     );
     return $columns;
 }
-add_action('manage_edit-portfolio_columns', 'ss_setup_portfolio_columns');
+add_action('manage_edit-portfolio_columns', 'lgr_setup_portfolio_columns');
 
 /* Custom colums content for 'Portfolio' */
-function ss_manage_portfolio_columns($column, $post_id) {
+function lgr_manage_portfolio_columns($column, $post_id) {
     global $post;
 
     switch ( $column ) {
@@ -133,10 +133,10 @@ function ss_manage_portfolio_columns($column, $post_id) {
             break;
     }
 }
-add_action('manage_portfolio_posts_custom_column', 'ss_manage_portfolio_columns', 10, 2);
+add_action('manage_portfolio_posts_custom_column', 'lgr_manage_portfolio_columns', 10, 2);
 
 /* Fix Highlight Problem in Menu */
-function namespace_menu_classes( $classes , $item ){
+function lgr_namespace_menu_classes( $classes , $item ){
     if ( get_post_type() == 'portfolio' ) {
         // remove unwanted classes if found
         $classes = str_replace( 'current_page_parent', '', $classes );
@@ -148,4 +148,4 @@ function namespace_menu_classes( $classes , $item ){
     }
     return $classes;
 }
-add_filter( 'nav_menu_css_class', 'namespace_menu_classes', 10, 2 );
+add_filter( 'nav_menu_css_class', 'lgr_namespace_menu_classes', 10, 2 );
