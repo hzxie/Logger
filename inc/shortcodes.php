@@ -310,7 +310,7 @@ function lgr_fullwidth_map_shortcode( $atts, $content = null ) {
                 });
             }
         </script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $apikey; ?>&callback=initMap"></script>
+        <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=<?php echo $apikey; ?>&callback=initMap"></script>
         
     <?php else: ?>
 
@@ -337,7 +337,7 @@ function lgr_fullwidth_map_shortcode( $atts, $content = null ) {
                 // map.setLang('zh_en');
             }
         </script>
-        <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=<?php echo $apikey; ?>&plugin=AMap.Scale,AMap.OverView,AMap.ToolBar&callback=initMap"></script>
+        <script type="text/javascript" src="//webapi.amap.com/maps?v=1.3&key=<?php echo $apikey; ?>&plugin=AMap.Scale,AMap.OverView,AMap.ToolBar&callback=initMap"></script>
 
     <?php endif; ?>
     </div> <!-- #map-container -->
