@@ -24,25 +24,26 @@ if ( is_singular() ):
     if ( $slides != null && count($slides) ): ?>
     <div class="entry-thumbnail">
         <div id="portfolio-slides" class="carousel slide">
-            <ol class="carousel-indicators">
-            <?php foreach ( $slides as $index => $slide ): ?>
-                <li data-target="#portfolio-slides" data-slide-to="<?php echo $index; ?>" class="<?php echo ( $index == 0 ? 'active' : false ); ?>"></li>
-            <?php endforeach; ?>
-            </ol>
-            <!-- Carousel items -->
             <div class="carousel-inner">
             <?php foreach ( $slides as $index => $slide ): ?>
                 <div class="item <?php echo ( $index == 0 ? 'active' : false ); ?>">
                     <a href="<?php echo $slide['slide-img-src']; ?>">
                         <img src="<?php echo $slide['slide-img-src']; ?>" alt="slide" />
                     </a>
-                </div>
+                </div> <!-- .item -->
             <?php endforeach; ?>
-            </div>
+            </div> <!-- .carousel-inner -->
+            <?php if ( count($slides) != 1 ): ?>
+            <ol class="carousel-indicators">
+            <?php foreach ( $slides as $index => $slide ): ?>
+                <li data-target="#portfolio-slides" data-slide-to="<?php echo $index; ?>" class="<?php echo ( $index == 0 ? 'active' : false ); ?>"></li>
+            <?php endforeach; ?>
+            </ol>
             <!-- Carousel nav -->
             <a class="carousel-control left" href="#portfolio-slides" data-slide="prev">&lsaquo;</a>
             <a class="carousel-control right" href="#portfolio-slides" data-slide="next">&rsaquo;</a>
-            </div> <!-- .carousel -->
+            <?php endif; ?>
+        </div> <!-- #portfolio-slides -->
     </div> <!-- .entry-thumbnail -->
     <?php 
     endif;
