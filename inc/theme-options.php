@@ -768,6 +768,7 @@ function ss_theme_options() {
                             array('value'=> 'flickr',         'label' => 'Flickr',        'src'=> ''),
                             array('value'=> 'github',         'label' => 'Github',        'src'=> ''),
                             array('value'=> 'google-plus',    'label' => 'Google+',       'src'=> ''),
+                            array('value'=> 'graduation-cap', 'label' => 'Google Scholar','src'=> ''),
                             array('value'=> 'instagram',      'label' => 'Instagram',     'src'=> ''),
                             array('value'=> 'lastfm',         'label' => 'LastFM',        'src'=> ''),
                             array('value'=> 'linkedin',       'label' => 'LinkedIn',      'src'=> ''),
