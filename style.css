@@ -760,6 +760,17 @@ div#map-container div.map {
 	width: 100%;
 }
 
+/* BibTeX */
+div.bibtex pre {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	margin: 5px 0;
+	max-width: 100%;
+	overflow: auto;
+	padding: 12px;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
 /* ---------------------------------------------------------------------- */
 /*  16 - Portfolio
 /* ---------------------------------------------------------------------- */
