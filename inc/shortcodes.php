@@ -334,7 +334,7 @@ function lgr_fullwidth_map_shortcode( $atts, $content = null ) {
                 map.addControl(scale);
                 map.addControl(toolBar);
                 map.addControl(overView);
-                // map.setLang('zh_en');
+                map.setLang('zh_en');
             }
         </script>
         <script type="text/javascript" src="//webapi.amap.com/maps?v=1.3&key=<?php echo $apikey; ?>&plugin=AMap.Scale,AMap.OverView,AMap.ToolBar&callback=initMap"></script>
@@ -365,3 +365,45 @@ function lgr_comment_box_shortcode( $atts ) {
     return $comment_box_html;
 }
 add_shortcode('comment_box', 'lgr_comment_box_shortcode');
+
+/**
+ * ShortCode: [BibTeX]
+ * 
+ * This short code is used to generate comment box in the page.
+ */
+function lgr_bibtex_shortcode( $atts ) {
+    extract( shortcode_atts( array(
+        'identity'      => '',
+        'title'         => '',
+        'author'        => '',
+        'booktitle'     => '',
+        'journal'       => '',
+        'pages'         => '',
+        'organization'  => '',
+        'publisher'     => '',
+        'year'          => '',
+        'template'      => 'article',
+        'volume'        => '',
+        'number'        => '',
+        'url'           => '#',
+    ), $atts ) );
+
+    $bib_tex_content  = '<div class="bibix-item">';
+    $bib_tex_content .= '<a href="javascript:void(0);" class="bibtex-trigger">[BibTeX]</a>';
+    $bib_tex_content .= sprintf("<a href=\"%s\">[%s]</a>", $url, __('Download PDF', TPLNAME));
+    $bib_tex_content .= sprintf("<div class=\"bibtex\" style=\"display:none\"><pre><code>@%s{%s,\n", $template, $identity);
+    $bib_tex_content .= sprintf("  title={%s},\n", $title);
+    $bib_tex_content .= sprintf("  author={%s},\n", $author);
+    $bib_tex_content .= empty($booktitle)    ? '' : sprintf("  booktitle={%s},\n", $booktitle);
+    $bib_tex_content .= empty($journal)      ? '' : sprintf("  journal={%s},\n", $journal);
+    $bib_tex_content .= empty($volume)       ? '' : sprintf("  volume={%s},\n", $volume);
+    $bib_tex_content .= empty($number)       ? '' : sprintf("  number={%s},\n", $number);
+    $bib_tex_content .= empty($pages)        ? '' : sprintf("  pages={%s},\n", $pages);
+    $bib_tex_content .= empty($year)         ? '' : sprintf("  year={%s},\n", $year);
+    $bib_tex_content .= empty($publisher)    ? '' : sprintf("  publisher={%s},\n", $publisher);
+    $bib_tex_content .= empty($organization) ? '' : sprintf("  organization={%s},\n", $organization);
+    $bib_tex_content .= sprintf("  url={%s}\n", $url);
+    $bib_tex_content .= '}</code></pre></div> <!-- .bibtex --> </div> <!-- .bibtex-item -->';
+    return $bib_tex_content;
+}
+add_shortcode('BibTeX', 'lgr_bibtex_shortcode');
