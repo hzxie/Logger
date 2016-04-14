@@ -235,7 +235,7 @@ if ( !function_exists('lgr_get_keywords') ) {
         global $wp_query;
         $post_id = $post_id ? $post_id : $wp_query->get_queried_object()->ID;
 
-        if ( is_home() ) {
+        if ( is_home() || is_page() ) {
             return ot_get_option(TPLNAME . '_blog_keywords');
         }
         $tags = wp_get_post_tags($post_id, array('fields' => 'names'));
@@ -249,7 +249,7 @@ if ( !function_exists('lgr_get_description') ) {
         global $wp_query;
         $post = $post ? $post : $wp_query->get_queried_object();
     
-        if ( is_home() ) {
+        if ( is_home() || is_front_page() ) {
             return ot_get_option(TPLNAME . '_blog_description');
         }
         return mb_substr(wp_trim_words($post->post_content), 0, 160);
