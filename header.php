@@ -13,7 +13,8 @@
 <head>
     <meta charset ="<?php bloginfo('charset'); ?>" />
     <title><?php wp_title('|', true, 'right'); ?></title>
-    <meta name="description" content="<?php bloginfo('description'); ?>" />
+    <meta name="keyword" content="<?php echo lgr_get_keywords(); ?>" />
+    <meta name="description" content="<?php echo lgr_get_description(); ?>" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Icon -->    

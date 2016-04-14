@@ -230,6 +230,32 @@ if ( !function_exists('lgr_wp_title') ) {
 /* ---------------------------------------------------- */
 /*  Get Meta Data for Post
 /* ---------------------------------------------------- */
+if ( !function_exists('lgr_get_keywords') ) {
+    function lgr_get_keywords() {
+        global $wp_query;
+        $post_id = $post_id ? $post_id : $wp_query->get_queried_object()->ID;
+
+        if ( is_home() ) {
+            return ot_get_option(TPLNAME . '_blog_keywords');
+        }
+        $tags = wp_get_post_tags($post_id, array('fields' => 'names'));
+        return implode(', ', $tags);
+
+    }
+}
+
+if ( !function_exists('lgr_get_description') ) {
+    function lgr_get_description() {
+        global $wp_query;
+        $post = $post ? $post : $wp_query->get_queried_object();
+    
+        if ( is_home() ) {
+            return ot_get_option(TPLNAME . '_blog_description');
+        }
+        return mb_substr(wp_trim_words($post->post_content), 0, 160);
+    }
+}
+
 if ( !function_exists('lgr_get_post_meta') ) {
     function lgr_get_post_meta($key, $post_id = null) {
         global $wp_query;
@@ -292,7 +318,7 @@ if ( !function_exists('lgr_excerpt_length') ) {
         if( isset($GLOBALS['post-carousel']) ) {
             return 20;
         }
-        return ot_get_option('lgr_excerpt_length');
+        return ot_get_option(TPLNAME . '_excerpt_length');
     }
     add_filter('excerpt_length', 'lgr_excerpt_length');
 }
