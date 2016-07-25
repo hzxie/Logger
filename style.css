@@ -1028,6 +1028,11 @@ div#footer a:hover {
 	color: #fff;
 }
 
+div#footer div.text-right img {
+	margin: -2px 5px;
+	width: 14px;
+}
+
 a#back-to-top {
 	background-color: #e74c3c;
 	color: #fff;

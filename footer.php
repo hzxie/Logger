@@ -39,10 +39,22 @@
         <div class="container">
             <div class="row-fluid">
                 <div class="span6 text-left">
-                    <?php echo str_replace('${year}', date('Y'), ot_get_option(TPLNAME . '_copyright')); ?>
+                    <p><?php echo str_replace('${year}', date('Y'), ot_get_option(TPLNAME . '_copyright')); ?></p>
                 </div> <!-- .span6 -->
                 <div class="span6 text-right">
-                    <?php echo __( 'Proudly powered by ', TPLNAME); ?><a href="<?php echo esc_url( __( 'http://wordpress.org/', TPLNAME ) ); ?>">WordPress</a>.
+                    <p>
+                    <?php 
+                        $icp_number         = ot_get_option(TPLNAME . '_icp_number');
+                        $police_icp_number  = ot_get_option(TPLNAME . '_police_icp_number');
+                    ?>
+
+                    <?php if ( $icp_number || $police_icp_number ): ?>
+                        <?php echo $icp_number; ?> <br>
+                        <img src="http://www.beian.gov.cn/img/ghs.png" alt="Police-Logo"> <?php echo $police_icp_number; ?>
+                    <?php else: ?>
+                        <?php echo __( 'Proudly powered by ', TPLNAME); ?><a href="<?php echo esc_url( __( 'http://wordpress.org/', TPLNAME ) ); ?>">WordPress</a>.
+                    <?php endif; ?>
+                    </p>
                 </div> <!-- .span6 -->
             </div> <!-- .row-fluid -->
         </div> <!-- .container -->
@@ -136,8 +148,8 @@
         })(jQuery);
     </script>
     <!-- Analytics Code -->
-    <?php if ( ot_get_option(TPLNAME . '_analytics_code') ): ?>
+<?php if ( ot_get_option(TPLNAME . '_analytics_code') ): ?>
     <?php echo ot_get_option(TPLNAME . '_analytics_code'); ?>
-    <?php endif; ?>
+<?php endif; ?>
 </body>
 </html>
