@@ -49,8 +49,10 @@
                     ?>
 
                     <?php if ( $icp_number || $police_icp_number ): ?>
-                        <?php echo $icp_number; ?> <br>
+                        <?php echo $icp_number; ?><br>
+                        <?php if ( $police_icp_number ): ?>
                         <img src="http://www.beian.gov.cn/img/ghs.png" alt="Police-Logo"> <?php echo $police_icp_number; ?>
+                        <?php endif; ?>
                     <?php else: ?>
                         <?php echo __( 'Proudly powered by ', TPLNAME); ?><a href="<?php echo esc_url( __( 'http://wordpress.org/', TPLNAME ) ); ?>">WordPress</a>.
                     <?php endif; ?>
