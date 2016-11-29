@@ -504,6 +504,7 @@ div.post div.entry-header {
 
 div.post div.entry-header button.btn {
 	cursor: default;
+	text-align: left;
 }
 
 div.post div.entry-thumbnail {
