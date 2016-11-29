@@ -385,14 +385,13 @@ function lgr_bibtex_shortcode( $atts ) {
         'template'      => 'article',
         'volume'        => '',
         'number'        => '',
-        'paper_url'     => '#',
-        'poster_url'    => '',
+        'doi'           => '#',
+        'url'           => '#',
     ), $atts ) );
 
     $bib_tex_content  = '<div class="bibix-item">';
     $bib_tex_content .= '<a href="javascript:void(0);" class="bibtex-trigger">[BibTeX]</a>';
-    $bib_tex_content .= sprintf("<a href=\"%s\">[%s]</a>", $paper_url, __('Download PDF', TPLNAME));
-    $bib_tex_content .= empty($poster_url)    ? '' : sprintf("<a href=\"%s\">[%s]</a>", $poster_url, __('Poster', TPLNAME));
+    $bib_tex_content .= sprintf("<a href=\"%s\">[%s]</a>", $url, __('Download PDF', TPLNAME));
     $bib_tex_content .= sprintf("<div class=\"bibtex\" style=\"display:none\"><pre><code>@%s{%s,\n", $template, $identity);
     $bib_tex_content .= sprintf("  title={%s},\n", $title);
     $bib_tex_content .= sprintf("  author={%s},\n", $author);
@@ -404,7 +403,7 @@ function lgr_bibtex_shortcode( $atts ) {
     $bib_tex_content .= empty($year)         ? '' : sprintf("  year={%s},\n", $year);
     $bib_tex_content .= empty($publisher)    ? '' : sprintf("  publisher={%s},\n", $publisher);
     $bib_tex_content .= empty($organization) ? '' : sprintf("  organization={%s},\n", $organization);
-    $bib_tex_content .= sprintf("  url={%s}\n", $paper_url);
+    $bib_tex_content .= sprintf("  url={https://dx.doi.org/%s}\n", $doi);
     $bib_tex_content .= '}</code></pre></div> <!-- .bibtex --> </div> <!-- .bibtex-item -->';
     return $bib_tex_content;
 }
