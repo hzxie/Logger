@@ -1,8 +1,8 @@
  /**
  * Theme Name: Logger
- * Theme URI: http://github.com/zjhzxhz/logger
+ * Theme URI: http://github.com/hzxie/logger
  * Author: 谢浩哲
- * Author URI: http://zjhzxhz.com/
+ * Author URI: http://haozhexie.com/
  * Description: Logger is a simple and clean but still professional template suitable for any business or portfolio, and it's created by using the latest HTML5 and CSS3 techniques.
  * Version: 1.0.1
  * License: GNU General Public License v2 or later
@@ -439,6 +439,7 @@ div.portfolio {
 div.post p,
 div.page p,
 div.portfolio p {
+	line-height: 150%;
 	margin-bottom: 10px;
 }
 
@@ -515,10 +516,6 @@ div.post div.entry-body {
 	overflow: hidden;
 	padding: 15px 30px;
 	word-wrap: break-word;
-}
-
-div.post div.entry-body p {
-	line-height: 150%;
 }
 
 div.post div.entry-body table {
