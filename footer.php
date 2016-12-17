@@ -96,19 +96,6 @@
     </script>
     <script type="text/javascript">
         (function($) {
-            $('.bibtex-trigger').click(function() {
-                var bibtexInfoContainer = $('.bibtex', $(this).parent());
-
-                if ( $(bibtexInfoContainer).is(':visible') ) {
-                    $(bibtexInfoContainer).slideUp(250);
-                } else {
-                    $(bibtexInfoContainer).slideDown(250);
-                }
-            });
-        })(jQuery);
-    </script>
-    <script type="text/javascript">
-        (function($) {
             $.fn.slideHorzShow = function( speed, easing, callback ) { this.animate( { marginLeft : 'show', marginRight : 'show', paddingLeft : 'show', paddingRight : 'show', width : 'show' }, speed, easing, callback ); };
             $.fn.slideHorzHide = function( speed, easing, callback ) { this.animate( { marginLeft : 'hide', marginRight : 'hide', paddingLeft : 'hide', paddingRight : 'hide', width : 'hide' }, speed, easing, callback ); };
 
