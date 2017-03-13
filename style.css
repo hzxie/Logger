@@ -105,6 +105,10 @@ ul.inline > li {
 	padding-right: 10px;
 }
 
+video {
+	height: auto;
+	max-width: 100%;
+}
 
 /* ---------------------------------------------------------------------- */
 /*	02 - Header & Navigation
