@@ -15,13 +15,14 @@
     </div> <!-- .entry-header -->
 <?php 
 if ( is_singular() ): 
-    $slides         = lgr_get_post_meta(TPLNAME . '_project_slider');
-    $lightbox       = ot_get_option(TPLNAME . '_single_project_lightbox');
-    $slider_effect  = ot_get_option(TPLNAME . '_project_slider_effect');
-    $slider_speed   = ot_get_option(TPLNAME . '_project_slider_speed');
-    $slider_timeout = ot_get_option(TPLNAME . '_project_slider_timeout');
+    $is_slides_disabled = lgr_get_post_meta(TPLNAME . '_disable_project_slider');
+    $slides             = lgr_get_post_meta(TPLNAME . '_project_slider');
+    $lightbox           = ot_get_option(TPLNAME . '_single_project_lightbox');
+    $slider_effect      = ot_get_option(TPLNAME . '_project_slider_effect');
+    $slider_speed       = ot_get_option(TPLNAME . '_project_slider_speed');
+    $slider_timeout     = ot_get_option(TPLNAME . '_project_slider_timeout');
 
-    if ( $slides != null && count($slides) ): ?>
+    if ( !$is_slides_disabled && $slides != null && count($slides) ): ?>
     <div class="entry-thumbnail">
         <div id="portfolio-slides" class="carousel slide">
             <div class="carousel-inner">
