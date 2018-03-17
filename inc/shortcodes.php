@@ -32,6 +32,9 @@ function lgr_column_shortcode( $atts, $content = null ) {
         'column' => 0,
     ), $atts ) );
 
+    if ( 0 === strpos($content, '</p>') ) { // Fix strange bug: $content starts with '</p>'
+        $content = substr($content, 4);
+    }
     return '<div class="offset' . $offset . ' span' . $column . '">' . do_shortcode( $content ) . '</div>';
 }
 add_shortcode('column', 'lgr_column_shortcode');
