@@ -35,6 +35,7 @@ function lgr_register_post_type_portfolio() {
         'show_ui'             => true,
         'show_in_menu'        => true,
         'show_in_nav_menus'   => true,
+        'show_in_rest'        => true,
         'publicly_queryable'  => true,
         'exclude_from_search' => true,
         'has_archive'         => true,
