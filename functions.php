@@ -12,8 +12,8 @@ $shortname = 'lgr';
 define('TPLNAME', $shortname);
 
 /* Define BaseURL of the Theme */
-define('LGR_BASE_DIR', get_template_directory() . '/');
-define('LGR_BASE_URL', get_template_directory_uri() . '/');
+define('LGR_BASE_DIR', get_template_directory());
+define('LGR_BASE_URL', get_template_directory_uri());
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -73,9 +73,9 @@ if ( !function_exists('lgr_setup') ) {
 
         // Make theme available for translation
         // Translations can be filed in the /languages/ directory
-        load_theme_textdomain(TPLNAME, LGR_BASE_DIR . 'languages');
+        load_theme_textdomain(TPLNAME, LGR_BASE_DIR . '/languages');
         $locale      = get_locale();
-        $locale_file = LGR_BASE_DIR . 'languages/$locale.php';
+        $locale_file = LGR_BASE_DIR . '/languages/$locale.php';
         if ( is_readable($locale_file) ) {
             require_once($locale_file);
         }
@@ -98,8 +98,33 @@ if ( !function_exists('lgr_setup') ) {
 
         // Add CDN support
         $cdn_base_url = ot_get_option(TPLNAME . '_cdn_base_url');
-        define('LGR_CDN_BASE_URL', empty($cdn_base_url) ? LGR_BASE_URL : ($cdn_base_url . '/'));
+        define('LGR_CDN_BASE_URL', empty($cdn_base_url) ? get_site_url() : ($cdn_base_url));
     }
+}
+
+/* ---------------------------------------------------- */
+/*  CDN Rewriting
+/* ---------------------------------------------------- */
+if ( !function_exists('lgr_add_rewrite_rules') ) {
+    function lgr_add_rewrite_rules($html) {
+        $origin_regex = str_replace('/', '\\/', get_site_url());
+        $html = preg_replace(
+            '/'. $origin_regex .'\/wp-([^"\']*?)\.(jpg|jpeg|png|gif|bmp|css|js|woff|woff2|eot|otf|ttf|mp4|pdf)/i',
+            LGR_CDN_BASE_URL .'/wp-$1.$2', $html);
+        return $html;
+    }
+
+    function lgr_buffer_start() {
+        ob_start("lgr_add_rewrite_rules");
+    }
+    add_action('init', 'lgr_buffer_start');
+
+    function lgr_buffer_end() {
+        while ( ob_get_level() > 0 ) {
+            ob_end_flush();
+        }
+    }
+    add_action('shutdown', 'lgr_buffer_end');
 }
 
 /* ---------------------------------------------------- */
@@ -107,11 +132,11 @@ if ( !function_exists('lgr_setup') ) {
 /* ---------------------------------------------------- */
 if ( !function_exists('lgr_register_styles') ) {
     function lgr_register_styles() {
-        wp_register_style('bootstrap',              LGR_CDN_BASE_URL . 'css/bootstrap.min.css');
-        wp_register_style('bootstrap.responsive',   LGR_CDN_BASE_URL . 'css/bootstrap-responsive.min.css');
-        wp_register_style('fontawesome',            LGR_CDN_BASE_URL . 'css/font-awesome.min.css');
-        wp_register_style('google-fonts',           LGR_CDN_BASE_URL . 'css/google-fonts.min.css');
-        wp_register_style('custom.style',           LGR_CDN_BASE_URL . 'style.css');
+        wp_register_style('bootstrap',              LGR_BASE_URL . '/css/bootstrap.min.css');
+        wp_register_style('bootstrap.responsive',   LGR_BASE_URL . '/css/bootstrap-responsive.min.css');
+        wp_register_style('fontawesome',            LGR_BASE_URL . '/css/font-awesome.min.css');
+        wp_register_style('google-fonts',           LGR_BASE_URL . '/css/google-fonts.min.css');
+        wp_register_style('custom.style',           LGR_BASE_URL . '/style.css');
     }
     add_action('init', 'lgr_register_styles');
 }
@@ -132,8 +157,8 @@ if ( !function_exists('lgr_enqueue_styles') ) {
 /* ---------------------------------------------------- */
 if ( !function_exists('lgr_register_scripts') ) {
     function lgr_register_scripts() {
-        wp_register_script('jquery.bootstrap',  LGR_CDN_BASE_URL . 'js/bootstrap.min.js');
-        wp_register_script('jquery.isotope',    LGR_CDN_BASE_URL . 'js/jquery.isotope.min.js');
+        wp_register_script('jquery.bootstrap',  LGR_BASE_URL . '/js/bootstrap.min.js');
+        wp_register_script('jquery.isotope',    LGR_BASE_URL . '/js/jquery.isotope.min.js');
 
     }
     add_action('init', 'lgr_register_scripts');
@@ -379,22 +404,5 @@ if ( !function_exists('lgr_paging_nav') ) {
     }
 }
 
-/* ---------------------------------------------------- */
-/*  Keep Post ID Continuous
-/* ---------------------------------------------------- */
-if ( !function_exists('lgr_keep_id_continuous') ) {
-    function lgr_keep_id_continuous(){
-        global $wpdb;
-        $lastID = $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_status = 'publish' OR post_status = 'draft' OR post_status = 'private' OR ( post_status = 'inherit' AND post_type = 'attachment' ) ORDER BY ID DESC LIMIT 1");
-        $wpdb->query("DELETE FROM $wpdb->posts WHERE ( post_status = 'auto-draft' OR ( post_status = 'inherit' AND post_type = 'revision' ) ) AND ID > $lastID");
-        ++ $lastID;
-        $wpdb->query("ALTER TABLE $wpdb->posts AUTO_INCREMENT = $lastID");
-    }
-}
-add_filter('load-post-new.php', 'lgr_keep_id_continuous');
-add_filter('load-media-new.php', 'lgr_keep_id_continuous');
-add_filter('load-nav-menus.php', 'lgr_keep_id_continuous');
 // Disabled Auto Save
 add_action('admin_print_scripts', create_function( '$a', "wp_deregister_script('autosave');" ));
-// Disabled Revision
-remove_action('pre_post_update' , 'wp_save_post_revision');

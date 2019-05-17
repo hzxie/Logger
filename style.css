@@ -59,6 +59,7 @@ small {font-size: 10px; }
 ol {list-style: decimal; }
 ul {list-style: disc; }
 img {margin-bottom: 5px; }
+video { max-width: 100% }
 
 /* ---------------------------------------------------------------------- */
 /*	01 - General & Basic Styles

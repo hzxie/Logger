@@ -48,10 +48,10 @@ function lgr_register_meta_boxes($meta_boxes) {
                 'id'      => $prefix . 'page_layout',
                 'type'    => 'radio',
                 'options' => array(
-                    ''              => '<img src="' . LGR_BASE_URL . 'images/layout/default.png" alt="' . __('Use theme default setting', TPLNAME) . '" title="' . __('Use theme default setting', TPLNAME) . '" />',
-                    'full-width'    => '<img src="' . LGR_BASE_URL . 'images/layout/full-width.png" alt="' . __('Fullwidth - No sidebar', TPLNAME) . '" title="' . __('Fullwidth - No sidebar"', TPLNAME) . ' />',
-                    'left-sidebar'  => '<img src="' . LGR_BASE_URL . 'images/layout/left-sidebar.png" alt="' . __('Sidebar on the left', TPLNAME) . '" title="' . __('Sidebar on the left', TPLNAME) . '" />',
-                    'right-sidebar' => '<img src="' . LGR_BASE_URL . 'images/layout/right-sidebar.png" alt="' . __('Sidebar on the right', TPLNAME) . '" title="' . __('Sidebar on the right', TPLNAME) . '" />'
+                    ''              => '<img src="' . LGR_BASE_URL . '/images/layout/default.png" alt="' . __('Use theme default setting', TPLNAME) . '" title="' . __('Use theme default setting', TPLNAME) . '" />',
+                    'full-width'    => '<img src="' . LGR_BASE_URL . '/images/layout/full-width.png" alt="' . __('Fullwidth - No sidebar', TPLNAME) . '" title="' . __('Fullwidth - No sidebar"', TPLNAME) . ' />',
+                    'left-sidebar'  => '<img src="' . LGR_BASE_URL . '/images/layout/left-sidebar.png" alt="' . __('Sidebar on the left', TPLNAME) . '" title="' . __('Sidebar on the left', TPLNAME) . '" />',
+                    'right-sidebar' => '<img src="' . LGR_BASE_URL . '/images/layout/right-sidebar.png" alt="' . __('Sidebar on the right', TPLNAME) . '" title="' . __('Sidebar on the right', TPLNAME) . '" />'
                 ),
                 'std'  => ( isset( $_GET['post_type'] ) && ( $pagenow == 'post.php' || $pagenow == 'post-new.php' ) && $_GET['post_type'] == 'page' ?  '1col' : '' ),
                 'desc' => __('Here you can overwrite the Site Structure setting from the Theme Options, just for this page.', TPLNAME)
@@ -122,10 +122,10 @@ function lgr_register_meta_boxes($meta_boxes) {
                 'id'       => $prefix . 'project_page_layout',
                 'type'     => 'radio',
                 'options' => array(
-                    ''              => '<img src="' . LGR_BASE_URL . 'images/layout/default.png" alt="' . __('Use theme default setting', TPLNAME) . '" title="' . __('Use theme default setting', TPLNAME) . '" />',
-                    'full-width'    => '<img src="' . LGR_BASE_URL . 'images/layout/full-width.png" alt="' . __('Fullwidth - No sidebar', TPLNAME) . '" title="' . __('Fullwidth - No sidebar"', TPLNAME) . ' />',
-                    'left-sidebar'  => '<img src="' . LGR_BASE_URL . 'images/layout/left-sidebar.png" alt="' . __('Sidebar on the left', TPLNAME) . '" title="' . __('Sidebar on the left', TPLNAME) . '" />',
-                    'right-sidebar' => '<img src="' . LGR_BASE_URL . 'images/layout/right-sidebar.png" alt="' . __('Sidebar on the right', TPLNAME) . '" title="' . __('Sidebar on the right', TPLNAME) . '" />'
+                    ''              => '<img src="' . LGR_BASE_URL . '/images/layout/default.png" alt="' . __('Use theme default setting', TPLNAME) . '" title="' . __('Use theme default setting', TPLNAME) . '" />',
+                    'full-width'    => '<img src="' . LGR_BASE_URL . '/images/layout/full-width.png" alt="' . __('Fullwidth - No sidebar', TPLNAME) . '" title="' . __('Fullwidth - No sidebar"', TPLNAME) . ' />',
+                    'left-sidebar'  => '<img src="' . LGR_BASE_URL . '/images/layout/left-sidebar.png" alt="' . __('Sidebar on the left', TPLNAME) . '" title="' . __('Sidebar on the left', TPLNAME) . '" />',
+                    'right-sidebar' => '<img src="' . LGR_BASE_URL . '/images/layout/right-sidebar.png" alt="' . __('Sidebar on the right', TPLNAME) . '" title="' . __('Sidebar on the right', TPLNAME) . '" />'
                 ),
                 'std'  => '',
                 'desc' => ''

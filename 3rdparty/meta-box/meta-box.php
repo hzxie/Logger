@@ -17,13 +17,13 @@ define( 'RWMB_VER', '4.3.11' );
 
 // Define plugin URLs, for fast enqueuing scripts and styles
 if ( ! defined( 'RWMB_URL' ) )
-	define( 'RWMB_URL', LGR_BASE_URL . '3rdparty/meta-box/' );
+	define( 'RWMB_URL', LGR_BASE_URL . '/3rdparty/meta-box/' );
 define( 'RWMB_JS_URL', trailingslashit( RWMB_URL . 'js' ) );
 define( 'RWMB_CSS_URL', trailingslashit( RWMB_URL . 'css' ) );
 
 // Plugin paths, for including files
 if ( ! defined( 'RWMB_DIR' ) )
-	define( 'RWMB_DIR', LGR_BASE_DIR . '3rdparty/meta-box/' );
+	define( 'RWMB_DIR', LGR_BASE_DIR . '/3rdparty/meta-box/' );
 define( 'RWMB_INC_DIR', trailingslashit( RWMB_DIR . 'inc' ) );
 define( 'RWMB_FIELDS_DIR', trailingslashit( RWMB_INC_DIR . 'fields' ) );
 
