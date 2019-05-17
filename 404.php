@@ -24,7 +24,7 @@ $blog_layout     = ot_get_option(TPLNAME . '_blog_layout');
                         </div> <!-- .entry-header -->
                         <div class="entry-body">
                             <h3><?php echo __('The requested URL was not found on this server.', TPLNAME); ?></h3>
-                            <img src="<?php echo LGR_CDN_BASE_URL; ?>/images/404.png" alt="">
+                            <img src="<?php echo LGR_BASE_URL; ?>/images/404.png" alt="">
                         </div> <!-- .entry-body -->
                     </div><!-- .post -->
                 </div> <!-- #main-content -->

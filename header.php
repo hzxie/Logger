@@ -29,10 +29,10 @@
     <?php echo ot_get_option(TPLNAME . '_custom_css')?>
     </style>
     <!--[if lte IE 9]>
-        <script type="text/javascript" src="<?php echo LGR_CDN_BASE_URL; ?>js/jquery.placeholder.min.js"></script>
+        <script type="text/javascript" src="<?php echo LGR_BASE_URL; ?>/js/jquery.placeholder.min.js"></script>
     <![endif]-->
     <!--[if lte IE 7]>
-        <link rel="stylesheet" type="text/css" href="<?php echo LGR_CDN_BASE_URL; ?>css/font-awesome-ie7.min.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo LGR_BASE_URL; ?>/css/font-awesome-ie7.min.css" />
     <![endif]-->
     <?php if ( ot_get_option(TPLNAME . '_upgrade_browser_url') ): ?>
     <!--[if lt IE 6]>
