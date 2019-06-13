@@ -49,9 +49,11 @@
                     ?>
 
                     <?php if ( $icp_number || $police_icp_number ): ?>
-                        <?php echo $icp_number; ?><br>
+                        <span id="icp-number"><?php echo $icp_number; ?></span>
                         <?php if ( $police_icp_number ): ?>
-                        <img src="<?php echo get_template_directory_uri() . '/images/police-badge-of-china.png'; ?>" alt="Police-Logo"> <?php echo $police_icp_number; ?>
+                        <span id="police-icp-number">
+                            <img src="<?php echo get_template_directory_uri() . '/images/police-badge-of-china.png'; ?>" alt="Police-Logo"> <?php echo $police_icp_number; ?>
+                        </span>
                         <?php endif; ?>
                     <?php else: ?>
                         <?php echo __( 'Proudly powered by ', TPLNAME); ?><a href="<?php echo esc_url( __( 'http://wordpress.org/', TPLNAME ) ); ?>">WordPress</a>.
