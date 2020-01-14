@@ -14,6 +14,7 @@ get_header();
 
 /* Global Page Layout */
 $blog_layout     = ot_get_option(TPLNAME . '_blog_layout');
+$is_full_width   = $blog_layout == 'full-width';
 ?>
     <div id="content">
         <div class="container">

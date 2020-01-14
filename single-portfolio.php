@@ -10,6 +10,14 @@ get_header();
 
 /* Global Page Layout */
 $blog_layout     = ot_get_option(TPLNAME . '_blog_layout');
+/* Page Layout for this Page */
+$page_layout     = lgr_get_post_meta(TPLNAME . '_project_page_layout');
+
+if ( $page_layout ) {
+    $blog_layout = $page_layout;
+}
+/* Is full Width Layout? */
+$is_full_width   = ( $blog_layout == 'full-width' );
 ?>
     <div id="content">
         <div class="container">

@@ -1,6 +1,6 @@
-![Logo](https://raw.githubusercontent.com/zjhzxhz/logger/master/images/logo.png)
+![Logo](https://raw.githubusercontent.com/hzxie/Logger/master/images/logo.png)
 
-A WordPress theme designed for [my blog](http://zjhzxhz.com). Originally built by [2code](http://2code.info/demo/themes/logger/), refactored with [Bootstrap](http://getbootstrap.com) and [Font Amesome](http://fontawesome.io).
+A WordPress theme designed for [my blog](https://haozhexie.com). Originally built by [2code](https://themeforest.net/item/logger-responsive-personal-blogging-template/12473576), refactored with [Bootstrap](http://getbootstrap.com) and [Font Amesome](http://fontawesome.io).
 
 ------
 
@@ -18,7 +18,7 @@ The components listed above have packaged with the theme by default.
 
 **Note:** The project needs PHP >= 5.3.
 
->- Download the theme [here](https://github.com/zjhzxhz/logger/archive/master.zip).
+>- Download the theme [here](https://github.com/hzxie/logger/archive/master.zip).
 >- Extact the archive to WordPress_ROOT/wp-content/themes
 >- Enable the theme in your administration page.
 >- Enjoy!

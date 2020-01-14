@@ -86,7 +86,7 @@
                           'echo'                => true,
                           'walker'              => new Walker_Nav_Menu_Dropdown(),
                           'depth'               => 3,
-                          'items_wrap'          => '<select onchange="document.location.href=this.options[this.selectedIndex].value;">%3$s</select>',
+                          'items_wrap'          => '<select onchange="window.location=jQuery(\'#primary-navigation > select option:selected\').val()">%3$s</select>',
                         )); 
                     endif;
                     ?>
