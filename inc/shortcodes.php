@@ -314,33 +314,59 @@ function lgr_fullwidth_map_shortcode( $atts, $content = null ) {
             }
         </script>
         <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=<?php echo $apikey; ?>&callback=initMap"></script>
-        
+
+    <?php elseif ( $provider == 'MapBox' ): ?>
+
+        <div id="mapbox" class="map"></div>
+        <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
+        <script>
+            mapboxgl.accessToken = '<?php echo $apikey; ?>';
+            var map = new mapboxgl.Map({
+                    container: 'mapbox',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: [<?php echo $longitude; ?>, <?php echo $latitude; ?>],
+                    zoom: <?php echo $zoom; ?>
+                });
+            var nav = new mapboxgl.NavigationControl(),
+                scale = new mapboxgl.ScaleControl({
+                    maxWidth: 80,
+                    unit: 'imperial'
+                });
+            map.addControl(nav, 'top-left');
+            map.addControl(scale);
+            scale.setUnit('metric');
+        </script>
+
     <?php else: ?>
 
         <div id="amap" class="map"></div>
-        <script type="text/javascript">
-            function initMap() {
-                var scale = new AMap.Scale({
-                        visible: true
-                    }),
-                    toolBar = new AMap.ToolBar({
-                        visible: true
-                    }),
-                    overView = new AMap.OverView({
-                        visible: true
-                    }),
-                    map = new AMap.Map('amap', {
-                        resizeEnable: true,
-                        zoom: <?php echo $zoom; ?>,
-                        center: [<?php echo $longitude; ?>, <?php echo $latitude; ?>]
-                    });
-                map.addControl(scale);
-                map.addControl(toolBar);
-                map.addControl(overView);
-                map.setLang('zh_en');
-            }
+        <script src="https://webapi.amap.com/loader.js"></script>
+        <script type="text/javascript" >
+            AMapLoader.load({
+                key:'<?php echo $apikey; ?>',
+                version:'2.0',
+                plugins:['AMap.Scale', 'AMap.ToolBar', 'AMap.ControlBar', 'AMap.HawkEye']
+            }).then((AMap)=>{
+                var map = new AMap.Map('amap', {
+                    resizeEnable: true,
+                    zoom: <?php echo $zoom; ?>,
+                    center: [<?php echo $longitude; ?>, <?php echo $latitude; ?>],
+                    lang: 'en'
+                });
+                map.addControl(new AMap.Scale())
+                map.addControl(new AMap.ToolBar({
+                    position: {
+                        top: '130px',
+                        left: '50px'
+                    }
+                }))
+                map.addControl(new AMap.ControlBar())
+                map.addControl(new AMap.HawkEye())
+            }).catch((e)=>{
+                console.error(e)
+            });
         </script>
-        <script type="text/javascript" src="//webapi.amap.com/maps?v=1.3&key=<?php echo $apikey; ?>&plugin=AMap.Scale,AMap.OverView,AMap.ToolBar&callback=initMap"></script>
 
     <?php endif; ?>
     </div> <!-- #map-container -->

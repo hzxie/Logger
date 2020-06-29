@@ -2,9 +2,9 @@
  * Theme Name: Logger
  * Theme URI: http://github.com/hzxie/logger
  * Author: Haozhe Xie
- * Author URI: http://haozhexie.com/
+ * Author URI: https://haozhexie.com/
  * Description: Logger is a simple and clean but still professional template suitable for any business or portfolio, and it's created by using the latest HTML5 and CSS3 techniques.
- * Version: 1.0.3
+ * Version: 1.1.0
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Tags: white, light, one-column, two-columns, right-sidebar, responsive-layout, custom-menu, editor-style, featured-images, microformats, post-formats
@@ -1062,6 +1062,10 @@ div#footer {
 
 div#footer a:hover {
 	color: #fff;
+}
+
+div#footer a#icp-number {
+	color: #f1f1f1;
 }
 
 div#footer div.text-right img {
