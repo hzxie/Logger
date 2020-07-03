@@ -110,6 +110,11 @@ code {
     font-size: 12px;
 }
 
+hr {
+	background-color: #ccc;
+	margin: 20px 0;
+}
+
 .wp-block-embed__wrapper {
 	height: 0;
 	padding-bottom:56.25%;
@@ -942,6 +947,17 @@ div.portfolio div.entry-body {
 
 div.portfolio p.edit-link {
 	margin: 10px 0;
+}
+
+div.portfolio figure.shadow img {
+	-webkit-box-shadow: 3px 3px 6px #999;
+	   -moz-box-shadow: 3px 3px 6px #999;
+	        box-shadow: 3px 3px 6px #999;
+}
+
+div.portfolio pre.wp-block-code {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 12px;
 }
 
 div.entry-nav {
