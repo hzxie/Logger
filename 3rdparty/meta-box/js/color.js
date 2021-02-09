@@ -1,44 +1,45 @@
-jQuery( function ( $ )
-{
+( function ( $, rwmb ) {
 	'use strict';
 
-	function rwmb_update_color_picker()
-	{
-		var $this = $( this ),
-			$clone_container = $this.closest( '.rwmb-clone' ),
-			$color_picker = $this.siblings( '.rwmb-color-picker' );
+	/**
+	 * Transform an input into a color picker.
+	 */
+	function transform() {
+		var $this = $( this );
 
-		// Make sure the value is displayed
-		if ( !$this.val() )
-		{
-			$this.val( '#' );
+		function triggerChange() {
+			$this.trigger( 'color:change' ).trigger( 'mb_change' );
 		}
 
-		if ( typeof $.wp === 'object' && typeof $.wp.wpColorPicker === 'function' )
-		{
-			if ( $clone_container.length > 0 )
-			{
-				$this.appendTo( $clone_container ).siblings( 'div.wp-picker-container' ).remove();
-			}
-			$this.wpColorPicker();
+		var $container = $this.closest( '.wp-picker-container' ),
+			// Hack: the picker needs a small delay (learn from the Kirki plugin).
+			options = $.extend(
+				{
+					change: function () {
+						setTimeout( triggerChange, 20 );
+					},
+					clear: function () {
+						setTimeout( triggerChange, 20 );
+					}
+				},
+				$this.data( 'options' )
+			);
+
+		// Clone doesn't have input for color picker, we have to add the input and remove the color picker container
+		if ( $container.length > 0 ) {
+			$this.insertBefore( $container );
+			$container.remove();
 		}
-		else
-		{
-			//We use farbtastic if the WordPress color picker widget doesn't exist
-			$color_picker.farbtastic( $this );
-		}
+
+		// Show color picker.
+		$this.wpColorPicker( options );
 	}
 
-	$( ':input.rwmb-color' ).each( rwmb_update_color_picker );
-	$( '.rwmb-input' )
-		.on( 'clone', ':input.rwmb-color', rwmb_update_color_picker )
-		.on( 'focus', '.rwmb-color', function ()
-		{
-			$( this ).siblings( '.rwmb-color-picker' ).show();
-			return false;
-		} ).on( 'blur', '.rwmb-color', function ()
-		{
-			$( this ).siblings( '.rwmb-color-picker' ).hide();
-			return false;
-		} );
-} );
+	function init( e ) {
+		$( e.target ).find( '.rwmb-color' ).each( transform );
+	}
+
+	rwmb.$document
+		.on( 'mb_ready', init )
+		.on( 'clone', '.rwmb-color', transform );
+} )( jQuery, rwmb );

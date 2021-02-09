@@ -1,50 +1,31 @@
 <?php
-/*
-Plugin Name: Meta Box
-Plugin URI: http://www.deluxeblogtips.com/meta-box
-Description: Create meta box for editing pages in WordPress. Compatible with custom post types since WP 3.0
-Version: 4.3.11
-Author: Rilwis
-Author URI: http://www.deluxeblogtips.com
-License: GPL2+
-*/
+/**
+ * Plugin Name: Meta Box
+ * Plugin URI:  https://metabox.io
+ * Description: Create custom meta boxes and custom fields in WordPress.
+ * Version:     5.3.8
+ * Author:      MetaBox.io
+ * Author URI:  https://metabox.io
+ * License:     GPL2+
+ * Text Domain: meta-box
+ * Domain Path: /languages/
+ *
+ * @package Meta Box
+ */
 
-// Prevent loading this file directly
-defined( 'ABSPATH' ) || exit;
+if ( defined( 'ABSPATH' ) && ! defined( 'RWMB_VER' ) ) {
+	register_activation_hook( __FILE__, 'rwmb_check_php_version' );
 
-// Script version, used to add version for scripts and styles
-define( 'RWMB_VER', '4.3.11' );
-
-// Define plugin URLs, for fast enqueuing scripts and styles
-if ( ! defined( 'RWMB_URL' ) )
-	define( 'RWMB_URL', LGR_BASE_URL . '/3rdparty/meta-box/' );
-define( 'RWMB_JS_URL', trailingslashit( RWMB_URL . 'js' ) );
-define( 'RWMB_CSS_URL', trailingslashit( RWMB_URL . 'css' ) );
-
-// Plugin paths, for including files
-if ( ! defined( 'RWMB_DIR' ) )
-	define( 'RWMB_DIR', LGR_BASE_DIR . '/3rdparty/meta-box/' );
-define( 'RWMB_INC_DIR', trailingslashit( RWMB_DIR . 'inc' ) );
-define( 'RWMB_FIELDS_DIR', trailingslashit( RWMB_INC_DIR . 'fields' ) );
-
-// Optimize code for loading plugin files ONLY on admin side
-// @see http://www.deluxeblogtips.com/?p=345
-
-// Helper function to retrieve meta value
-require_once RWMB_INC_DIR . 'helpers.php';
-
-if ( is_admin() )
-{
-	require_once RWMB_INC_DIR . 'common.php';
-	require_once RWMB_INC_DIR . 'field.php';
-
-	// Field classes
-	foreach ( glob( RWMB_FIELDS_DIR . '*.php' ) as $file )
-	{
-		require_once $file;
+	/**
+	 * Display notice for old PHP version.
+	 */
+	function rwmb_check_php_version() {
+		if ( version_compare( phpversion(), '5.3', '<' ) ) {
+			die( esc_html__( 'Meta Box requires PHP version 5.3+. Please contact your host to upgrade.', 'meta-box' ) );
+		}
 	}
 
-	// Main file
-	require_once RWMB_INC_DIR . 'meta-box.php';
-	require_once RWMB_INC_DIR . 'init.php';
+	require_once dirname( __FILE__ ) . '/inc/loader.php';
+	$rwmb_loader = new RWMB_Loader();
+	$rwmb_loader->init();
 }

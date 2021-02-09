@@ -1,349 +1,418 @@
-=== Meta Box ===
-Contributors: rilwis, franz-josef-kaiser, Omnicia, funkedgeek, PerWiklander, ruanmer
-Donate link: http://www.deluxeblogtips.com/donate
-Tags: meta-box, custom-fields, custom-field, meta, meta-boxes
-Requires at least: 3.5
-Tested up to: 4.0
-Stable tag: 4.3.11
+=== Meta Box - WordPress Custom Fields Framework ===
+Contributors: elightup, metabox, rilwis, fitwp, f-j-kaiser, funkatronic, PerWiklander, ruanmer, Omnicia
+Donate link: https://metabox.io/pricing/
+Tags: meta-box, custom fields, custom field, meta, meta-boxes, admin, advanced, custom, edit, field, file, image, magic fields, post type, post types, more fields, Post, repeater, simple fields, text, textarea, type, cms, fields post
+Requires at least: 4.3
+Requires PHP: 5.3
+Tested up to: 5.6
+Stable tag: 5.3.8
 License: GPLv2 or later
 
-Meta Box plugin is a complete tool to create meta box and custom fields in WordPress: lightweight, powerful and easy-to-use.
+Meta Box plugin is a powerful, professional developer toolkit to create custom meta boxes and custom fields for your custom post types in WordPress.
 
 == Description ==
 
-Meta Box plugin provides powerful API to implement custom meta boxes and custom fields in editing pages (add new/edit post) in WordPress. It works with any custom post type and supports lots of field types.
+**Meta Box is a powerful, professional, and lightweight toolkit for developers to create custom meta boxes and custom fields for any custom post type in WordPress.**
+
+Meta Box helps you add [custom fields](https://metabox.io) and details on your website such as pages, posts, custom post types, forms and anywhere you want using over 40 different field types such as text, images, file upload, checkboxes, and more.
+
+On top of that, each WordPress custom field type has extensive internal options for unlimited content possibilities. Complete customization and control is just a few clicks away.
+
+Adding WordPress custom fields and custom meta boxes for custom post types is quick and painless: Select the field types you want in the user-friendly [Online Generator](https://metabox.io/online-generator/), then copy and paste the code into your child theme's `functions.php` file.
+
+**Boom! All the power with none of the bloat.**
+
+There are also free and premium extensions available to add enhanced capabilities. You can manage the display and organization of your WordPress custom fields, the conditions upon which they appear, and become the ultimate WordPress data wizard.
+
+You can also check out the [full list of extensions](https://metabox.io/plugins/) and [MetaBox.io](https://metabox.io) for details.
 
 ### Features
 
-* Easily register multiple custom meta boxes for posts, pages or custom post types
-* Supports a lot of [field types](http://metabox.io/docs/define-fields/)
-* Has built-in hooks which allow you to change the appearance and behavior of meta boxes
-* Easily integrate with themes
+#### Create any type of metadata or custom fields in WordPress
 
-### Premium Extensions
+That's right – any type. No matter where you need to insert custom data and features, Meta Box's WordPress custom fields have your back, and with infinite options to boot.
 
-- [Meta Box Tooltip](http://metabox.io/plugins/meta-box-tooltip/): Display help information for fields using beautiful tooltips.
-- [Meta Box Show Hide (Javascript)](http://metabox.io/plugins/meta-box-show-hide-javascript/): Toggle meta boxes by page template, post format, taxonomy (including category) via Javascript.
-- [Meta Box Tabs](http://metabox.io/plugins/meta-box-tabs/): Create tabs for meta boxes easily. Support 3 WordPress-native tab styles and tab icon.
-- [Meta Box Columns](http://metabox.io/plugins/meta-box-columns/): Display fields more beautiful by putting them into 12-columns grid.
-- [Meta Box Include Exclude](http://metabox.io/plugins/meta-box-include-exclude/): Show/hide meta boxes by ID, page template, taxonomy or custom function.
+**Here are just a few of the data types you can customize:**
 
-See all premium extensions [here](http://metabox.io).
+- Posts
+- Pages
+- Custom post types (you can also use our free plugin [MB Custom Post Types & Custom Taxonomies](https://metabox.io/plugins/custom-post-type/) to create custom post types and custom taxonomies)
+- [Taxonomies](https://metabox.io/plugins/mb-term-meta/)
+- [Settings pages](https://metabox.io/plugins/mb-settings-page/)
+- [Theme option pages](https://metabox.io/plugins/mb-settings-page/)
+- [User profile pages](https://metabox.io/plugins/mb-user-profile/)
+- [Post comments](https://metabox.io/plugins/mb-comment-meta/)
+- [And even more data types](https://docs.metabox.io/field-settings/) than Batman has tools on his utility belt.
 
-### Plugin Links
+#### A wide-range of field types and options
 
-- [Project Page](http://metabox.io/meta-box/)
-- [Documentation](http://metabox.io/docs/)
-- [Report Bugs/Issues](https://github.com/rilwis/meta-box/issues)
-- [Premium Extensions](http://metabox.io)
+Take your standard WordPress custom field and imagine it infinitely expanded. That's how many options Meta Box gives you:
+
+- Meta Box supports [40+ built-in WordPress custom field types](https://docs.metabox.io/field-settings/) for all your needs including text, textarea, WYSIWYG editor, image, file, post, select, checkbox, radio buttons, date/time picker, taxonomy, user, oembed and more to come.
+- Not enough? You can also [effortlessly create your own field type](https://docs.metabox.io/custom-field-type/).
+- Meta Box supports cloning fields for most field types including the WYSIWYG editor field. It also supports [repeatable field groups](https://metabox.io/plugins/meta-box-group/).
+- Utilize WordPress' powerful [action](https://docs.metabox.io/actions/) and [filter](https://docs.metabox.io/filters/) system so you can build or change a site's appearance and behavior in the plugin.
+
+#### It's developer-friendly
+
+As a developer, you have enough on your plate. You shouldn't have to create an entirely new system for each project. Use Meta Box to your full advantage.
+
+You can use Meta Box and its custom fields for any custom post type in WordPress on as many websites as you want so you can use it on client projects as well.
+
+- Has an ultra-lightweight, yet powerful API that won't overload your site.
+- Add only what you need instead of getting stuck with a bundle of features you don't even want that bloat your site.
+- Meta Box [easily integrates with any theme and plugin](https://docs.metabox.io/integration/), and also [works with the Composer package dependency manager](https://docs.metabox.io/composer/).
+- We use the [native WordPress meta data storage](https://docs.metabox.io/database/) and functions for ease of use and lightning-fast processing.
+- It's compatible with WPML multilingual plugin, and is officially supported by the WPML team.
+
+#### Don't love coding? You're in luck!
+
+Meta Box is built mostly for developers since you need to copy and paste some code, but if you prefer a more visual system to create custom fields in WordPress, you can choose one or all of the extensions below:
+
+- [MB Custom Post Types & Custom Taxonomies](https://wordpress.org/plugins/mb-custom-post-type/)
+- [Meta Box – Beaver Themer Integrator](https://metabox.io/plugins/meta-box-beaver-themer-integrator/)
+- [Meta Box Builder](https://metabox.io/plugins/meta-box-builder/)
+
+The [Meta Box Builder extension](https://metabox.io/plugins/meta-box-builder/) has a ton of features to make quick work of any project:
+
+- All the power of Meta Box without touching a single line of code.
+- It's designer-friendly, lightweight and works at top-notch speeds.
+- Create an unlimited amount of WordPress custom fields at lightning speeds and with a user-friendly drag-and-drop interface.
+- Over 40 custom field types available that you can drag and drop to where you need ‘em.
+- Export your custom fields and settings to PHP. Then, add it to a new site without needing to install this extension for an incredibly lightweight option.
+- It has the goods with conditional logic, priority and context options ready and waiting.
+
+### Extensions
+
+Speaking of extensions, there are a ton of free and premium ones available to further extend the already powerful core Meta Box plugin so you can supercharge your custom fields in WordPress.
+
+You'll have ultimate control to add whatever meta box and custom fields in WordPress you could ever want. Then, you can tailor it all to fit your exact specifications.
+
+#### Free Extensions
+
+- [MB Custom Post Types & Custom Taxonomies](https://wordpress.org/plugins/mb-custom-post-type/): Create and manage custom post types and taxonomies quickly with an easy-to-use interface.
+- [MB Relationships](https://wordpress.org/plugins/mb-relationships/): Create as many connections as you want from post-to-post or page-to-page.
+- [Meta Box Yoast SEO](https://wordpress.org/plugins/meta-box-yoast-seo/): Add WordPress custom fields to Yoast SEO Content Analysis to generate more accurate SEO scores.
+- [MB Rest API](https://metabox.io/plugins/mb-rest-api/): Pull all meta values from posts and terms into the WP REST API responses.
+- [MB Comment Meta](https://wordpress.org/plugins/mb-comment-meta/): Add WordPress custom fields to comments in WordPress. It supports all field types and options.
+- [MB Custom Taxonomy](https://metabox.io/plugins/custom-taxonomy/): Create and manage custom taxonomies in WordPress with a user-friendly interface.
+- [Meta Box Text Limiter](https://wordpress.org/plugins/meta-box-text-limiter/): Limit the number of characters or words entered for text and textarea fields.
+- [Meta Box – FacetWP Integrator](https://metabox.io/plugins/meta-box-facetwp-integrator/): Integrates Meta Box, and FacetWP to make WordPress custom fields searchable and filterable in the frontend.
+- [Meta Box – Beaver Themer Integrator](https://metabox.io/plugins/meta-box-beaver-themer-integrator/): Integrates Meta Box, and Beaver Themer to show WordPress custom fields easier in the frontend.
+
+#### Premium Extensions
+
+- [MB Views](https://metabox.io/plugins/mb-views/): Outputing custom fields and build front-end templates for WordPress without touching theme files.
+- [MB Blocks](https://metabox.io/plugins/mb-blocks/): Create custom Gutenberg blocks with PHP, using the same syntax in Meta Box.
+- [Meta Box Builder](https://metabox.io/plugins/meta-box-builder/): Create custom meta boxes and custom fields in WordPress using a user-friendly drag-and-drop interface.
+- [Meta Box Group](https://metabox.io/plugins/meta-box-group/): Create repeatable groups of WordPress custom fields for better appearance and structure.
+- [MB Settings Page](https://metabox.io/plugins/mb-settings-page/): Create settings pages for themes, plugins or websites with beautiful syntax.
+- [MB Term Meta](https://metabox.io/plugins/mb-term-meta/): Add meta data to categories, tags or any custom taxonomy with simple syntax.
+- [Meta Box Conditional Logic](https://metabox.io/plugins/meta-box-conditional-logic/): Add visibility dependency for custom meta boxes and custom fields in WordPress.
+- [Meta Box Include Exclude](https://metabox.io/plugins/meta-box-include-exclude/): Show or hide meta boxes by ID, page template, taxonomy, or custom function.
+- [MB Frontend Submission](https://metabox.io/plugins/mb-frontend-submission/): Create frontend forms for users to submit custom content and embed them anywhere with a shortcode.
+- [Meta Box Columns](https://metabox.io/plugins/meta-box-columns/): Display eye-catching custom fields in WordPress by putting them into 12-column grids.
+- [Meta Box Tabs](https://metabox.io/plugins/meta-box-tabs/): Painlessly create tabs for meta boxes. There are 3 supported WordPress-native tab styles and icons.
+- [MB Admin Columns](https://metabox.io/plugins/mb-admin-columns/): Display WordPress custom fields in table columns on admin screens for all post types.
+- [MB Custom Table](https://metabox.io/plugins/mb-custom-table/): Save custom field data to custom tables instead of the default meta tables to reduce your database's size and increase its performance.
+- [MB Revision](https://metabox.io/plugins/mb-revision/): Track changes to custom fields in WordPress with revisions. You can save, compare and restore the changes smoothly.
+- [MB User Meta](https://metabox.io/plugins/mb-user-meta/): Quickly add WordPress custom fields to user profiles in the wp_usermeta table with simple syntax.
+- [Meta Box Geolocation](https://metabox.io/plugins/meta-box-geolocation/): Automatically and instantly populate location data with the power of the Google Maps Geolocation API.
+- [Meta Box Template](https://metabox.io/plugins/meta-box-template/): Make defining custom meta boxes and WordPress custom fields way easier with templates.
+- [Meta Box Tooltip](https://metabox.io/plugins/meta-box-tooltip/): Display help information for custom fields in WordPress using beautiful tooltips.
+- [Meta Box Show Hide](https://metabox.io/plugins/meta-box-show-hide-javascript/): Toggle meta boxes by page template, post format, taxonomy and category via JavaScript.
+
+See all the available [extensions on the Meta Box website](https://metabox.io/plugins/).
+
+### Detailed Documentation
+
+We won't leave you high and dry.
+
+We provide regularly updated, and extensive documentation as well as  tutorials on how to use MetaBox and custom fields in WordPress to your advantage as well as in the most efficient way possible.
+
+Here are a few guides to quickly get you started with Meta Box and creating your own WordPress custom fields:
+
+- [Quick Start Guide](https://docs.metabox.io/quick-start/)
+- [Creating Meta Boxes](https://docs.metabox.io/creating-meta-boxes/)
+- [Field Settings](https://docs.metabox.io/field-settings/)
+- [Displaying Fields](https://docs.metabox.io/displaying-fields/)
+
+Check out more on the [Meta Box Documentation](https://docs.metabox.io/) page.
 
 == Installation ==
+
+From within WordPress
+
+1. Visit **Plugins > Add New**
+1. Search for **Meta Box**
+1. Click the **Install Now** button to install the plugin
+1. Click the **Activate** button to activate the plugin
+
+Manually
 
 1. Unzip the download package
 1. Upload `meta-box` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
-To getting started with the plugin API, please read [this tutorial](http://metabox.io/docs/getting-started/).
+To getting started with the plugin, please read the [Quick Start Guide](https://docs.metabox.io/quick-start/).
 
 == Frequently Asked Questions ==
 
 == Screenshots ==
-1. Supported fields
+1. Text Fields
+1. Basic Fields
+1. Advanced Fields
+1. File Image Upload Fields
+1. Media Fields
+1. Post Taxonomy Fields
 
 == Changelog ==
 
-= 4.3.11 =
-* Bug fix: use field id instead of field_name for wysiwyg field
-* Improvement: allow to sort files
-* Improvement: use 'meta-box' text domain instead of 'rwmb'
-* Improvement: coding standards
+= 5.3.8 - 2021-01-28 =
+- Fix value not available when loaded in `map` and `osm` fields.
 
-= 4.3.10 =
-* Bug fix: upload & reorder for image fields
-* Bug fix: not saving meta caused by page template issue
-* Bug fix: filter names for helper and shortcode callback functions
-* Bug fix: loads correct locale JS files for jQueryUI date/time picker
+= 5.3.7 - 2021-01-11 =
+- Fix editor not editable in Gutenberg
+- Fix content in the visual tab of editors not saving
+- Make required validation work for color, map, osm, switch, text-list fields
+- Add dismiss action for dashboard news
 
-= 4.3.9 =
-* Bug fix: `text-list` field type
-* Improvement: better coding styles
-* Improvement: wysiwyg field is now clonable
-* Improvement: launch geolocation autocomplete when address field is cloned
-* Improvement: better cloning for radio, checkbox
-* Improvement: add more hooks
-* Improvement: allow child fields to add their own add/remove clone buttons.
-* Improvement: remove 'clone-group'. Too complicated and not user-friendly.
+= 5.3.6 - 2020-12-29 =
+- Fix validation not working for image-select, image and wysiwyg fields
+- Fix clone_default not working for switch
+- Fix saving select field value when defining each option as an array
+- Fix wysiwyg not editable in WP 5.6
 
-= 4.3.8 =
-* Bug fix: compatibility with PHP 5.2
+= 5.3.5 - 2020-11-30 =
+- Update color picker library to v3.0.0 and fix color picker with opacity not working in the Customizer (used with [MB Settings Page](https://metabox.io/plugins/mb-settings/page/)).
+- Cache update requests
+- Show (No title) in object fields if they don't have title
 
-= 4.3.7 =
-* Bug fix: use WP_Query instead of `query_posts` to be compatible with WPML
-* Bug fix: `get_called_class` function in PHP < 5.3
-* Bug fix: clone now works for `slider` field
-* Bug fix: fix cloning URL field
-* Bug fix: hidden drop area if no max_file_uploads defined
-* Improvement: added composer.json
-* Improvement: add Chinese language
-* Improvement: better check for duplication when save post
-* Improvement: new `image_select` file, which is "radio image", e.g. select a radio value by selecting image
-* Improvement: new `file_input` field, which allows to upload files or enter file URL
-* Improvement: separate core code for meta box and fields
-* Improvement: allow to add more map options in helper function
-* Improvement: allow to pass more arguments to "get_terms" function when getting meta value with "rwmb_meta"
+= 5.3.4 - 2020-09-23 =
+- Add default title
+- Update autoloader
+- Bypass the validation when previewing in Gutenberg
+- Add MB Views to the updater
+- Update color picker script to latest version 2.1.4
+- Fix missing labels for color field (wp 5.5.1)
+- Fix preview is not generated
+- Fix seamless style in WordPress 5.5
+- Fix style for file_input field (description is inline with input field)
 
-= 4.3.6 =
-* Bug fix: fatal error in PHP 5.2 (continue)
-* Improvement: allow register meta boxes via filter
+= 5.3.3 - 2020-07-21 =
+- Hide Go Pro link for premium users
+- Update intro and image for the Online Generator in the welcome page
 
-= 4.3.5 =
-* Bug fix: fatal error in PHP 5.2
-* Bug fix: save empty values of clonable fields
+= 5.3.2 - 2020-07-03 =
+- Fix validation not working for media fields
+- Add "add_to" option for media fields to allow adding new images to the beginning/end of the list
+- Improve style for input & select on the sidebar
+- Improve style for mobiles
 
-= 4.3.4 =
-* Bug fix: not show upload button after delete image when reach max_file_upload. #347
-* Bug fix: autocomplete for map which conflicts with tags (terms) autocomplete
-* Bug fix: random image order when reorder
-* Bug fix: undefined index, notices in WordPress 3.6, notice error for oembed field
-* Improvement: add default location for map field (via `std` param as usual)
-* Improvement: add `placeholder` for text fields (url, email, etc.)
-* Improvement: add `multiple` param for helper function to get value of multiple fields
-* Improvement: `width` & `height` for map in helper function now requires units (allow to set %)
-* Drop support for WordPress 3.3 (wysiwyg) and < 3.5 (for file & image field which uses new json functions)
+= 5.3.1 - 2020-06-03 =
+- Fix validation not working for multiple forms (front end)
+- Fix PHP warning: Creating default object from empty value
+- Fix cloning, sorting wysiwyg field when users disable visual editor
+- Change color of switch based on admin color scheme
 
-= 4.3.3 =
-* Bug fix: cannot clear all terms in taxonomy field
-* Bug fix: potential problem with autosave
-* Bug fix: cannot save zero string value "0"
-* Improvement: add Turkish language
-* Improvement: add taxonomy_advanced field, which saves term IDs as comma separated value in custom field
+= 5.3.0 - 2020-05-11 =
+- Add `rwmb_set_meta` function to set meta value.
+- Add Gutenberg compatibility for validation.
+- Fix wrong label output for switch when it's off.
 
-= 4.3.2 =
-* Bug fix: allow to have more than 1 map on a page
-* Bug fix: use HTTPS for Google Maps to work both in HTTP & HTTPS
-* Bug fix: allow to clear all terms in taxonomy field
-* Bug fix: "std" value for select fields is no longer "placeholder"
-* Improvement: add "placeholder" param for select fields
-* Improvement: add to helper function ability to show Google Maps in the front end. Check documentation for usage.
-* Improvement: add spaces between radio inputs
-* Improvement: add more params to "rwmb_meta" filter
-* Improvement: using CSS animation for delete image
+= 5.2.10 - 2020-04-17 =
+- Hotfix for getting meta value for checkbox list.
 
-= 4.3.1 =
-* Bug fix: fatal error if ASP open tag is allowed in php.ini
+= 5.2.9 - 2020-04-17 =
+- Fix cloning default value not working for some fields.
 
-= 4.3 =
-* Bug fix: show full size image after upload if thumbnail is not available
-* Bug fix: new added file not shown
-* Bug fix: issue with color field disappearing
-* Bug fix: `max_file_upload` now works for normal `file` & `image` as well
-* Bug fix: problem with uploading with the advanced fields
-* Bug fix: file & image advanced not saving
-* Bug fix: `select_advanced` cloning issue
-* Bug fix: `plupload_image` ordering
-* Improvement: add `divider`, `heading`, `button`, `range`, `oembed`, `email`, `post` fields
-* Improvement: translation for file & image fields
-* Improvement: add option `default_hidden` to hide meta box by default
-* Improvement: allow to have multiple maps on the same page
-* Improvement: file and image advanced now use Underscore.js
-* Improvement: `slider` filed now has `prefix` and `suffix` for text labels and `js_options` for more JS options
-* Improvement: WYSIWYS can bypass the `wpautop` using `raw` parameter
-* Improvement: `color` field now supports new color picker in WP 3.5
-* Improvement: add `ID` to results returned by `rwmb_meta` when getting meta value of file & image
-* Improvement: auto use localized version for date & time fields
-* Improvement: add `timestamp` option to save the datetime as unix timestamp internally
-* Improvement: add `autosave` option for meta box
-* Improvement: add `force_delete` option for file and image field
-* And lots of changes and improvements
+= 5.2.8 - 2020-04-06 =
 
+**Added**
 
-= 4.2.4 =
-* Bug fix: path to Select2 JS and CSS. [Link](http://wordpress.org/support/topic/missing-files-5)
-* Bug fix: `taxonomy.js` loading
-* Bug fix: saving in quick mode edit
-* Improvement: add `before` and `after` attributes to fields that can be used to display custom text
-* Improvement: add Arabic and Spanish languages
-* Improvement: add `rwmb*_before_save_post` and `rwmb*_before_save_post` actions before and after save post
-* Improvement: add autocomplete for geo location in `map` field, add fancy animation to drop marker
-* Improvemnet: add `url` field
+- Add option open info window in Google Maps when loaded
+- Add `alpha_channel` & update style to background field
+- Add support for custom Ajax parameters for object fields.
 
+**Fixed**
 
-= 4.2.3 =
-* Bug fix: clone date field. [Link](http://www.deluxeblogtips.com/forums/viewtopic.php?id=299)
+- Fix validation rules still applied for hidden fields
+- Fix `image_upload` field select files not working on iPhone
+- Fix fatal error with Frontend Submission & Elementor
+- Fix 'zoom' parameter not working for OSM field on the front end
 
-= 4.2.2 =
-* Bug fix: `time` field doesn't work. [Link](http://wordpress.org/support/topic/time-field-js-wont-run-without-datetime)
-* Bug fix: wrong JS call for `datetime`. [Link](http://wordpress.org/support/topic/421-datetime)
-* Improvement: file and images now not deleted from library, *unless* use `force_delete` option
-* Improvement: add `select_advanced` field, which uses [select2](http://ivaynberg.github.com/select2/) for better UX. Thanks @funkedgeek
+**Changed**
 
-= 4.2.1 =
-* Bug fix: not save wysiwyg field in full screen mode. [Link](http://www.deluxeblogtips.com/forums/viewtopic.php?id=161)
-* Bug fix: default value for select/checkbox_list. [Link](http://www.deluxeblogtips.com/forums/viewtopic.php?id=174)
-* Bug fix: duplicated append test to `date` picker
-* Bug fix: incorrect enqueue styles, issue #166
-* Improvement: initial new field type `map`
+- Remove languages folder. Load languages from translate.wordpress.org only
 
-= 4.2 =
-* Bug fix: save only last element of `select` field with `multiple` values. [Link](http://wordpress.org/support/topic/plugin-meta-box-multiple-declaration-for-select-fields-no-longer-working?replies=5#post-3254534)
-* Improvement: add `js_options` attribute for `date`, `datetime`, `time` fields to adjust jQuery date/datetime picker options. See `demo/demo.php` for usage
-* Improvement: add `options` attribute for `wysiwyg`. You now can pass arguments same as for `wp_editor` function
-* Improvement: clone feature now works with `checkbox_list` and `select` with `multiple` values
-* Improvement: add `rwmb-{$field_type}-wrapper` class to field markup
-* Improvement: Add [rwmb_meta meta_key="..."] shortcode. Attributes are the same as `rwmb_meta` function.
-* Code refactored
+= 5.2.7 - 2020-02-07 =
 
-= 4.1.11 =
-* Bug fix: helper function for getting `taxonomy` field type
-* Bug fix: `multiple` attribute for `select` field type
+- Fix warning in image field for metadata[‘sizes’].
+- Allow to quick define text fields with “name” attribute only.
 
-= 4.1.10 =
-* Allow helper functions can be used in admin area
-* Allow cloned fields to have a uniquely indexed `name` attribute
-* Add Swedish translation
-* Allow hidden field has its own value
-* Taxonomy field now supported by `rwmb_meta` function
-* Improvement in code format and field normalizing
+= 5.2.6 - 2020-02-03 =
 
-= 4.1.9 =
-* Add helper function to retrieve meta values
-* Add basic validation (JS based)
-* Fix image reorder bug
-* Fix `select_tree` option for taxonomy field
-* Fix not showing loading image for 1st image using plupload
+- Fix wrong tag when deploying
 
-= 4.1.8 =
-* Add missed JS file for thickbox image
+= 5.2.5 - 2020-02-03 =
 
-= 4.1.7 =
-* Quick fix for thickbox image
+**Fixed**
 
-= 4.1.6 =
-* Quick fix for checkbox list and multiple/clonable fields
+- Fix CSS in about page and add MB Core to list of premium plugins
+- Fix edit icon not showing popup for image fields
+- Fix OpenStreetMap not loading properly in tabs
 
-= 4.1.5 =
-* Taxonomy field is now in core
-* Add demo for including meta boxes for specific posts based on IDs or page templates
-* Meta box ID is now optional
-* Add `thickbox_image` field for uploading image with WP style
-* Fix `guid` for uploaded images
+**Changed**
 
-= 4.1.4 =
-* Fix taxonomy field
+- Replace date() with gmdate()
+- Update style for input prepend/append for WordPress >= 5.3
 
-= 4.1.3 =
-* Support max_file_uploads for plupload_image
-* Better enqueue styles & scripts
-* Store images in correct order after re-order
-* Fix cloning color, date, time, datetime fields
+**Added**
 
-= 4.1.2 =
-* Improve taxonomy field
-* Add filter to wp_editor
-* Add more options for time field
-* Improve plupload_image field
-* Fix translation, use string for textdomain
+- Add custom trigger after validation for Tabs/Settings extensiosn to show error fields
+- Add URL to all sizes in the returned value of helper functions for images
 
-= 4.1.1 =
-* Fix translation
-* Change jQueryUI theme to 'smoothness'
-* Add more demos in the `demo` folder
+= 5.2.4 - 2019-12-11 =
 
-= 4.1 =
-* Added jQuery UI slider field
-* Added new Plupload file uploader
-* Added new checkbox list
-* Fix empty jQuery UI div seen in FF in admin footer area
-* Fix style for 'side' meta box
+**Added**
 
-= 4.0.2 =
-* Reformat code to make more readable
-* Fix bugs of checkbox field and date field
+- Add hook `rwmb_field_registered` after a field is registered.
+- Add (*) to required fields
 
-= 4.0.1 =
-* Change format_response() to ajax_response() and use WP_Ajax_Response class to control the ajax response
-* Use wp_editor() built-in with WP 3.3 (with fallback)
+**Changed**
 
-= 4.0 =
-* strongly refactor code
-* create/check better nonce for each meta box
-* use local JS/CSS libs instead of remote files for better control if conflict occurs
-* separate field functions (enqueue scripts and styles, add actions, show, save) into separated classes
-* use filters to let user change HTML of fields
-* use filters to validate/change field values instead of validation class
-* don't use Ajax on image upload as it's buggy and complicated. Revert to default upload
+- Remove required attribute for license input box.
+- Don't redirect when bulk activate with other plugins.
 
-= 3.2.2 =
-* fix WYSIWYG field for custom post type without 'editor' support. Thanks Jamie, Eugene and Selin Online. (http =//disq.us/2hzgsk)
-* change some helper function to static as they're shared between objects
+**Fixed**
 
-= 3.2.1 =
-* fix code for getting script's url in Windows
-* make meta box id is optional
+- Fix style for `select`, `select_advanced` fields in WordPress 5.3.
+- Fix getting object fields for settings pages
 
-= 3.2 =
-* move js and css codes to separated files (rewrite js code for fields, too)
-* allow to add multiple images to image meta field with selection, modified from "Fast Insert Image" plugin
-* remove 'style' attibutes for fields as all CSS rules now can be put in the 'meta=box.css' file. All fields now has the class 'rw=$type', and table cells have class 'rwmb=label' and 'rwmb=field'
-* allow to use file uploader for images as well, regarding http =//disq.us/1k2lwf
-* when delete uploaded images, they're not deleted from the server (in case you insert them from the media, not the uploader). Also remove hook to delete all attachments when delete post. Regarding http =//disq.us/1nppyi
-* change hook for adding meta box to 'add_meta_boxes', according Codex. Required WP 3.0+
-* fix image uploading when custom post type doesn't support "editor"
-* fix show many alerts when delete files, regarding http =//disq.us/1lolgb
-* fix js comma missing bug when implement multiple fields with same type
-* fix order of uploaded images, thank Onur
-* fix deleting new uploaded image
-* fix bug when save meta value = zero (0), regarding http =//disq.us/1tg008
-* some minor changes such as = add 'id' attribute to fields, show uploaded images as thumbnail, add script to header of post.php and post=new.php only
+= 5.2.3 - 2019-11-01 =
 
-= 3.1 =
-* use thickbox for image uploading, allow user edit title, caption or crop, rotate image (credit to Stewart Duffy, idea from Jaace http =//disq.us/1bu64d)
-* allow to reorder uploaded images (credit to Kai)
-* save attach ID instead of url (credit to Stewart Duffy)
-* escape fields value (credit to Stewart Duffy)
-* add 'style' attribute to fields, allow user quick style fields (like height, width, etc.) (credit to Anders Larsson http =//disq.us/1eg4kp)
-* wrap ajax callbacks into the class
-* fix jquery UI conflict (for time picker, color picker, contextual help)
-* fix notice error for checking post type
+**Changed**
 
-= 3.0.1 =
-* save uploaded images and files' urls in meta fields
-* fix date picker bug to not show saved value (http =//disq.us/1cg6mx)
-* fix check_admin_referer for non=supported post types (http =//goo.gl/B6cah)
-* refactor code for showing fields
+- Set clone=false if max_clone=1
+- Shows only images in the selection popup for image field
+- Hide license key
 
-= 3.0 =
-* separate functions for checking, displaying and saving each type of field; allow developers easily extend the class
-* add 'checkbox_list' (credit to Jan Fabry http =//goo.gl/9sDAx), 'color', 'date', 'time' types. The 'taxonomy' type is added as an example of extending class (credit to Manny Fresh http =//goo.gl/goGfm)
-* show uploaded files as well as allow to add/delete attached files
-* delete attached files when post is deleted (credit to Kai http =//goo.gl/9gfvd)
-* validation function MUST return the value instead of true, false
-* change the way of definition 'radio', 'select' field type to make it more simpler, allow multiple selection of select box
-* improved some codes, fix code to not show warnings when in debugging mode
+**Fixed**
 
-= 2.4.1 =
-* fix bug of not receiving value for select box
+- Fixed parsed terms in taxonomy advanced for MB Blocks
+- Don't show date picker for readonly fields
+- Fix warning when output empty background field value
+- Fix empty meta value when save_field=false
 
-= 2.4 =
-* (image upload features are credit to Kai http =//twitter.com/ungestaltbar)
-* change image upload using meta fields to using default WP gallery
-* add delete button for images, using ajax
-* allow to upload multiple images
-* add validation for meta fields
+= 5.2.2 - 2019-10-09 =
 
-= 2.3 =
-* add wysiwyg editor type, improve check for upload fields, change context and priority attributes to optional
+**Fixed**
 
-= 2.2 =
-* add enctype to post form (fix upload bug), thanks to http =//goo.gl/PWWNf
+- Fix sanitizing empty post field
+- Fix post thumbnail not saving in MB Frontend Submission
+- Fix undefined index for `image_select` field when using helper functions with no value.
+- Fix JQMIGRATE: 'ready' event is deprecated
 
-= 2.1 =
-* add file upload, image upload support
+**Changed**
 
-= 2.0 =
-* oop code, support multiple post types, multiple meta boxes
+- Add styling for date picker, autocomplete, select2 to show in the Customizer (for MB Settings Page)
 
-= 1.0 =
-* procedural code
+= 5.2.1 - 2019-09-26 =
+
+**Fixed**
+
+- Fix object fields show only selected items when field type is not select advanced
+- Fix background field not saving position, attachment & size
+- Fix undefined variable in media modal
+- Fix non-unique input name for a non-cloneable file in a cloneable group
+
+= 5.2.0 - 2019-09-18 =
+
+**Added**
+
+- Add ajax support for object fields.
+- Add custom CSS class for meta box wrapper div.
+
+**Changed**
+
+- Improve file upload, making it works in groups.
+- Optimize performance for cloning wysiwyg field.
+- Bypass updates for embed extensions via TGMPA.
+
+**Fixed**
+
+- Fix PHP warning when using clone with date formatting.
+- Fix file upload input not visible when clone a file field with uploaded files = max_file_uploads.
+
+= 5.1.2 - 2019-08-29 =
+
+**Fixed**
+
+- Fix adding >= 2 blocks containing a wysiwyg field not rendering
+- Fix CSS for wyswigy field in Gutenberg
+- Do not show upgrade message in the Dashboard for premium users
+- Fix media field is blank
+- Fix cannot access to license page in Multisite
+
+**Changed**
+
+- Fire `change` and/or `mb_change` events when fields change to update custom blocks in real-time (requires [MB Blocks](https://metabox.io/plugins/mb-blocks/) extension)
+
+= 5.1.1 - 2019-08-23 =
+
+**Fixed**
+
+- Fix sanitizing number always return 0 if it's blank
+- Fix sanitizing URL
+
+**Changed**
+
+- Set default field 'type' to 'text', make it optional and help you write less code
+- File/image fields: do not show add new file link if max_file_uploads = 1
+
+= 5.1.0 - 2019-08-19 =
+
+**Fixed**
+
+- Fatal error with `RWMB_About::redirect()`
+- Ensure change event fires when editors change
+- Fix `rwmb_{$field_id}_choice_label` not working for cloneable fields
+- Fix missing dependency (underscore) for datepicker JS
+- Fix unindex notice for key_value field
+- Fix alignment for video field
+
+**Changed**
+
+- Update notification sytem
+- Improve sanitization for fields. See [documentation](https://docs.metabox.io/sanitization/) for details.
+
+= 5.0.1 - 2019-07-25 =
+
+**Fixed**
+
+- Fix license notification always show
+
+= 5.0.0 - 2019-07-24 =
+
+**IMPORTANT:** Since version 5.0.0, the plugin requires PHP >= 5.3. If you use an older PHP version, please ask your host to upgrade or use an older version of Meta Box.
+
+**Changed**
+
+- New minimum PHP version is now 5.3.
+- Rewrite all JavaScript to prepare for Gutenberg blocks
+- Allow to create meta box with no fields.
+
+**Added**
+
+- Add the updater for auto update of premium extensions
+- Add support for `user`, `settings_pages` in `rwmb_get_object_fields`
+
+**Fixed**
+
+- Fix warning for cloneable single image.
+
+[See full changelog here](https://metabox.io/changelog/).
 
 == Upgrade Notice ==
+
+Since version 5.0.0, the plugin requires PHP >= 5.3. If you use an older PHP version, please ask your host to upgrade or use an older version of Meta Box.

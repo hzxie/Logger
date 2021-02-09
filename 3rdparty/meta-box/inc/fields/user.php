@@ -1,143 +1,173 @@
 <?php
-// Prevent loading this file directly
-defined( 'ABSPATH' ) || exit;
+/**
+ * The user select field.
+ *
+ * @package Meta Box
+ */
 
-// Make sure "select" field is loaded
-require_once RWMB_FIELDS_DIR . 'select-advanced.php';
+/**
+ * User field class.
+ */
+class RWMB_User_Field extends RWMB_Object_Choice_Field {
+	/**
+	 * Add actions.
+	 */
+	public static function add_actions() {
+		add_action( 'wp_ajax_rwmb_get_users', array( __CLASS__, 'ajax_get_users' ) );
+		add_action( 'wp_ajax_nopriv_rwmb_get_users', array( __CLASS__, 'ajax_get_users' ) );
+		add_action( 'clean_user_cache', array( __CLASS__, 'update_cache' ) );
+	}
 
-if ( ! class_exists( 'RWMB_User_Field' ) )
-{
-	class RWMB_User_Field extends RWMB_Field
-	{
-		/**
-		 * Enqueue scripts and styles
-		 *
-		 * @return void
-		 */
-		static function admin_enqueue_scripts()
-		{
-			RWMB_Select_Advanced_Field::admin_enqueue_scripts();
+	/**
+	 * Query users via ajax.
+	 */
+	public static function ajax_get_users() {
+		check_ajax_referer( 'query' );
+
+		$request = rwmb_request();
+
+		$field = $request->filter_post( 'field', FILTER_DEFAULT, FILTER_FORCE_ARRAY );
+
+		// Required for 'choice_label' filter. See self::filter().
+		$field['clone']        = false;
+		$field['_original_id'] = $field['id'];
+
+		// Search.
+		$term = $request->filter_post( 'term', FILTER_SANITIZE_STRING );
+		if ( $term ) {
+			$field['query_args']['search'] = "*{$term}*";
 		}
 
-		/**
-		 * Get field HTML
-		 *
-		 * @param mixed $meta
-		 * @param array $field
-		 *
-		 * @return string
-		 */
-		static function html( $meta, $field )
-		{
-			$field['options'] = self::get_options( $field );
-			switch ( $field['field_type'] )
-			{
-				case 'select':
-					return RWMB_Select_Field::html( $meta, $field );
-					break;
-				case 'select_advanced':
-				default:
-					return RWMB_Select_Advanced_Field::html( $meta, $field );
-			}
+		// Pagination.
+		$limit = isset( $field['query_args']['number'] ) ? (int) $field['query_args']['number'] : 0;
+		if ( $limit && 'query:append' === $request->filter_post( '_type', FILTER_SANITIZE_STRING ) ) {
+			$field['query_args']['paged'] = $request->filter_post( 'page', FILTER_SANITIZE_NUMBER_INT );
 		}
 
-		/**
-		 * Normalize parameters for field
-		 *
-		 * @param array $field
-		 *
-		 * @return array
-		 */
-		static function normalize_field( $field )
-		{
+		// Query the database.
+		$items = self::query( null, $field );
+		$items = array_values( $items );
 
-			$default_post_type = __( 'User', 'meta-box' );
+		$data = array( 'items' => $items );
 
-			$field = wp_parse_args( $field, array(
-				'field_type' => 'select_advanced',
-				'parent'     => false,
-				'query_args' => array(),
-			) );
+		// More items for pagination.
+		if ( $limit && count( $items ) === $limit ) {
+			$data['more'] = true;
+		}
 
-			$field['std'] = empty( $field['std'] ) ? sprintf( __( 'Select a %s', 'meta-box' ), $default_post_type ) : $field['std'];
+		wp_send_json_success( $data );
+	}
 
-			$field['query_args'] = wp_parse_args( $field['query_args'], array(
-				'orderby' => 'display_name',
+	/**
+	 * Update object cache to make sure query method below always get the fresh list of users.
+	 * Unlike posts and terms, WordPress doesn't set 'last_changed' for users.
+	 * So we have to do it ourselves.
+	 *
+	 * @see clean_post_cache()
+	 */
+	public static function update_cache() {
+		wp_cache_set( 'last_changed', microtime(), 'users' );
+	}
+
+	/**
+	 * Normalize parameters for field.
+	 *
+	 * @param array $field Field parameters.
+	 *
+	 * @return array
+	 */
+	public static function normalize( $field ) {
+		// Set default field args.
+		$field = wp_parse_args(
+			$field,
+			array(
+				'placeholder'   => __( 'Select an user', 'meta-box' ),
+				'query_args'    => array(),
+				'display_field' => 'display_name',
+			)
+		);
+
+		$field = parent::normalize( $field );
+
+		// Set default query args.
+		$limit               = $field['ajax'] ? 10 : 0;
+		$field['query_args'] = wp_parse_args(
+			$field['query_args'],
+			array(
+				'number' => $limit,
+			)
+		);
+
+		parent::set_ajax_params( $field );
+
+		if ( $field['ajax'] ) {
+			$field['js_options']['ajax_data']['field']['display_field'] = $field['display_field'];
+		}
+
+		return $field;
+	}
+
+	/**
+	 * Query users for field options.
+	 *
+	 * @param  array $meta  Saved meta value.
+	 * @param  array $field Field settings.
+	 * @return array        Field options array.
+	 */
+	public static function query( $meta, $field ) {
+		$display_field = $field['display_field'];
+		$args          = wp_parse_args(
+			$field['query_args'],
+			array(
+				'orderby' => $display_field,
 				'order'   => 'asc',
-				'role'    => '',
-				'fields'  => 'all',
-			) );
+			)
+		);
 
-			switch ( $field['field_type'] )
-			{
-				case 'select':
-					return RWMB_Select_Field::normalize_field( $field );
-					break;
-				case 'select_advanced':
-				default:
-					return RWMB_Select_Advanced_Field::normalize_field( $field );
-			}
+		// Query only selected items.
+		if ( ! empty( $field['ajax'] ) && ! empty( $meta ) ) {
+			$args['include'] = $meta;
 		}
 
-		/**
-		 * Get meta value
-		 * If field is cloneable, value is saved as a single entry in DB
-		 * Otherwise value is saved as multiple entries (for backward compatibility)
-		 *
-		 * @see "save" method for better understanding
-		 *
-		 * @param $post_id
-		 * @param $saved
-		 * @param $field
-		 *
-		 * @return array
-		 */
-		static function meta( $post_id, $saved, $field )
-		{
-			if ( isset( $field['parent'] ) && $field['parent'] )
-			{
-				$post = get_post( $post_id );
-
-				return $post->post_parent;
-			}
-
-			return RWMB_Select_Field::meta( $post_id, $saved, $field );
-		}
-
-		/**
-		 * Save meta value
-		 * If field is cloneable, value is saved as a single entry in DB
-		 * Otherwise value is saved as multiple entries (for backward compatibility)
-		 *
-		 * TODO: A good way to ALWAYS save values in single entry in DB, while maintaining backward compatibility
-		 *
-		 * @param $new
-		 * @param $old
-		 * @param $post_id
-		 * @param $field
-		 */
-		static function save( $new, $old, $post_id, $field )
-		{
-			return RWMB_Select_Field::save( $new, $old, $post_id, $field );
-		}
-
-		/**
-		 * Get users
-		 *
-		 * @param array $field
-		 *
-		 * @return array
-		 */
-		static function get_options( $field )
-		{
-			$results = get_users( $field['query_args'] );
-			$options = array();
-			foreach ( $results as $result )
-			{
-				$options[$result->ID] = $result->display_name;
-			}
-
+		// Get from cache to prevent same queries.
+		$last_changed = wp_cache_get_last_changed( 'users' );
+		$key          = md5( serialize( $args ) );
+		$cache_key    = "$key:$last_changed";
+		$options      = wp_cache_get( $cache_key, 'meta-box-user-field' );
+		if ( false !== $options ) {
 			return $options;
 		}
+
+		$users   = get_users( $args );
+		$options = array();
+		foreach ( $users as $user ) {
+			$label = $user->$display_field ? $user->$display_field : __( '(No title)', 'meta-box' );
+			$label = self::filter( 'choice_label', $label, $field, $user );
+			$options[ $user->ID ] = array(
+				'value' => $user->ID,
+				'label' => $label,
+			);
+		}
+
+		// Cache the query.
+		wp_cache_set( $cache_key, $options, 'meta-box-user-field' );
+
+		return $options;
+	}
+
+	/**
+	 * Format a single value for the helper functions. Sub-fields should overwrite this method if necessary.
+	 *
+	 * @param array    $field   Field parameters.
+	 * @param string   $value   The value.
+	 * @param array    $args    Additional arguments. Rarely used. See specific fields for details.
+	 * @param int|null $post_id Post ID. null for current post. Optional.
+	 *
+	 * @return string
+	 */
+	public static function format_single_value( $field, $value, $args, $post_id ) {
+		$display_field = $field['display_field'];
+		$user          = get_userdata( $value );
+		return '<a href="' . esc_url( get_author_posts_url( $value ) ) . '">' . esc_html( $user->$display_field ) . '</a>';
 	}
 }

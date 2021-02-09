@@ -1,78 +1,125 @@
 <?php
-// Prevent loading this file directly
-defined( 'ABSPATH' ) || exit;
+/**
+ * The text fieldset field, which allows users to enter content for a list of text fields.
+ *
+ * @package Meta Box
+ */
 
-if ( ! class_exists( 'RWMB_Fieldset_Text_Field' ) )
-{
-	class RWMB_Fieldset_Text_Field extends RWMB_Field
-	{
-		/**
-		 * Get field HTML
-		 *
-		 * @param mixed $meta
-		 * @param array $field
-		 *
-		 * @return string
-		 */
-		static function html( $meta, $field )
-		{
-			if ( count( $meta ) == 1 && trim( $meta[0] ) == '' )
-				$meta = '';
+/**
+ * Fieldset text class.
+ */
+class RWMB_Fieldset_Text_Field extends RWMB_Text_Field {
+	/**
+	 * Enqueue field scripts and styles.
+	 */
+	public static function admin_enqueue_scripts() {
+		wp_enqueue_style( 'rwmb-fieldset-text', RWMB_CSS_URL . 'fieldset-text.css', '', RWMB_VER );
+	}
 
-			$html   = array();
-			$before = '<fieldset><legend>' . $field['desc'] . '</legend>';
-			$after  = '</fieldset>';
+	/**
+	 * Get field HTML.
+	 *
+	 * @param mixed $meta  Meta value.
+	 * @param array $field Field parameters.
+	 *
+	 * @return string
+	 */
+	public static function html( $meta, $field ) {
+		$html = array();
+		$tpl  = '<p><label>%s</label> %s</p>';
 
-			$tpl = '<label>%s <input type="text" class="rwmb-fieldset-text" name="%s[%s][%d]" placeholder="%s" value="%s" /></label>';
+		foreach ( $field['options'] as $key => $label ) {
+			$value                       = isset( $meta[ $key ] ) ? $meta[ $key ] : '';
+			$field['attributes']['name'] = $field['field_name'] . "[{$key}]";
+			$html[]                      = sprintf( $tpl, $label, parent::html( $value, $field ) );
+		}
 
-			for ( $n = 0; $n < $field['rows']; $n ++ )
-			{
-				foreach ( $field['options'] as $k => $v )
-				{
-					$fid = $field['id'];
-					if ( is_array( $meta ) && ! empty( $meta ) )
-						$html[] = sprintf( $tpl, $k, $fid, $v, $n, $k, $meta[$v][$n] );
-					else
-						$html[] = sprintf( $tpl, $k, $fid, $v, $n, $k, '' );
-				}
-				$html[] = '<br>';
+		$out = '<fieldset><legend>' . $field['desc'] . '</legend>' . implode( ' ', $html ) . '</fieldset>';
+
+		return $out;
+	}
+
+	/**
+	 * Do not show field description.
+	 *
+	 * @param array $field Field parameters.
+	 *
+	 * @return string
+	 */
+	public static function input_description( $field ) {
+		return '';
+	}
+
+	/**
+	 * Do not show field description.
+	 *
+	 * @param array $field Field parameters.
+	 *
+	 * @return string
+	 */
+	public static function label_description( $field ) {
+		return '';
+	}
+
+	/**
+	 * Normalize parameters for field.
+	 *
+	 * @param array $field Field parameters.
+	 *
+	 * @return array
+	 */
+	public static function normalize( $field ) {
+		$field                       = parent::normalize( $field );
+		$field['multiple']           = false;
+		$field['attributes']['id']   = false;
+		$field['attributes']['type'] = 'text';
+		return $field;
+	}
+
+	/**
+	 * Format value for the helper functions.
+	 *
+	 * @param array        $field   Field parameters.
+	 * @param string|array $value   The field meta value.
+	 * @param array        $args    Additional arguments. Rarely used. See specific fields for details.
+	 * @param int|null     $post_id Post ID. null for current post. Optional.
+	 *
+	 * @return string
+	 */
+	public static function format_value( $field, $value, $args, $post_id ) {
+		$output = '<table><thead><tr>';
+		foreach ( $field['options'] as $label ) {
+			$output .= "<th>$label</th>";
+		}
+		$output .= '</tr></thead></tbody>';
+
+		if ( ! $field['clone'] ) {
+			$output .= self::format_single_value( $field, $value, $args, $post_id );
+		} else {
+			foreach ( $value as $subvalue ) {
+				$output .= self::format_single_value( $field, $subvalue, $args, $post_id );
 			}
-
-			$out = $before . implode( ' ', $html ) . $after;
-
-			return $out;
 		}
+		$output .= '</tbody></table>';
+		return $output;
+	}
 
-		/**
-		 * Get meta value
-		 *
-		 * @param $post_id
-		 * @param $saved
-		 * @param $field
-		 *
-		 * @return array
-		 */
-		static function meta( $post_id, $saved, $field )
-		{
-			$meta = get_post_meta( $post_id, $field['id'] );
-
-			if ( is_array( $meta ) && ! empty( $meta ) )
-				$meta = $meta[0];
-
-			return $meta;
+	/**
+	 * Format a single value for the helper functions. Sub-fields should overwrite this method if necessary.
+	 *
+	 * @param array    $field   Field parameters.
+	 * @param array    $value   The value.
+	 * @param array    $args    Additional arguments. Rarely used. See specific fields for details.
+	 * @param int|null $post_id Post ID. null for current post. Optional.
+	 *
+	 * @return string
+	 */
+	public static function format_single_value( $field, $value, $args, $post_id ) {
+		$output = '<tr>';
+		foreach ( $value as $subvalue ) {
+			$output .= "<td>$subvalue</td>";
 		}
-
-		/**
-		 * Save meta value
-		 *
-		 * @param $new
-		 * @param $old
-		 * @param $post_id
-		 * @param $field
-		 */
-		static function save( $new, $old, $post_id, $field )
-		{
-			update_post_meta( $post_id, $field['id'], $new, $old );
-		}
+		$output .= '</tr>';
+		return $output;
 	}
 }

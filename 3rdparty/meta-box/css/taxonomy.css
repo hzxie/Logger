@@ -1,10 +1,18 @@
-.rw-taxonomy-tree {
-	margin-left: 15px;
-	margin-top: 5px;
+.rwmb-taxonomy-add,
+.rwmb-taxonomy-add-form {
+	margin-top: 6px;
 }
-.rw-taxonomy-tree.active {
-	display: inline-block;
+.rwmb-taxonomy-add-button {
+	padding: 0;
+	border: 0;
+	background: none;
+	color: #0073aa;
+	text-decoration: underline;
+	cursor: pointer;
 }
-.rw-taxonomy-tree.disabled {
+.rwmb-taxonomy-add-button:hover {
+	color: #00a0d2;
+}
+.rwmb-taxonomy-add-form.rwmb-hidden {
 	display: none;
 }

@@ -1,90 +1,51 @@
-jQuery( function ( $ )
-{
+( function ( $, rwmb ) {
 	'use strict';
 
-	// Use only one frame for all upload fields
-	var frame,
-		template = $( '#tmpl-rwmb-image-advanced' ).html();
+	var views = rwmb.views = rwmb.views || {},
+		MediaField = views.MediaField,
+		MediaItem = views.MediaItem,
+		MediaList = views.MediaList,
+		ImageField;
 
-	$( 'body' ).on( 'click', '.rwmb-image-advanced-upload', function ( e )
-	{
-		e.preventDefault();
-
-		var $uploadButton = $( this ),
-			$imageList = $uploadButton.siblings( '.rwmb-images' ),
-			maxFileUploads = $imageList.data( 'max_file_uploads' ),
-			msg = maxFileUploads > 1 ? rwmbFile.maxFileUploadsPlural : rwmbFile.maxFileUploadsSingle;
-
-		msg = msg.replace( '%d', maxFileUploads );
-
-		// Create a frame only if needed
-		if ( !frame )
-		{
-			frame = wp.media( {
-				className: 'media-frame rwmb-media-frame',
-				multiple : true,
-				title    : rwmbImageAdvanced.frameTitle,
-				library  : {
-					type: 'image'
-				}
+	ImageField = views.ImageField = MediaField.extend( {
+		createList: function () {
+			this.list = new MediaList( {
+				controller: this.controller,
+				itemView: MediaItem.extend( {
+					className: 'rwmb-image-item attachment',
+					template: wp.template( 'rwmb-image-item' ),
+					initialize: function( models, options ) {
+						MediaItem.prototype.initialize.call( this, models, options );
+						this.$el.addClass( this.controller.get( 'imageSize' ) );
+					}
+				} )
 			} );
 		}
-
-		// Open media uploader
-		frame.open();
-
-		// Remove all attached 'select' event
-		frame.off( 'select' );
-
-		// Handle selection
-		frame.on( 'select', function ()
-		{
-			// Get selections
-			var selection = frame.state().get( 'selection' ).toJSON(),
-				uploaded = $imageList.children().length,
-				ids;
-
-			if ( maxFileUploads > 0 && ( uploaded + selection.length ) > maxFileUploads )
-			{
-				if ( uploaded < maxFileUploads )
-				{
-					selection = selection.slice( 0, maxFileUploads - uploaded );
-				}
-				alert( msg );
-			}
-
-			// Get only files that haven't been added to the list
-			// Also prevent duplication when send ajax request
-			selection = _.filter( selection, function ( attachment )
-			{
-				return $imageList.children( 'li#item_' + attachment.id ).length === 0;
-			} );
-			ids = _.pluck( selection, 'id' );
-
-			if ( ids.length > 0 )
-			{
-				var data = {
-					action        : 'rwmb_attach_media',
-					post_id       : $( '#post_ID' ).val(),
-					field_id      : $imageList.data( 'field_id' ),
-					attachment_ids: ids,
-					_ajax_nonce   : $uploadButton.data( 'attach_media_nonce' )
-				};
-
-				$.post( ajaxurl, data, function ( r )
-				{
-					if ( r.success )
-					{
-						$imageList
-							.append( _.template( template, { attachments: selection }, {
-								evaluate   : /<#([\s\S]+?)#>/g,
-								interpolate: /\{\{\{([\s\S]+?)\}\}\}/g,
-								escape     : /\{\{([^\}]+?)\}\}(?!\})/g
-							} ) )
-							.trigger( 'update.rwmbFile' );
-					}
-				}, 'json' );
-			}
-		} );
 	} );
-} );
+
+	/**
+	 * Initialize image fields
+	 */
+	function initImageField() {
+		var $this = $( this ),
+			view = $this.data( 'view' );
+
+		if ( view ) {
+			return;
+		}
+
+		view = new ImageField( { input: this } );
+
+		$this.siblings( '.rwmb-media-view' ).remove();
+		$this.after( view.el );
+		$this.data( 'view', view );
+	}
+
+	function init( e ) {
+		$( e.target ).find( '.rwmb-image_advanced' ).each( initImageField );
+	}
+
+	rwmb.$document
+		.on( 'mb_ready', init )
+		.on( 'clone', '.rwmb-image_advanced', initImageField );
+} )( jQuery, rwmb );
