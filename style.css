@@ -34,7 +34,7 @@
 /*   19 - Footer                   */
 /*   20 - Box default              */
 /*   21 - Border radius & Colors &
-          Animation & Keyframes    */
+		  Animation & Keyframes    */
 
 /* ---------------------------------------------------------------------- */
 /*	00 - Reset & Clearfix (http://meyerweb.com/eric/tools/css/reset/)
@@ -93,7 +93,7 @@ a {
 }
 
 a:hover {
-    color: #2f3c4e;
+	color: #2f3c4e;
 }
 
 
@@ -107,7 +107,7 @@ ul.inline > li {
 }
 
 code {
-    font-size: 12px;
+	font-size: 12px;
 }
 
 hr {
@@ -188,7 +188,7 @@ div#header div#logo > a {
 }
 
 div#header div#logo img {
-    line-height: 84px;
+	line-height: 84px;
 	max-height: 100%;
 	max-width: 100%;
 }
@@ -382,7 +382,7 @@ div.widget form#searchform input#searchsubmit {
 	        border-radius: 2px;
 	-webkit-transition: all 0.17s ease-in-out;
 	   -moz-transition: all 0.17s ease-in-out;
-	     -o-transition: all 0.17s ease-in-out;
+		 -o-transition: all 0.17s ease-in-out;
 	        transition: all 0.17s ease-in-out;
 }
 
@@ -751,7 +751,7 @@ div#comments textarea#comment {
 }
 
 div#comments textarea#comment:focus {
-    border-color: #dedede;
+	border-color: #dedede;
 }
 
 div#comments input#submit {
@@ -774,7 +774,7 @@ div#comments input#submit {
 }
 
 div#comments input#submit:hover {
-    background-color: #2f3c4e;
+	background-color: #2f3c4e;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -831,8 +831,8 @@ ul#portfolio-filter li > a {
 
 ul#portfolio-filter li > a.active,
 ul#portfolio-filter li > a:hover {
-    background-color: #e74c3c;
-    color: #fff;
+	background-color: #e74c3c;
+	color: #fff;
 }
 
 div#portfolio-items div.portfolio {
@@ -897,7 +897,7 @@ div#portfolio-items div.portfolio:hover div.portfolio-one:after {
 	width: 5px;
 	-webkit-transform: rotate(45deg);
 	   -moz-transform: rotate(45deg);
-	    -ms-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
 	     -o-transform: rotate(45deg);
 	        transform: rotate(45deg);
 }
@@ -920,7 +920,7 @@ div#portfolio-items div.portfolio div.portfolio-one div.portfolio-header img:hov
 }
 
 div#portfolio-items div.portfolio div.portfolio-one div.portfolio-body h5.portfolio-name {
-    color: #2f3c4e;
+	color: #2f3c4e;
 	height: 20px;
 	overflow: hidden;
 	text-overflow:ellipsis;
@@ -1080,7 +1080,8 @@ div#footer a:hover {
 	color: #fff;
 }
 
-div#footer a#icp-number {
+div#footer a#icp-number,
+div#footer a#police-icp-number {
 	color: #f1f1f1;
 }
 
@@ -1235,10 +1236,6 @@ a#back-to-top:hover {
 		width: 320px;
 	}
 
-    span#icp-number {
-		display: block;
-	}
-
 	/* Portfolio */
 	div#portfolio-items div.portfolio.span2,
 	div#portfolio-items div.portfolio.span3,
@@ -1255,4 +1252,10 @@ a#back-to-top:hover {
 	div#map-container div.map {
 		height: 180px;
 	}
+	
+	#icp-number,
+	#police-icp-number {
+		display: block;
+	}
 }
+
