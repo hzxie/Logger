@@ -8,12 +8,12 @@
  */
 
 /* ---------------------------------------------------------------------- */
-/*  Portfolio
+/*  Projects
 /* ---------------------------------------------------------------------- */
-/* Register New Post Type: Portfolio */
+/* Register New Post Type: Projects */
 function lgr_register_post_type_portfolio() {
     $labels = array(
-        'name'               => __('Portfolio', TPLNAME),
+        'name'               => __('Projects', TPLNAME),
         'singular_name'      => __('Project', TPLNAME),
         'add_new'            => __('Add New', TPLNAME),
         'add_new_item'       => __('Add New Project', TPLNAME),
@@ -24,12 +24,12 @@ function lgr_register_post_type_portfolio() {
         'not_found'          => __('No projects found', TPLNAME),
         'not_found_in_trash' => __('No projects found in Trash', TPLNAME),
         'parent_item_colon'  => __('Parent Project:', TPLNAME),
-        'menu_name'          => __('Portfolio', TPLNAME),
+        'menu_name'          => __('Projects', TPLNAME),
     );
     $args = array(
         'labels'              => $labels,
         'hierarchical'        => false,
-        'supports'            => array('title', 'editor', 'thumbnail', 'comments'),
+        'supports'            => array('title', 'author', 'editor', 'thumbnail', 'comments'),
         'taxonomies'          => array('portfolio-category'),
         'public'              => true,
         'show_ui'             => true,
@@ -50,7 +50,7 @@ function lgr_register_post_type_portfolio() {
 } 
 add_action('init', 'lgr_register_post_type_portfolio');
 
-/* Add Menu Icons for Portfolio in Administration Page */
+/* Add Menu Icons for Projects in Administration Page */
 function add_portfolio_menu_icons(){ ?>
     <style>
         #adminmenu .menu-icon-portfolio div.wp-menu-image:before {
@@ -61,7 +61,7 @@ function add_portfolio_menu_icons(){ ?>
 }
 add_action( 'admin_head', 'add_portfolio_menu_icons' );
 
-/* Register Categories for Portfolio */
+/* Register Categories for Projects */
 function lgr_register_portfolio_categories() {
     $labels = array(
         'name'                      => __('Categories', TPLNAME),
@@ -84,6 +84,7 @@ function lgr_register_portfolio_categories() {
         'labels'                    => $labels,
         'public'                    => true,
         'show_in_nav_menus'         => true,
+        'show_in_rest'              => true,
         'show_ui'                   => true,
         'show_tagcloud'             => false,
         'hierarchical'              => true,
@@ -94,20 +95,22 @@ function lgr_register_portfolio_categories() {
 } 
 add_action('init', 'lgr_register_portfolio_categories');
 
-/* Setup Columns to Display in Portfolio Administration Page */
+/* Setup Columns to Display in Projects Administration Page */
 function lgr_setup_portfolio_columns() {
     $columns = array(
         'cb'                        => '<input type="checkbox" />',
         'thumbnail'                 => __('Thumbnail', TPLNAME),
         'title'                     => __('Name', TPLNAME),
+        'author'                    => __('Author', TPLNAME),
         'portfolio-category'        => __('Categories', TPLNAME),
+        'comments'                  => '<span class="vers comment-grey-bubble" title="Comments"><span class="screen-reader-text">'. __('Comments', TPLNAME). '</span></span>',
         'date'                      => __('Date', TPLNAME)
     );
     return $columns;
 }
 add_action('manage_edit-portfolio_columns', 'lgr_setup_portfolio_columns');
 
-/* Custom colums content for 'Portfolio' */
+/* Custom colums content for 'Projects' */
 function lgr_manage_portfolio_columns($column, $post_id) {
     global $post;
 
