@@ -49,7 +49,7 @@
                     ?>
 
                     <?php if ( $icp_number || $police_icp_number ): ?>
-                        <a id="icp-number" href="http://www.beian.miit.gov.cn" target="_blank"><?php echo $icp_number; ?></a>
+                        <a id="icp-number" href="https://beian.miit.gov.cn" target="_blank"><?php echo $icp_number; ?></a>
                         <?php if ( $police_icp_number ): ?>
                         <a id="police-icp-number" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=<?php echo filter_var($police_icp_number, FILTER_SANITIZE_NUMBER_INT); ?>" target="_blank">
                             <img src="<?php echo get_template_directory_uri() . '/images/police-badge-of-china.png'; ?>" alt="Police-Logo"> <?php echo $police_icp_number; ?>
