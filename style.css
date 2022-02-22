@@ -1236,6 +1236,10 @@ a#back-to-top:hover {
 		width: 320px;
 	}
 
+    div#content div.container {
+        width: 100%;
+    }
+
 	/* Portfolio */
 	div#portfolio-items div.portfolio.span2,
 	div#portfolio-items div.portfolio.span3,
