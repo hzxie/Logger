@@ -163,7 +163,7 @@ div#header {
 	height: 84px;
 	margin-bottom: 60px;
 	position: relative;
-	z-index: 99999;
+	z-index: 32;
 	-webkit-box-shadow: 0 0 5px 0 #e2e3e4;
 	   -moz-box-shadow: 0 0 5px 0 #e2e3e4;
 	        box-shadow: 0 0 5px 0 #e2e3e4;
@@ -1101,7 +1101,7 @@ a#back-to-top {
 	right: -60px;
 	bottom: 20px;
 	text-align: center;
-	z-index: 8192;
+	z-index: 16;
 }
 
 a#back-to-top:hover {

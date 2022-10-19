@@ -409,4 +409,4 @@ if ( !function_exists('lgr_paging_nav') ) {
 }
 
 // Disabled Auto Save
-add_action('admin_print_scripts', create_function( '$a', "wp_deregister_script('autosave');" ));
+// add_action('admin_print_scripts', create_function( '$a', "wp_deregister_script('autosave');" ));
