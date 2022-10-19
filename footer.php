@@ -67,8 +67,6 @@
     <a id="back-to-top" href="javascript:void(0);">
         <i class="fa fa-chevron-up"></i>
     </a>
-    <!-- JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript">
         (function($) {
             $('#primary-navigation li.menu-item-has-children').hover(function() {
@@ -98,8 +96,17 @@
     </script>
     <script type="text/javascript">
         (function($) {
-            $.fn.slideHorzShow = function( speed, easing, callback ) { this.animate( { marginLeft : 'show', marginRight : 'show', paddingLeft : 'show', paddingRight : 'show', width : 'show' }, speed, easing, callback ); };
-            $.fn.slideHorzHide = function( speed, easing, callback ) { this.animate( { marginLeft : 'hide', marginRight : 'hide', paddingLeft : 'hide', paddingRight : 'hide', width : 'hide' }, speed, easing, callback ); };
+            Fancybox.bind("figure.wp-block-image > a");
+        })(jQuery);
+    </script>
+    <script type="text/javascript">
+        (function($) {
+            $.fn.slideHorzShow = function(speed, easing, callback) {
+                this.animate({marginLeft : 'show', marginRight : 'show', paddingLeft : 'show', paddingRight : 'show', width : 'show'}, speed, easing, callback);
+            };
+            $.fn.slideHorzHide = function(speed, easing, callback) {
+                this.animate({marginLeft : 'hide', marginRight : 'hide', paddingLeft : 'hide', paddingRight : 'hide', width : 'hide'}, speed, easing, callback);
+            };
 
             var $container     = $('#portfolio-items'),
                 $itemsFilter   = $('#portfolio-filter'),
