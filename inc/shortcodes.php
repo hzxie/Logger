@@ -139,7 +139,7 @@ function lgr_portfolio_shortcode( $atts, $content = null ) {
     </ul> <!-- #portfolio-filter -->
 <?php
     if( have_posts() ) :
-        $output .= '<div id="portfolio-items" class="clearfix">';
+        $output = '<div id="portfolio-items" class="clearfix">';
         $lightbox = ot_get_option(TPLNAME . '_single_project_lightbox');
 
         if( $lightbox == '1' ) {
@@ -176,7 +176,10 @@ function lgr_portfolio_shortcode( $atts, $content = null ) {
                 if( $post_thumbnail_img ) {
                     $output .= '<div class="portfolio-header">';
                     $output .= '    <a href="' . $permalink . '" title="' . get_the_title() . '"' . $lightbox_class . '>';
-                    $output .= '        <img src="' . $post_thumbnail_img . '" alt="thumbnail" class="entry-image ' . $post_thumbnail_data['class'] . '">';
+                    $output .= '        <img src="' . $post_thumbnail_img . 
+                                          '" alt="thumbnail" class="entry-image ' . 
+                                          (array_key_exists('class', $post_thumbnail_data) ? $post_thumbnail_data['class'] : '') . 
+                                        '">';
                     $output .= '    </a>';
                     $output .= '</div> <!-- .portfolio-header -->';
                 }

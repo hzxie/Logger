@@ -300,9 +300,7 @@ div.widget li {
 	list-style: none;
 	color: #4b525c;
 	padding-bottom: 10px;
-	margin-bottom: 10px;
 	overflow: hidden;
-	height: 100%;
 }
 
 div#content div.widget li {

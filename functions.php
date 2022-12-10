@@ -244,8 +244,8 @@ if ( !function_exists('lgr_wp_title') ) {
         }
 
         // Add a page number if necessary.
-        if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-            $title = "$title $sep " . sprintf(__('Page %s', TPLNAME), max( $paged, $page ));
+        if ( ( $paged >= 2 ) && ! is_404() ) {
+            $title = "$title $sep " . sprintf(__('Page %s', TPLNAME), $paged);
         }
         return $title;
     }
@@ -258,25 +258,24 @@ if ( !function_exists('lgr_wp_title') ) {
 if ( !function_exists('lgr_get_keywords') ) {
     function lgr_get_keywords() {
         global $wp_query;
-        $post_id = $post_id ? $post_id : $wp_query->get_queried_object()->ID;
 
         if ( is_home() || is_page() ) {
             return ot_get_option(TPLNAME . '_blog_keywords');
         }
+        $post_id = $wp_query->get_queried_object()->ID;
         $tags = wp_get_post_tags($post_id, array('fields' => 'names'));
         return implode(', ', $tags);
-
     }
 }
 
 if ( !function_exists('lgr_get_description') ) {
     function lgr_get_description() {
         global $wp_query;
-        $post = $post ? $post : $wp_query->get_queried_object();
     
         if ( is_home() || is_front_page() ) {
             return ot_get_option(TPLNAME . '_blog_description');
         }
+        $post = $wp_query->get_queried_object();
         return mb_substr(wp_trim_words($post->post_content), 0, 160);
     }
 }
@@ -284,7 +283,15 @@ if ( !function_exists('lgr_get_description') ) {
 if ( !function_exists('lgr_get_post_meta') ) {
     function lgr_get_post_meta($key, $post_id = null) {
         global $wp_query;
-        $post_id = $post_id ? $post_id : $wp_query->get_queried_object()->ID;
+
+        $post_id = 0;
+        if ( is_front_page() ) {
+            $post_id = get_option('page_on_front');
+        } else if ( is_home() ) {
+            $post_id = get_option('page_for_posts');
+        } else {
+            $post_id = $wp_query->get_queried_object()->ID;
+        }
         return get_post_meta( $post_id, $key, true );
     }
 }
@@ -404,5 +411,3 @@ if ( !function_exists('lgr_paging_nav') ) {
     }
 }
 
-// Disabled Auto Save
-add_action('admin_print_scripts', create_function( '$a', "wp_deregister_script('autosave');" ));
