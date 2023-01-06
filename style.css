@@ -299,7 +299,7 @@ div#content h6.widget-title:before {
 div.widget li {
 	list-style: none;
 	color: #4b525c;
-	padding-bottom: 10px;
+	padding: 10px 0;
 	overflow: hidden;
 }
 
