@@ -216,7 +216,7 @@ div#header div#primary-navigation ul.inline > li > a {
 div#header div#primary-navigation ul.inline > li.current-menu-item > a,
 div#header div#primary-navigation ul.inline > li.current_page_parent > a,
 div#header div#primary-navigation ul.inline > li:hover > a {
-	color: #e74c3c;
+	color: #e74c3c!important;
 }
 
 div#header div#primary-navigation ul.sub-menu {
@@ -430,7 +430,6 @@ div.widget table#wp-calendar caption {
 
 div.widget table#wp-calendar th {
 	background-color: #f9f9f9;
-	border-top: 0;
 	color: #59616a;
 }
 
@@ -1104,6 +1103,171 @@ a#back-to-top {
 
 a#back-to-top:hover {
 	background-color: #263241;
+}
+
+/* ---------------------------------------------------------------------- */
+/*	Dark Mode Theme
+/* ---------------------------------------------------------------------- */
+@media (prefers-color-scheme:dark){
+	a:hover {
+		color: #fff;
+	}
+
+	code, pre {
+		color: #cde1ee;
+	}
+
+	body {
+		background-color: #2d2d2d;
+	}
+
+	div#header {
+		background: #393939 url(images/header-top.png) repeat-x top center;
+		border-bottom-color: #5e5e5e;
+		-webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+		   -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+		        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+	}
+
+	div#header div#primary-navigation ul.inline > li > a {
+		color: #fff;
+	}
+
+	div.post,
+	div.page,
+	div.portfolio,
+	div#content div.widget,
+	div.post + div#disqus_thread,
+	div.page + div#disqus_thread,
+	div.entry-nav + div#disqus_thread,
+	div.post + div#comments,
+	div.page + div#comments,
+	div.entry-nav + div#comments {
+		background-color: #393939;
+		border-color: #3f4245;
+		color: #acb3b9;
+		-webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+		   -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+		        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+	}
+
+	div.post .btn,
+	div.page .btn,
+	div.portfolio .btn,
+	div.entry-nav .btn,
+	div.pagination .page-numbers,
+	ul#portfolio-filter li > a {
+		background-color: #3e4952;
+		border: none;
+		text-shadow: none;
+		box-shadow: none;
+	}
+
+	div.post .btn a,
+	div.page .btn a,
+	div.portfolio .btn a,
+	div.pagination .page-numbers,
+	ul#portfolio-filter li > a {
+		color: #9cc1db;
+	}
+
+	div.post .btn a:hover,
+	div.page .btn a:hover,
+	div.portfolio .btn a:hover,
+	div.pagination .page-numbers.current,
+	div.pagination a.page-numbers:hover,
+	ul#portfolio-filter li > a.active {
+		color: #cde1ee;
+	}
+
+	div.post div.entry-header {
+		border-bottom-color: #5e5e5e;
+	}
+
+	div.post div.entry-body div.post-share-view {
+		border-top-color: #4d4d4d;
+	}
+
+	div#content div.widget form#searchform input#searchsubmit {
+		border: none;
+	}
+
+	div#content div.widget form#searchform input#searchsubmit:hover,
+	div.post div.entry-body div.post-share-view a.continue-reading:hover {
+		background-color: #3e4952;
+		color: #cde1ee;
+	}
+
+	div#portfolio-items div.portfolio div.portfolio-one {
+		border-bottom-color: #5e5e5e;
+	}
+
+	div#portfolio-items div.portfolio div.portfolio-one:hover {
+		background: #3e4952;
+	}
+
+	div#portfolio-items div.portfolio div.portfolio-one div.portfolio-body h5.portfolio-name {
+		color: #fff;
+	}
+
+	div.widget form#searchform input#s,
+	div#comments input#author,
+	div#comments input#email,
+	div#comments input#url,
+	div#comments textarea#comment {
+		background-color: #2d2d2d;
+		border-color: #696f75;
+		color: #fff;
+	}
+
+	div#comments input#submit {
+		border: none;
+	}
+
+	div#content h6.widget-title {
+		border-bottom-color: #5e5e5e;
+		color: #c4c8cc;
+	}
+
+	div#content h6.widget-title:before {
+		background-color: #c4c8cc;
+	}
+
+	div#content div.widget a {
+		color: #f2f2f3;
+	}
+
+	div#content div.widget li {
+		color: #c4c8cc;
+		border-bottom-color: #5e5e5e;
+	}
+
+	div.widget table#wp-calendar th,
+	div#content div.widget table#wp-calendar {
+		background: #3e4952;
+		color: #9cc1db;
+	}
+
+	div.widget #calendar_wrap th,
+	div.widget #calendar_wrap td {
+		border-color: #696f75;
+	}
+
+	div#content div.widget table#wp-calendar td#today {
+		color: #cde1ee;
+	}
+
+	div#colophon {
+		background-color: #24262a;
+	}
+
+	div#colophon:before {
+		background-color: #2d2d2d;
+	}
+
+	div#footer {
+		background-color: #1d1e21;
+	}
 }
 
 /* ---------------------------------------------------------------------- */
