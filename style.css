@@ -1133,6 +1133,12 @@ a#back-to-top:hover {
 		color: #fff;
 	}
 
+	div#header select {
+		background-color: #2d2d2d;
+		border-color: #696f75;
+		color: #fff;
+	}
+
 	div.post,
 	div.page,
 	div.portfolio,
