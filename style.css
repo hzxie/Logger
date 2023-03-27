@@ -1114,7 +1114,8 @@ a#back-to-top:hover {
 	}
 
 	code, pre {
-		color: #cde1ee;
+		background-color: #393939;
+		color: #fff;
 	}
 
 	body {
@@ -1223,6 +1224,27 @@ a#back-to-top:hover {
 	div#comments textarea#comment {
 		background-color: #2d2d2d;
 		border-color: #696f75;
+		color: #fff;
+	}
+
+	.enlighter-t-enlighter {
+		border-color: #696f75;
+	}
+
+	.enlighter-t-enlighter div.enlighter > div > div:hover {
+		background-color: #1d1e21;
+		color: #fff;
+	}
+
+	.enlighter-t-enlighter.enlighter-linenumbers div.enlighter > div::before {
+		background-color: #1d1e21;
+	}
+
+	.enlighter-t-enlighter.enlighter-linenumbers div.enlighter > div:hover::before {
+		color: #fff
+	}
+
+	.enlighter-t-enlighter .enlighter-text {
 		color: #fff;
 	}
 
