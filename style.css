@@ -1272,8 +1272,8 @@ a#back-to-top:hover {
 
 	div.widget table#wp-calendar th,
 	div#content div.widget table#wp-calendar {
-		background: #3e4952;
-		color: #9cc1db;
+		background: #2d2d2d;
+		color: #f2f2f3;
 	}
 
 	div.widget #calendar_wrap th,
@@ -1282,7 +1282,7 @@ a#back-to-top:hover {
 	}
 
 	div#content div.widget table#wp-calendar td#today {
-		color: #cde1ee;
+		color: #e74c3c;
 	}
 
 	div#colophon {
