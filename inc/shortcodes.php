@@ -321,15 +321,17 @@ function lgr_fullwidth_map_shortcode( $atts, $content = null ) {
     <?php elseif ( $provider == 'MapBox' ): ?>
 
         <div id="mapbox" class="map"></div>
-        <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
         <script>
             mapboxgl.accessToken = '<?php echo $apikey; ?>';
-            var map = new mapboxgl.Map({
+            var isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches,
+                map = new mapboxgl.Map({
                     container: 'mapbox',
                     style: 'mapbox://styles/mapbox/streets-v11',
                     center: [<?php echo $longitude; ?>, <?php echo $latitude; ?>],
-                    zoom: <?php echo $zoom; ?>
+                    zoom: <?php echo $zoom; ?>,
+                    style: isDarkMode ? 'mapbox://styles/mapbox/dark-v11' : 'mapbox://styles/mapbox/streets-v12'
                 });
             var nav = new mapboxgl.NavigationControl(),
                 scale = new mapboxgl.ScaleControl({
