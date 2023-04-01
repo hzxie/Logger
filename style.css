@@ -1249,6 +1249,15 @@ a#back-to-top:hover {
 		color: #fff;
 	}
 
+	div.page div.entry-header {
+		border-bottom-color: #696f75;
+	}
+
+	div#map-container {
+		background-color: #393939;
+		border-bottom-color: #696f75;
+	}
+
 	div#comments input#submit {
 		border: none;
 	}
