@@ -1231,7 +1231,8 @@ a#back-to-top:hover {
 		border-color: #696f75;
 	}
 
-	.enlighter-t-enlighter div.enlighter > div > div:hover {
+	.enlighter-t-enlighter div.enlighter > div > div:hover, 
+	.enlighter-t-enlighter.enlighter-hover div.enlighter>div:hover {
 		background-color: #1d1e21;
 		color: #fff;
 	}
