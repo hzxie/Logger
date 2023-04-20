@@ -418,7 +418,8 @@ function lgr_highlight_shortcode( $atts ) {
 
     $highlight_html = '<div class="thumbnail">';
     if ($image) {
-        if (str_ends_with($image, ".gif") || str_ends_with($image, ".jpg") || str_ends_with($image, ".png")) {
+        if (str_ends_with($image, ".gif") || str_ends_with($image, ".jpg") || 
+            str_ends_with($image, ".png") || str_ends_with($image, ".webp")) {
             $highlight_html .= '<img src="' . $image . '">';
         } else if (str_ends_with($image, ".webm")) {
             $highlight_html .= '<video autoplay="" loop="" muted=""><source src="' . $image . '" type="video/webm"></video>';
