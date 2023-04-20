@@ -47,7 +47,6 @@
                         $icp_number         = ot_get_option(TPLNAME . '_icp_number');
                         $police_icp_number  = ot_get_option(TPLNAME . '_police_icp_number');
                     ?>
-
                     <?php if ( $icp_number || $police_icp_number ): ?>
                         <a id="icp-number" href="https://beian.miit.gov.cn" target="_blank"><?php echo $icp_number; ?></a>
                         <?php if ( $police_icp_number ): ?>

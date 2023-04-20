@@ -17,7 +17,7 @@
  * This shortcode is used to generate <div class="row"></div>.
  */
 function lgr_row_shortcode( $atts, $content = null ) {
-    return '<div class="row-fluid">' . do_shortcode( $content ) . '</div>';
+    return '<div class="row-fluid">' . do_shortcode( str_replace("<br />", "", $content) ) . '</div>';
 }
 add_shortcode('row', 'lgr_row_shortcode');
 
@@ -35,7 +35,7 @@ function lgr_column_shortcode( $atts, $content = null ) {
     if ( 0 === strpos($content, '</p>') ) { // Fix strange bug: $content starts with '</p>'
         $content = substr($content, 4);
     }
-    return '<div class="offset' . $offset . ' span' . $column . '">' . do_shortcode( $content ) . '</div>';
+    return '<div class="offset' . $offset . ' span' . $column . '">' . do_shortcode( str_replace("<br />", "", $content) ) . '</div>';
 }
 add_shortcode('column', 'lgr_column_shortcode');
 
@@ -399,3 +399,42 @@ function lgr_comment_box_shortcode( $atts ) {
     return $comment_box_html;
 }
 add_shortcode('comment_box', 'lgr_comment_box_shortcode');
+
+
+/**
+ * ShortCode: [highlight]
+ * 
+ * This short code is used to generate comment box in the page.
+ */
+function lgr_highlight_shortcode( $atts ) {
+    extract( shortcode_atts( array(
+        'title'     => '',
+        'content'   => '',
+        'image'     => '',
+        'href'      => '#',
+        'date'      => '',
+        'tag'       => '',
+    ), $atts ) );
+
+    $highlight_html = '<div class="thumbnail">';
+    if ($image) {
+        if (str_ends_with($image, ".gif") || str_ends_with($image, ".jpg") || str_ends_with($image, ".png")) {
+            $highlight_html .= '<img src="' . $image . '">';
+        } else if (str_ends_with($image, ".webm")) {
+            $highlight_html .= '<video autoplay="" loop="" muted=""><source src="' . $image . '" type="video/webm"></video>';
+        }
+    }
+    $highlight_html .= '<a href="' . $href . '" target="_blank">';
+    $highlight_html .= '<div class="caption">';
+    if ($date) {
+        $highlight_html .= '<span class="date">' . $date . '</span>';
+    }
+    if ($tag) {
+        $highlight_html .= '<span class="badge">' . $tag . '</span>';
+    }
+    $highlight_html .= '<h4>' . $title . '</h4>';
+    $highlight_html .= '<p>' . $content . '</p>';
+    $highlight_html .= '</div></a></div>';
+    return $highlight_html;
+}
+add_shortcode('highlight', 'lgr_highlight_shortcode');

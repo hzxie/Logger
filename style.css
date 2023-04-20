@@ -31,10 +31,9 @@
 /*   16 - Portfolio                */
 /*   17 - blocks                   */
 /*   18 - Home slider              */
-/*   19 - Footer                   */
-/*   20 - Box default              */
-/*   21 - Border radius & Colors &
-		  Animation & Keyframes    */
+/*   19 - Highlights               */
+/*   20 - Footer                   */
+/*   21 - Dark theme               */
 
 /* ---------------------------------------------------------------------- */
 /*	00 - Reset & Clearfix (http://meyerweb.com/eric/tools/css/reset/)
@@ -1050,7 +1049,31 @@ div#home-slider div.carousel-caption .btn-primary {
 }
 
 /* ---------------------------------------------------------------------- */
-/*	19 - Footer
+/*  19 - Highlights
+/* ---------------------------------------------------------------------- */
+div.thumbnail {
+	margin-bottom: 20px;
+	padding: 0;
+	user-select: none;
+}
+
+div.thumbnail img,
+div.thumbnail video {
+	border-radius: 4px 4px 0 0;
+	width: 100%;
+}
+
+div.thumbnail span.date,
+div.thumbnail span.badge {
+	display: inline-block;
+	*display: inline;
+	font-size: 12px;
+	margin-bottom: 20px;
+	margin-right: 10px;
+}
+
+/* ---------------------------------------------------------------------- */
+/*	20 - Footer
 /* ---------------------------------------------------------------------- */
 div#colophon {
 	background-color: #2f3c4e;
@@ -1167,7 +1190,7 @@ a#back-to-top:hover {
 }
 
 /* ---------------------------------------------------------------------- */
-/*	Dark Mode Theme
+/*	21 - Dark Theme
 /* ---------------------------------------------------------------------- */
 @media (prefers-color-scheme:dark){
 	a:hover {
@@ -1321,6 +1344,14 @@ a#back-to-top:hover {
 		color: #fff;
 	}
 
+	.thumbnail {
+		border-color: #5e5e5e;
+	}
+
+	.thumbnail .caption {
+		color: #acb3b9;
+	}
+
 	div.page div.entry-header {
 		border-bottom-color: #696f75;
 	}
@@ -1460,6 +1491,7 @@ a#back-to-top:hover {
 		left: 0;
 		right: 0;
 		text-align: center;
+		height: 400px;
 		width: 100%;
 	}
 
