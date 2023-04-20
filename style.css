@@ -64,6 +64,10 @@ video { max-width: 100% }
 /* ---------------------------------------------------------------------- */
 /*	01 - General & Basic Styles
 /* ---------------------------------------------------------------------- */
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	background-color: #f1f1f1;
 	font-family: "Lato", "Droid Arabic Kufi", Arial, sans-serif;
@@ -481,6 +485,14 @@ div.portfolio {
 	        box-shadow: 0 0 5px 0 #e2e3e4;
 }
 
+body.home div.page {
+	background: transparent;
+	border: none;
+	-webkit-box-shadow: none;
+	   -moz-box-shadow: none;
+	        box-shadow: none;
+}
+
 div.post p,
 div.page p,
 div.portfolio p {
@@ -500,7 +512,8 @@ div.portfolio ol {
 
 div.post .btn,
 div.page .btn,
-div.portfolio .btn {
+div.portfolio .btn,
+div#home-slider .btn {
 	background-color: #f6f6f6;
 	background-image: none;
 	border: 1px solid #e4e6e8;
@@ -523,14 +536,16 @@ div.portfolio .btn {
 
 div.post .btn-primary,
 div.page .btn-primary,
-div.portfolio .btn-primary {
+div.portfolio .btn-primary,
+div#home-slider .btn-primary {
 	background-color: #e74c3c;
 	color: #fff;
 }
 
 div.post .btn-primary:hover,
 div.page .btn-primary:hover,
-div.portfolio .btn-primary:hover {
+div.portfolio .btn-primary:hover,
+div#home-slider .btn-primary:hover {
 	background-color: #2f3c4e;
 }
 
@@ -628,6 +643,10 @@ div.page div.entry-header {
 div.page div.entry-body {
 	overflow: hidden;
 	padding: 30px;
+}
+
+body.home div.page div.entry-body {
+	padding: 0;
 }
 
 div.page p.edit-link {
@@ -987,6 +1006,48 @@ div.entry-nav .btn {
 /* ---------------------------------------------------------------------- */
 /*  18 - Home slider
 /* ---------------------------------------------------------------------- */
+div#home-slider {
+	margin: -60px 0 40px;
+}
+
+div#home-slider div.carousel-inner > div.item > div.slide-img, 
+div#home-slider div.carousel-inner > div.item > a > div.slide-img {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 500px;
+}
+
+div#home-slider div.carousel-caption {
+	background: transparent;
+	color: #2f3c4e;
+	top: 35%;
+	left: calc((100% - 1140px) / 2);
+	width: 50%;
+}
+
+div#home-slider div.carousel-caption h1,
+div#home-slider div.carousel-caption h2,
+div#home-slider div.carousel-caption h3,
+div#home-slider div.carousel-caption h4,
+div#home-slider div.carousel-caption h5,
+div#home-slider div.carousel-caption h6 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+div#home-slider div.carousel-caption p {
+	color: #2f3c4e;
+    line-height: 1.1;
+    letter-spacing: 1px;
+}
+
+div#home-slider div.carousel-caption .btn-primary {
+	border-radius: 20px;
+	font-size: 14px;
+	margin: 20px 0;
+	padding: 10px 20px;
+}
 
 /* ---------------------------------------------------------------------- */
 /*	19 - Footer
@@ -1158,11 +1219,20 @@ a#back-to-top:hover {
 		        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
 	}
 
+	body.home div.page {
+		background: transparent;
+		border: none;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+				box-shadow: none;
+	}
+
 	div.post .btn,
 	div.page .btn,
 	div.portfolio .btn,
 	div.entry-nav .btn,
 	div.pagination .page-numbers,
+	div#home-slider .btn,
 	ul#portfolio-filter li > a {
 		background-color: #3e4952;
 		border: none;
@@ -1174,6 +1244,7 @@ a#back-to-top:hover {
 	div.page .btn a,
 	div.portfolio .btn a,
 	div.pagination .page-numbers,
+	div#home-slider .btn,
 	ul#portfolio-filter li > a {
 		color: #9cc1db;
 	}
@@ -1183,6 +1254,7 @@ a#back-to-top:hover {
 	div.portfolio .btn a:hover,
 	div.pagination .page-numbers.current,
 	div.pagination a.page-numbers:hover,
+	div#home-slider .btn:hover,
 	ul#portfolio-filter li > a.active {
 		color: #cde1ee;
 	}
@@ -1295,6 +1367,11 @@ a#back-to-top:hover {
 		color: #e74c3c;
 	}
 
+	div#home-slider div.carousel-caption,
+	div#home-slider div.carousel-caption p {
+		color: #fff;
+	}
+
 	div#colophon {
 		background-color: #24262a;
 	}
@@ -1327,6 +1404,10 @@ a#back-to-top:hover {
 	div.container {
 		width: 960px;
 	}
+
+	div#home-slider div.carousel-caption {
+		left: calc((100% - 960px) / 2);
+	}
 }
 
 /* Smaller than standard 992 (devices and browsers) */
@@ -1337,6 +1418,10 @@ a#back-to-top:hover {
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	div.container {
 		width: 768px;
+	}
+
+	div#home-slider div.carousel-caption {
+		left: calc((100% - 768px) / 2);
 	}
 
 	/* Full Width Map */
@@ -1370,8 +1455,21 @@ a#back-to-top:hover {
 		width: 80%
 	}
 
+	div#home-slider div.carousel-caption {
+		position: absolute;
+		left: 0;
+		right: 0;
+		text-align: center;
+		width: 100%;
+	}
+
+	div#home-slider div.carousel-caption p {
+		-webkit-text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+		-moz-text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+			 text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+	}
+
 	div#content div#main-content {
-		border-bottom: 1px solid #efefef;
 		margin-bottom: 40px;
 		padding-bottom: 20px;
 	}

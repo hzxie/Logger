@@ -57,7 +57,7 @@ function lgr_button_shortcode( $atts, $content = null ) {
         'arrow'  => ''
     ), $atts ) );
 
-    $output = '<a class="btn btn-primary ' . esc_attr( $size ) . ' ' . esc_attr( $style ) . '" href="' . esc_url( $url ) . '" target="' . esc_attr( $target ) . '">';
+    $output = '<a class="btn btn-primary ' . esc_attr( $size ) . '" style="' . esc_attr( $style ) . '" href="' . esc_url( $url ) . '" target="' . esc_attr( $target ) . '">';
     if( $arrow && $arrow == 'left' ) {
         $output .= '<span class="arrow ' . esc_attr( $arrow ) . '">&laquo;</span> ';
     }

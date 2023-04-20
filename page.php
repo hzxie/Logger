@@ -24,6 +24,57 @@ if ( $page_layout ) {
 $is_full_width   = ( $blog_layout == 'full-width' );
 ?>
     <div id="content">
+    <?php if ( is_front_page() && ot_get_option(TPLNAME . '_slider_on') ): ?>
+        <?php
+            $slides           = ot_get_option(TPLNAME . '_mainslider');
+            $number_of_slides = is_array($slides) ? count($slides) : 0;
+        ?>
+        <div id="home-slider" class="carousel slide">
+            <?php if ( $number_of_slides > 0 ): ?>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                <?php foreach ( $slides as $index => $slide ): ?>
+                    <div class="item <?php echo ( $index == 0 ? 'active' : false ); ?>">
+                        <?php if ( $slide[TPLNAME . '_slide_extenal_link'] ): ?>
+                        <a href="<?php echo $slide[TPLNAME . '_slide_extenal_link']; ?>" target="_blank">
+                        <?php endif; ?>
+                            <div class="slide-img" style="background-image: url('<?php echo $slide[TPLNAME . '_slide_media_upload']; ?>')"></div> <!-- .slide -->
+                            <?php if ( $slide['title'] && $slide[TPLNAME . '_slide_description'] ): ?>
+                            <div class="carousel-caption">
+                                <h2><?php echo $slide['title']; ?></h2>
+                                <p><?php echo apply_filters('the_content', $slide[TPLNAME . '_slide_description']); ?></p>
+                            </div> <!-- .carousel-caption -->
+                            <?php endif; ?>
+                        <?php if ( $slide[TPLNAME . '_slide_extenal_link'] ): ?>
+                        </a>
+                        <?php endif; ?>
+                    </div> <!-- .item -->
+                <?php endforeach; ?>
+                </div> <!-- .carousel-inner -->
+                <?php if ( $number_of_slides > 1 ): ?>
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <?php for ( $i = 0; $i < $number_of_slides; ++ $i ): ?>
+                    <li data-target="#home-slider" data-slide-to="<?php echo $i; ?>" class="<?php echo ( $i == 0 ? 'active' : '' ) ?>"></li>
+                    <?php endfor; ?>
+                </ol>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#home-slider" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="right carousel-control" href="#home-slider" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+                <!-- JavaScript for Autoplay -->
+                <script type="text/javascript">
+                    (function($) {
+                        $('.carousel').carousel();
+                    })(jQuery);
+                </script>
+                <?php endif; ?>
+            <?php endif; ?>
+        </div> <!-- #home-slider -->
+    <?php endif ?>
         <div class="container">
             <div class="row-fluid">
             <?php if ( $blog_layout == 'left-sidebar' ): ?>
