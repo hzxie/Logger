@@ -1015,6 +1015,15 @@ div#home-slider div.carousel-inner > div.item > a > div.slide-img {
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 500px;
+	overflow: hidden;
+}
+
+div#home-slider div.carousel-inner > div.item > div.slide-img video,
+div#home-slider div.carousel-inner > div.item > a > div.slide-img video {
+	max-width: 100%;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 div#home-slider div.carousel-caption {
@@ -1052,6 +1061,7 @@ div#home-slider div.carousel-caption .btn-primary {
 /*  19 - Highlights
 /* ---------------------------------------------------------------------- */
 div.thumbnail {
+	background-color: #fff;
 	margin-bottom: 20px;
 	padding: 0;
 	user-select: none;
@@ -1344,7 +1354,8 @@ a#back-to-top:hover {
 		color: #fff;
 	}
 
-	.thumbnail {
+	div.thumbnail {
+		background-color: #393939;
 		border-color: #5e5e5e;
 	}
 

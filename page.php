@@ -38,7 +38,20 @@ $is_full_width   = ( $blog_layout == 'full-width' );
                         <?php if ( $slide[TPLNAME . '_slide_extenal_link'] ): ?>
                         <a href="<?php echo $slide[TPLNAME . '_slide_extenal_link']; ?>" target="_blank">
                         <?php endif; ?>
-                            <div class="slide-img" style="background-image: url('<?php echo $slide[TPLNAME . '_slide_media_upload']; ?>')"></div> <!-- .slide -->
+                        <?php 
+                            $media_url = $slide[TPLNAME . '_slide_media_upload'];
+                            $media_fallback_url = $slide[TPLNAME . '_slide_image_fallback'];
+                            $file_ext  = pathinfo($media_url, PATHINFO_EXTENSION);
+                            if ( $file_ext == "jpg" || $file_ext == "jpeg" ||
+                                       $file_ext == "png" || $file_ext == "webp" ): ?>
+                            <div class="slide-img" style="background-image: url('<?php echo $media_url ?>')"></div> <!-- .slide-img -->
+                        <?php elseif ( $file_ext == "webm" || $file_ext == "mp4" ): ?>
+                            <div class="slide-img">
+                                <video poster="<?php echo $media_fallback_url ?>" autoplay="" loop="" muted="">
+                                    <source src="<?php echo $media_url; ?>" type="video/<?php echo $file_ext; ?>">
+                                </video>
+                            </div> <!-- .slide-img -->
+                        <?php endif; ?>
                             <?php if ( $slide['title'] && $slide[TPLNAME . '_slide_description'] ): ?>
                             <div class="carousel-caption">
                                 <h2><?php echo $slide['title']; ?></h2>
