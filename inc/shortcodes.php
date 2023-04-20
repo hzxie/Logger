@@ -419,6 +419,7 @@ function lgr_highlight_shortcode( $atts ) {
         'title'     => '',
         'content'   => '',
         'image'     => '',
+        'flbk_img'  => '',
         'href'      => '#',
         'date'      => '',
         'tag'       => '',
@@ -430,7 +431,9 @@ function lgr_highlight_shortcode( $atts ) {
             str_ends_with($image, ".png") || str_ends_with($image, ".webp")) {
             $highlight_html .= '<img src="' . $image . '">';
         } else if (str_ends_with($image, ".webm")) {
-            $highlight_html .= '<video autoplay="" loop="" muted=""><source src="' . $image . '" type="video/webm"></video>';
+            $highlight_html .= '<video' .
+                               ($flbk_img ? ' poster=' . $flbk_img : '') .
+                               ' autoplay="" loop="" muted=""><source src="' . $image . '" type="video/webm"></video>';
         }
     }
     $highlight_html .= '<a href="' . $href . '" target="_blank">';

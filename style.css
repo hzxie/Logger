@@ -1462,8 +1462,14 @@ a#back-to-top:hover {
 		width: 768px;
 	}
 
+	div#home-slider div.carousel-inner > div.item > div.slide-img,
+	div#home-slider div.carousel-inner > div.item > a > div.slide-img {
+		height: 400px;
+	}
+
 	div#home-slider div.carousel-caption {
 		left: calc((100% - 768px) / 2);
+		top: 25%;
 	}
 
 	/* Full Width Map */
@@ -1497,12 +1503,17 @@ a#back-to-top:hover {
 		width: 80%
 	}
 
+	div#home-slider div.carousel-inner > div.item > div.slide-img,
+	div#home-slider div.carousel-inner > div.item > a > div.slide-img {
+		height: 250px;
+	}
+
 	div#home-slider div.carousel-caption {
 		position: absolute;
 		left: 0;
 		right: 0;
+		top: 15%;
 		text-align: center;
-		height: 400px;
 		width: 100%;
 	}
 
