@@ -423,6 +423,7 @@ function lgr_highlight_shortcode( $atts ) {
         'href'      => '#',
         'date'      => '',
         'tag'       => '',
+        'tag_color' => '',
     ), $atts ) );
 
     $highlight_html = '<div class="thumbnail">';
@@ -442,7 +443,9 @@ function lgr_highlight_shortcode( $atts ) {
         $highlight_html .= '<span class="date">' . $date . '</span>';
     }
     if ($tag) {
-        $highlight_html .= '<span class="badge">' . $tag . '</span>';
+        $highlight_html .= '<span class="badge"' .
+                           ($tag_color ? ' style="background:' . $tag_color . '"' : '') . '>' . 
+                           $tag . '</span>';
     }
     $highlight_html .= '<h4>' . $title . '</h4>';
     $highlight_html .= '<p>' . $content . '</p>';
