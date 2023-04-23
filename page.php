@@ -41,9 +41,10 @@ $is_full_width   = ( $blog_layout == 'full-width' );
                         <?php 
                             $media_url = $slide[TPLNAME . '_slide_media_upload'];
                             $media_fallback_url = $slide[TPLNAME . '_slide_image_fallback'];
-                            $file_ext  = pathinfo($media_url, PATHINFO_EXTENSION);
+                            $file_ext  = strtolower(pathinfo($media_url, PATHINFO_EXTENSION));
                             if ( $file_ext == "jpg" || $file_ext == "jpeg" ||
-                                       $file_ext == "png" || $file_ext == "webp" ): ?>
+                                 $file_ext == "png" || $file_ext == "webp" ||
+                                 $file_ext == "gif" ): ?>
                             <div class="slide-img" style="background-image: url('<?php echo $media_url ?>')"></div> <!-- .slide-img -->
                         <?php elseif ( $file_ext == "webm" || $file_ext == "mp4" ): ?>
                             <div class="slide-img">

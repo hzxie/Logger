@@ -4,7 +4,7 @@
  * Author: Haozhe Xie
  * Author URI: https://haozhexie.com/
  * Description: Logger is a simple and clean but still professional template suitable for any business or portfolio, and it's created by using the latest HTML5 and CSS3 techniques.
- * Version: 1.1.0
+ * Version: 2.0.0
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Tags: white, light, one-column, two-columns, right-sidebar, responsive-layout, custom-menu, editor-style, featured-images, microformats, post-formats
@@ -262,7 +262,7 @@ div#header select {
 /* ---------------------------------------------------------------------- */
 div.widget {
 	font-family: 'Open Sans', 'Droid Arabic Kufi', Arial, sans-serif;
-	font-size: 14px;
+	font-size: 15px;
 	margin-bottom: 30px;
 	position: relative;
 }
@@ -476,7 +476,7 @@ div.page,
 div.portfolio {
 	background-color: #fff;
 	border: 1px solid #d3d5d7;
-	font-size: 14px;
+	font-size: 15px;
 	margin-bottom: 30px;
 	position: relative;
 	-webkit-box-shadow: 0 0 5px 0 #e2e3e4;
@@ -660,7 +660,7 @@ div.page + div#comments,
 div.entry-nav + div#comments {
 	background-color: #fff;
 	border: 1px solid #d3d5d7;
-	font-size: 14px;
+	font-size: 15px;
 	margin-bottom: 30px;
 	padding: 30px 30px 15px;
 	position: relative;

@@ -18,11 +18,12 @@
  */
 function lgr_row_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array(
-        'keep_br' => false,
+        'keep_br'       => false,
+        'extra_classes' => '',
     ), $atts ) );
-    return '<div class="row-fluid">' . 
-            do_shortcode( $keep_br ? $content : str_replace("<br />", "", $content) ) . 
-            '</div>';
+    return sprintf('<div class="row-fluid %s">', $extra_classes) .
+           do_shortcode( $keep_br ? $content : str_replace("<br />", "", $content) ) .
+           '</div>';
 }
 add_shortcode('row', 'lgr_row_shortcode');
 
@@ -33,17 +34,18 @@ add_shortcode('row', 'lgr_row_shortcode');
  */
 function lgr_column_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array(
-        'keep_br' => false,
-        'offset' => 0,
-        'column' => 0,
+        'keep_br'       => false,
+        'extra_classes' => '',
+        'offset'        => 0,
+        'column'        => 0,
     ), $atts ) );
 
     if ( 0 === strpos($content, '</p>') ) { // Fix strange bug: $content starts with '</p>'
         $content = substr($content, 4);
     }
-    return '<div class="offset' . $offset . ' span' . $column . '">' .
-            do_shortcode( $keep_br ? $content : str_replace("<br />", "", $content) ) . 
-            '</div>';
+    return sprintf('<div class="offset%s span%s %s">', $offset, $column, $extra_classes) .
+           do_shortcode( $keep_br ? $content : str_replace("<br />", "", $content) ) .
+           '</div>';
 }
 add_shortcode('column', 'lgr_column_shortcode');
 
