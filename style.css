@@ -1338,8 +1338,8 @@ a#back-to-top:hover {
 
 	.enlighter-t-enlighter div.enlighter > div > div:hover, 
 	.enlighter-t-enlighter.enlighter-hover div.enlighter>div:hover {
-		background-color: #1d1e21;
-		color: #fff;
+		background-color: #1d1e21!important;
+		color: #fff!important;
 	}
 
 	.enlighter-t-enlighter.enlighter-linenumbers div.enlighter > div::before {
