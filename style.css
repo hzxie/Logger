@@ -354,6 +354,7 @@ div#colophon div.widget ul.inline li:hover {
 }
 
 /* Widget search */
+div.entry-body input[type=password],
 div.widget form#searchform input#s {
 	background-color: #f6f6f6;
 	border: 1px solid #e4e6e8;
@@ -368,6 +369,7 @@ div.widget form#searchform input#s {
 	   -moz-border-radius: 2px;
 	        border-radius: 2px;
 }
+
 div.widget form#searchform input#searchsubmit {
 	border: 1px solid #e4e6e8;
 	color: #fff;
@@ -512,7 +514,8 @@ div.portfolio ol {
 div.post .btn,
 div.page .btn,
 div.portfolio .btn,
-div#home-slider .btn {
+div#home-slider .btn,
+input[type=submit] {
 	background-color: #f6f6f6;
 	background-image: none;
 	border: 1px solid #e4e6e8;
@@ -536,7 +539,8 @@ div#home-slider .btn {
 div.post .btn-primary,
 div.page .btn-primary,
 div.portfolio .btn-primary,
-div#home-slider .btn-primary {
+div#home-slider .btn-primary,
+input[type=submit] {
 	background-color: #e74c3c;
 	color: #fff;
 }
@@ -1322,6 +1326,7 @@ a#back-to-top:hover {
 		color: #fff;
 	}
 
+	div.entry-body input[type=password],
 	div.widget form#searchform input#s,
 	div#comments input#author,
 	div#comments input#email,
